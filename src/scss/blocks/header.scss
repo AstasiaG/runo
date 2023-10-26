@@ -1,0 +1,34 @@
+.header {
+  &__inner {
+    display: flex;
+    align-items: center;
+    padding: 4rem 0 3.6rem;
+    gap: 3.7rem;
+  }
+  &__logo {
+    width: 24.3rem;
+    height: 6.1rem;
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+  &__nav {
+    &-items {
+      display: flex;
+      column-gap: 3.2rem;
+    }
+    &-item {
+      font-family: 'Gilroy';
+      font-size: 1.8rem;
+      font-weight: 500;
+      color: $black;
+    }
+  }
+  &__dropdown {
+    &-items {
+      display: none;
+    }
+  }
+}
