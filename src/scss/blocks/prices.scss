@@ -1,0 +1,75 @@
+.prices {
+  &__inner {
+    margin-bottom: 22rem;
+  }
+	&__title {
+    &-wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10rem;
+    }
+	}
+  &__items {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__item {
+    display: flex;
+    flex-direction: column;
+    width: 50.7rem;
+    &-content {
+      margin-right: 1.6rem;
+    }
+    &-title {
+      font-family: 'Gilroy';
+      font-size: 2.4rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
+      color: $black;
+    }
+    &-cost {
+      font-family: 'Gilroy';
+      font-size: 5.2rem;
+      font-weight: 500;
+      line-height: 100%;
+      color: $blue;
+      & span {
+        font-size: 3.2rem;
+        line-height: 4rem;
+      }
+    }
+    &-img {
+      width: 42rem;
+      height: 52.1rem;
+      & img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+    &-num {
+      font-family: 'Gilroy';
+      font-size: 3.2rem;
+      font-weight: 500;
+      line-height: 93%;
+      color: #dedede;
+    }
+    &-bottom {
+      display: flex;
+      gap: 1.6rem;
+      margin-top: 4rem;
+    }
+    &-aside {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-end;
+      .btn {
+        & div {
+          background: $dies;
+        }
+      }
+    }
+  }
+}
