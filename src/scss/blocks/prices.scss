@@ -2,14 +2,6 @@
   &__inner {
     margin-bottom: 22rem;
   }
-	&__title {
-    &-wrap {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 10rem;
-    }
-	}
   &__items {
     display: flex;
     justify-content: space-between;
@@ -49,10 +41,6 @@
       }
     }
     &-num {
-      font-family: 'Gilroy';
-      font-size: 3.2rem;
-      font-weight: 500;
-      line-height: 93%;
       color: #dedede;
     }
     &-bottom {

@@ -37,6 +37,21 @@ body {
   color: $black;
 }
 
+.title-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10rem;
+}
+
+.num {
+  font-family: 'Gilroy';
+  font-size: 3.2rem;
+  font-weight: 500;
+  line-height: 93%;
+  color: $black;
+}
+
 //blocks//
 .phone__block {
   display: flex;
