@@ -1,9 +1,9 @@
-@import './_set';
-@import './normalize';
+@import './libs/_set';
+@import './libs/normalize';
 @import './fonts.scss';
 @import './general.scss';
-@import './blocks/header.scss';
-@import './blocks/benefits.scss';
-@import './blocks/steps.scss';
-@import './blocks/prices.scss';
-@import './blocks/questions.scss';
+@import './components/header.scss';
+@import './components/benefits.scss';
+@import './components/steps.scss';
+@import './components/prices.scss';
+@import './components/questions.scss';
