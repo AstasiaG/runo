@@ -1,0 +1,88 @@
+.catalog {
+  margin-bottom: 22rem;
+  &__inner {
+  }
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  &__btns {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 6rem;
+    & .button {
+      background: $dies;
+      padding: 1.9rem 7.3rem;
+      color: $black;
+      &.active {
+        background: $blue;
+        color: $white;
+      }
+    }
+  }
+  &__slide {
+    position: relative;
+    display: flex;
+    &-big {
+      width: 50.7rem;
+      height: 57.7rem;
+      margin-right: 4rem;
+      & img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    &-small {
+      width: 32.4rem;
+      height: 34.4rem;
+      & img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+    &-content {
+      display: flex;
+      flex-direction: column;
+      width: 66%;
+      &-images {
+        display: flex;
+        gap: 4rem;
+        margin-bottom: 4rem;
+      }
+    }
+    &-desc {
+      width: fit-content;
+      align-items: center;
+      display: flex;
+      width: 41.3rem;
+      &-icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 5.2rem;
+        height: 5.2rem;
+        background: $blue;
+        border-radius: 50%;
+        margin-right: 2rem;
+        padding: 1.04rem;
+        & img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+      }
+      & span {
+        
+      }
+    }
+    &-items {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 4rem;
+    }
+  }
+}
+
