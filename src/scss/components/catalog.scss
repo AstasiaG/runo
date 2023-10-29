@@ -22,7 +22,9 @@
   }
   &__slide {
     position: relative;
-    display: flex;
+    &.swiper-slide {
+      display: flex;
+    }
     &-big {
       width: 50.7rem;
       height: 57.7rem;

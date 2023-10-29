@@ -109,7 +109,7 @@ body {
     background: $blue;
     width: 7.2rem;
     height: 7.2rem;
-    padding-top: 2.4rem;
+    align-items: center;
     & img {
       width: 2.4rem;
       height: 2.4rem;
@@ -118,25 +118,8 @@ body {
   }
 }
 
-.btn-next,
-.btn-prev {
-  display: flex;
-  justify-content: center;
-  background: $dies;
-  width: 7.2rem;
-  height: 7.2rem;
-  padding-top: 2.4rem;
-  & img {
-    width: 2.4rem;
-    height: 2.4rem;
-    object-fit: contain;
-  }
-}
-
-.btn-prev {
-  & img {
-    transform: rotate(-180deg);
-  }
+.swiper-wrapper {
+  overflow: hidden;
 }
 
 .swiper-button-next,
@@ -149,22 +132,59 @@ body {
   content: none;
 }
 
-// .swiper-button-next::before,
-// .swiper-button-prev::before {
-//   content: '';
-//   width: 1.6rem;
-//   height: 2.7rem;
-//   background-position: center;
-//   background-size: contain;
-//   background-repeat: no-repeat;
-// }
+.swiper-button-next::before,
+.swiper-button-prev::before {
+  content: '';
+  width: 2.4rem;
+  height: 2.4rem;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
 // .swiper-button-next::before {
-//   background-image: url(../img/a-image/icons/chevron-right-black.svg);
+//   background-image: url(../assets/images/icons/sl-arrow-left.svg);
 // }
 
 // .swiper-button-prev::before {
-//   background-image: url(../img/a-image/icons/chevron-left-black.svg);
+//   background-image: url(../assets/images/icons/sl-arrow-left.svg);
 // }
+
+.btn-prev.swiper-button-disabled,
+.btn-next.swiper-button-disabled {
+  background-color: #BEBEBE;
+  &::before {
+    background-image: url(./assets/images/icons/sl-arrow-inactive.svg);
+  }
+}
+
+.swiper-button-next.swiper-button-disabled,
+.swiper-button-prev.swiper-button-disabled {
+  opacity: 1;
+}
+
+.btn-next,
+.btn-prev {
+  display: flex;
+  justify-content: center;
+  background: $dies;
+  width: 8.8rem;
+  height: 8.8rem;
+  & img {
+    width: 2.4rem;
+    height: 2.4rem;
+    object-fit: contain;
+  }
+  &::before {
+    content: none;
+  }
+}
+
+.btn-prev {
+  & img {
+    transform: rotate(-180deg);
+  }
+}
+
 // .pagination-slider {
 //   font-family: Montserrat;
 //   font-size: 2rem;
@@ -183,10 +203,13 @@ body {
 // .swiper-button-prev.swiper-button-disabled {
 //   opacity: 1;
 // }
-// .swiper-pagination {
-//   left: 50%;
-//   transform: translateX(-50%);
-// }
+.swiper-horizontal > .swiper-pagination-progressbar {
+  left: unset;
+  top: unset;
+  width: 31.5rem;
+  height: 0.2rem;
+}
+
 // .swiper-pagination .swiper-pagination-bullet {
 //   width: 1.3rem;
 //   height: 1.3rem;
