@@ -1,0 +1,66 @@
+.calculator {
+  margin-bottom: 22rem;
+  &__title {
+    margin-bottom: 10rem;
+  }
+  &__form {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+.form {
+  &__wrap {
+    display: flex;
+    flex-direction: column;
+    width: 105.3rem;
+    margin-right: 4rem;
+  }
+  &__title {
+    padding-bottom: 2rem;
+    border-bottom: 0.1rem solid #DCDCDC;
+    margin-bottom: 2rem;
+  }
+  &__group {
+    display: flex;
+    margin-bottom: 6rem;
+  }
+  &__input {
+    margin-right: 4rem;
+    & input {
+      width: 50.7rem;
+    }
+  }
+  &__aside {
+    width: 50.7rem;
+    height: fit-content;
+    padding: 6rem;
+    background: $dies;
+    &-title {
+      margin-bottom: 4rem;
+    }
+    &-cost {
+      margin-bottom: 4rem;
+      color: $blue;
+      & span {
+        margin-left: 2rem;
+        font-size: 3.2rem;
+        line-height: 93.7%;
+        color: $grey;
+        text-decoration: line-through;
+      }
+    }
+    &-text {
+      width: 27.2rem;
+      margin-bottom: 8rem;
+      & span {
+        color: $blue;
+      }
+    }
+    &-button {
+      width: 38.8rem;
+      text-align: center;
+    }
+  }
+}

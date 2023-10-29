@@ -87,7 +87,7 @@ body {
   }
 }
 
-.form__group {
+.form__input {
   display: flex;
   flex-direction: column;
   margin-bottom: 4rem;
@@ -116,6 +116,13 @@ form {
       line-height: 150%;
       color: $grey;
     }
+  }
+  & select {
+    width: 50.7rem;
+    padding: 1.9rem 2rem;
+    margin-top: 1.6rem;
+    border: 0;
+    background: $dies;
   }
 }
 
