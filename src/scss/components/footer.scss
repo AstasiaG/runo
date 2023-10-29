@@ -1,0 +1,88 @@
+.footer {
+  &__inner {
+    position: relative;
+    width: 100%;
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      height: 0.1rem;
+      background: #A9A9A9;
+    }
+  }
+  &__top {
+    width: 100%;
+    padding-bottom: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &-logo {
+      width: 18.2rem;
+      height: 6.1rem;
+      & img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+    &-nav {
+      & li {
+        font-family: 'Gilroy';
+        font-size: 2rem;
+        font-weight: 500;
+        line-height: 140%;
+        color: $black;
+      }
+      &-wrap {
+        display: flex;
+      }
+      &-list {
+        display: flex;
+        gap: 4rem;
+        margin-right: 12.6rem;
+      }
+    }
+    &-contacts {
+      display: flex;
+      align-items: center;
+      gap: 4.8rem;
+    }
+  }
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3rem 0 3.2rem;
+    &-text {
+      font-family: 'Gilroy';
+      font-size: 1.8rem;
+      font-weight: 500;
+      line-height: 140%;
+      margin-right: 3rem;
+      color: rgba(52, 51, 51, 0.50);
+    }
+    &-inc {
+      display: flex;
+      align-items: center;
+      &-icon {
+        width: 3.2rem;
+        height: 3.2rem;
+        margin-right: 1rem;
+        & img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+      }
+      & span {
+        font-family: 'Gilroy';
+        font-size: 1.8rem;
+        font-weight: 500;
+        line-height: 140%;
+        color: $black;
+      }
+    }
+  }
+}
+
