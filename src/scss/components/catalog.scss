@@ -20,11 +20,19 @@
       }
     }
   }
+  &__swiper {
+    margin: 0;
+    &-wrap {
+    width: 100%;
+    }
+  }
   &__slide {
     position: relative;
-    &.swiper-slide {
-      display: flex;
-    }
+    display: flex;
+    width: 100%;
+    // &.swiper-slide {
+    //   display: flex;
+    // }
     &-big {
       width: 50.7rem;
       height: 57.7rem;

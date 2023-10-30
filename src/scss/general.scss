@@ -109,6 +109,8 @@ form {
     padding: 1.9rem 2rem;
     margin-top: 1.6rem;
     background: $dies;
+    color: $black;
+    cursor: auto;
     &::placeholder {
       font-family: 'Gilroy';
       font-size: 2rem;
@@ -119,7 +121,7 @@ form {
   }
   & select {
     width: 50.7rem;
-    padding: 1.9rem 2rem;
+    padding: 1.7rem 2rem;
     margin-top: 1.6rem;
     border: 0;
     background: $dies;

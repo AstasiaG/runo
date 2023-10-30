@@ -4,6 +4,11 @@
   }
 
   &__swiper {
+    margin: 0;
+    &-wrapper {
+      width: 100%;
+      overflow: visible;
+    }
   }
   &__button {
     width: 39rem;
@@ -65,7 +70,7 @@
   &-btn {
     position: absolute;
     left: unset;
-    right: 16rem;
+    right: 15rem;
     z-index: 5;
     transform: translate(0, -50%);
   }

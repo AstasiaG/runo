@@ -1,9 +1,13 @@
 .header {
   &__inner {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 4rem 0 3.6rem;
+    &-right {
+      display: flex;
+    }
   }
   &__logo {
     width: 18.1rem;
@@ -15,20 +19,156 @@
     }
   }
   &__nav {
-    &-items {
-      display: flex;
-      column-gap: 3.2rem;
-    }
+    display: flex;
+    column-gap: 3.2rem;
     &-item {
       font-family: 'Gilroy';
       font-size: 1.8rem;
       font-weight: 500;
       color: $black;
+      & span {
+        cursor: pointer;
+      }
+      &::after {
+        position: relative;
+        content: '';
+        display: block;
+        bottom: -0.8rem;
+        width: 0;
+        height: 0.2rem;
+        background: $blue;
+        transition: all 0.3s ease-in-out;
+      }
+      &:hover::after {
+        width: 100%;
+      }
     }
   }
+  &__button {
+    margin-left: 3.6rem;
+  }
   &__dropdown {
-    &-items {
-      display: none;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    z-index: 25;
+    top: 13.5rem;
+    left: -15.5rem;
+    padding: 0 10%;
+    background: $white;
+    border-top: 0.1rem solid #E9E9E9;
+    &-services {
+      display: flex;
+      align-items: center;
+      border-top: 0.1rem solid #E9E9E9;
+      padding: 0 38.5rem;
+      &-item {
+        width: 38.2rem;
+        border-left: 0.1rem solid #E9E9E9;
+        padding: 6rem 15rem;
+        &-icon {
+          width: 6rem;
+          height: 6rem;
+          margin-bottom: 3.2rem;
+        }
+        &:hover {
+          background: $dies;
+          transition: all 0.3s ease-in-out;
+        }
+        &:first-child {
+          border-right: 0.1rem solid #E9E9E9;;
+        }
+      }
+    }
+    &-catalog {
+      display: flex;
+      padding: 0 76% 0 10%;
+      &-list {
+        padding: 2.9rem 0 5.6rem 0;
+        border-left: 0.1rem solid #E9E9E9;
+        border-right: 0.1rem solid #E9E9E9;
+      }
+      &-item {
+        display: flex;
+        & span {
+          font-family: 'Gilroy';
+          font-size: 2rem;
+          font-weight: 600;
+          width: 53.3rem;
+          padding: 1rem 0 1rem 19rem;
+          cursor: pointer;
+        }
+        &.active {
+          background: $dies;
+          & span {
+            color: $blue;
+            &::after {
+              content: '';
+              position: relative;
+              margin-left: 4rem;
+              width: 2.4rem;
+              height: 1.8rem;
+              display: inline-block;
+              transform: translate(0, 10%);
+              background-image: url(./assets/images/icons/arrow-blue.svg);
+              background-repeat: no-repeat;
+              background-position: center;
+              background-size: contain;
+            }
+          }
+        }
+        &:hover {
+          background: $dies;
+          & span {
+            color: $blue;
+            &::after {
+              content: '';
+              position: relative;
+              margin-left: 4rem;
+              display: inline-block;
+              transform: translate(0, 10%);
+              width: 2.4rem;
+              height: 1.8rem;
+              background-image: url(./assets/images/icons/arrow-blue.svg);
+              background-repeat: no-repeat;
+              background-position: center;
+              background-size: contain;
+            }
+          }
+        }
+      }
+      &-content {
+        position: absolute;
+        top: 0;
+        right: 15.5rem;
+        display: flex;
+        background: $white;
+        & .list {
+          width: 15.2rem;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          gap: 2rem;
+          &-wrap {
+            width: 53.1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 4rem 0 4rem;
+            border-left: 0.1rem solid #E9E9E9;
+            &:last-child {
+              border-right: 0.1rem solid #E9E9E9;
+            }
+          }
+          &-title {
+            width: 53.2rem;
+            font-family: 'Gilroy';
+            font-size: 2rem;
+            font-weight: 600;
+            color: $black;
+          }
+        }
+      }
     }
   }
 }
