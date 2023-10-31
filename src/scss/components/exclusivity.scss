@@ -1,5 +1,8 @@
 .exclusivity {
   margin-bottom: 22rem;
+  .swiper {
+    overflow: visible;
+  }
   &__title {
     margin-bottom: 10rem;
   }
@@ -10,10 +13,7 @@
     width: 37rem;
   }
   &-swiper {
-    margin-top: -11rem;
-    width: 110%;
-    height: 91.3rem;
-    margin-left: -16rem;
+    height: 87.1rem;
     &-wrap {
       position: relative;
     }
@@ -26,11 +26,12 @@
     position: relative;
     display: flex;
     align-items: center;
-    //height: 91.3rem;
+    height: 100%;
   }
   &__slide {
     transition: all 0.5s ease-in-out;
     width: 100%;
+    height: 100%;
     &-num {
       width: 10rem;
       color: $dies;
@@ -38,37 +39,24 @@
       margin-bottom: 1.2rem;
     }
     &-img {
-      width: 23.3rem;
-      height: 27.2rem;
+      // width: 23.3rem;
+      // height: 34.7rem;
       transition: all 0.5s ease-in-out;
       & img {
         width: 100%;
         height: 100%;
-        object-fit: contain;
+        object-fit: cover;
+      }
+    }
+    &.swiper-slide-active {
+      height: 59.5rem;
+      & .num {
+        
       }
     }
     &.swiper-slide {
-      height: fit-content;
+      height: 100%;
       width: 100%;
-      // &-active {
-      //  width: 330%;
-      //   // width: 78rem !important;
-      //   // margin-left: 13.7rem !important;
-      //   // margin-right: 13.7rem;
-      //   & .exclusivity__slide-img {
-      //     transform: scale(3.3, 3.3);
-      //     //margin: 0 13.7rem;
-      //     & img {
-      //       width: 100%;
-      //       height: 100%;
-      //       object-fit: cover;
-      //     }
-      //   }
-      // }
-      // & .exclusivity__slide-img {
-      //   width: 78rem;
-      //   height: 87.1rem;
-      // }
     }
   }
   &-btn-prev,
@@ -87,6 +75,34 @@
     right: 14.2rem;
     & .current {
       color: $blue;
+    }
+  }
+}
+
+@media (min-width: 48em) {
+  .exclusivity {
+    &-swiper {
+      margin-top: 6rem;
+      &-wrap {
+        &::before,
+        &::after {
+          content: '';
+          position: absolute;
+          z-index: 2;
+          top: 0;
+          height: 100%;
+          width: calc((100vw - 100%) / 2);
+          background-color: #f3f3f3;
+        }
+        &::before {
+          left: 0;
+          transform: translateX(-100%);
+        }
+        &::after {
+          right: 0;
+          transform: translateX(100%);
+        }
+      }
     }
   }
 }

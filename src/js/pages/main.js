@@ -74,93 +74,7 @@ $(".header__dropdown-catalog-item").each(function () {
 
 //sliders
 
-// const slider = new Swiper('.exclusivity-swiper', {
-//   direction: 'horizontal',
-//   slidesPerView: 3.2,
-//   spaceBetween: rem(4),
-//   centeredSlides: true,
-//   //autoHeight: true,
-//   effect: 'coverflow', // Эффект, который увеличит активный слайд
-//   coverflowEffect: {
-//     rotate: 0, // Угол вращения
-//     //stretch: rem(17.3), // Расстояние между активным слайдом и соседними
-//     depth: 0, // Глубина эффекта
-//     modifier: 3, // Множитель для увеличения эффекта
-//     slideShadows: false,
-//   },
-//   navigation: {
-//     nextEl: '.exclusivity-btn-next',
-//     prevEl: '.exclusivity-btn-prev',
-//   },
-//   pagination: {
-//     el: '.exclusivity-pagination .total',
-//     type: 'custom',
-//     renderCustom: function (swiper, current, total) {
-//       let totalRes2 = total >= 10 ? total : `-0${total}`;
-//       return totalRes2;
-//     },
-//   },
-//   speed: 1000,
-//   on: {
-//     beforeInit: function () {
-//       var slides = this.slides;
-//       var activeIndex = this.activeIndex;
-
-//       for (var i = 0; i < slides.length; i++) {
-//         if (i === activeIndex) {
-//           slides[i].style.marginRight = rem(17.3);
-//           slides[i].style.marginLeft = rem(17.3);
-//         } else {
-//           slides[i].style.marginRight = rem(4);
-//         }
-//       }
-//     },
-//     slideChangeTransitionEnd: function () {
-//       var slides = this.slides;
-//       var activeIndex = this.activeIndex;
-
-//       for (var i = 0; i < slides.length; i++) {
-//         if (i === activeIndex) {
-//           slides[i].style.marginRight = rem(17.3);
-//           slides[i].style.marginLeft = rem(17.3);
-//         } else {
-//           slides[i].style.marginRight = rem(4);
-//         }
-//       }
-//     }
-
-    //   slides.each(function (index, slide) {
-    //     if (slide.classList.contains('swiper-slide-active')) {
-    //       slide.style.marginRight = rem(17.3); // Расстояние для активного слайда
-    //       slide.style.marginLeft = rem(17.3); 
-    //     } else {
-    //       slide.style.marginRight = rem(4); ; // Фиксированное расстояние для остальных слайдов
-    //     }
-    //   });
-    // },
-    // slideChangeTransitionEnd: function () {
-    //   var slides = this.slides;
-
-    //   slides.each(function (index, slide) {
-    //     if (slide.classList.contains('swiper-slide-active')) {
-    //       slide.style.marginRight = rem(17.3); // Расстояние для активного слайда
-    //       slide.style.marginLeft = rem(17.3); // Расстояние для активного слайда
-    //     } else {
-    //       slide.style.marginRight = rem(4); // Фиксированное расстояние для остальных слайдов
-    //     }
-    //   });
-    // },
-//   }
-// });
-// let curnum = document.querySelector('.exclusivity-pagination .current');
-// slider.on('slideChange', function () {
-//   let ind = slider.realIndex + 1,
-//     indRes = ind >= 10 ? ind : `0${ind}`;
-//   curnum.innerHTML = indRes;
-// });
-
-
-const slider2 = new Swiper('.baner__swiper', {
+const slider1 = new Swiper('.baner__swiper', {
   slidesPerView: 1.18,
   spaceBetween: rem(0),
   loop: true,
@@ -176,7 +90,7 @@ const slider2 = new Swiper('.baner__swiper', {
   speed: 1000,
 });
 
-const slider3 = new Swiper('.catalog__swiper', {
+const slider2 = new Swiper('.catalog__swiper', {
   slidesPerView: 1,
   spaceBetween: rem(1),
   effect: 'fade',
@@ -196,6 +110,6 @@ catalogBtns.forEach(e => {
     }
     e.classList.add('active');
     idx = catalogBtns.indexOf(e);
-    slider3.slideTo(idx);
+    slider2.slideTo(idx);
   })
 })
