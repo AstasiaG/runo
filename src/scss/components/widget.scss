@@ -65,3 +65,9 @@
     }
   }
 }
+
+@media (max-width: 48em) {
+  .widget {
+    display: none;
+  }  
+}

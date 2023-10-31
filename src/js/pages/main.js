@@ -1,5 +1,6 @@
 'use strict';
 import Swiper from 'swiper/bundle';
+import 'inputmask';
 window.$ = window.jQuery = require('jquery');
 let timer;
 
@@ -11,6 +12,8 @@ const rem = function (rem) {
     return (100 / 375) * (0.05 * window.innerWidth) * rem;
   }
 }
+const mask = new Inputmask('+7 (999) 999 99 99');
+mask.mask($('.phone-mask'));
 
 $(".questions__item").each(function () {
   let hide = $(this).find('.questions__item-text');
@@ -71,60 +74,60 @@ $(".header__dropdown-catalog-item").each(function () {
 
 //sliders
 
-const slider = new Swiper('.exclusivity-swiper', {
-  direction: 'horizontal',
-  slidesPerView: 3.2,
-  spaceBetween: rem(4),
-  centeredSlides: true,
-  autoHeight: true,
-  effect: 'coverflow', // Эффект, который увеличит активный слайд
-  coverflowEffect: {
-    rotate: 0, // Угол вращения
-    //stretch: rem(17.3), // Расстояние между активным слайдом и соседними
-    depth: 0, // Глубина эффекта
-    modifier: 3, // Множитель для увеличения эффекта
-    slideShadows: false,
-  },
-  navigation: {
-    nextEl: '.exclusivity-btn-next',
-    prevEl: '.exclusivity-btn-prev',
-  },
-  pagination: {
-    el: '.exclusivity-pagination .total',
-    type: 'custom',
-    renderCustom: function (swiper, current, total) {
-      let totalRes2 = total >= 10 ? total : `-0${total}`;
-      return totalRes2;
-    },
-  },
-  speed: 1000,
-  on: {
-    beforeInit: function () {
-      var slides = this.slides;
-      var activeIndex = this.activeIndex;
+// const slider = new Swiper('.exclusivity-swiper', {
+//   direction: 'horizontal',
+//   slidesPerView: 3.2,
+//   spaceBetween: rem(4),
+//   centeredSlides: true,
+//   //autoHeight: true,
+//   effect: 'coverflow', // Эффект, который увеличит активный слайд
+//   coverflowEffect: {
+//     rotate: 0, // Угол вращения
+//     //stretch: rem(17.3), // Расстояние между активным слайдом и соседними
+//     depth: 0, // Глубина эффекта
+//     modifier: 3, // Множитель для увеличения эффекта
+//     slideShadows: false,
+//   },
+//   navigation: {
+//     nextEl: '.exclusivity-btn-next',
+//     prevEl: '.exclusivity-btn-prev',
+//   },
+//   pagination: {
+//     el: '.exclusivity-pagination .total',
+//     type: 'custom',
+//     renderCustom: function (swiper, current, total) {
+//       let totalRes2 = total >= 10 ? total : `-0${total}`;
+//       return totalRes2;
+//     },
+//   },
+//   speed: 1000,
+//   on: {
+//     beforeInit: function () {
+//       var slides = this.slides;
+//       var activeIndex = this.activeIndex;
 
-      for (var i = 0; i < slides.length; i++) {
-        if (i === activeIndex) {
-          slides[i].style.marginRight = rem(17.3);
-          slides[i].style.marginLeft = rem(17.3);
-        } else {
-          slides[i].style.marginRight = rem(4);
-        }
-      }
-    },
-    slideChangeTransitionEnd: function () {
-      var slides = this.slides;
-      var activeIndex = this.activeIndex;
+//       for (var i = 0; i < slides.length; i++) {
+//         if (i === activeIndex) {
+//           slides[i].style.marginRight = rem(17.3);
+//           slides[i].style.marginLeft = rem(17.3);
+//         } else {
+//           slides[i].style.marginRight = rem(4);
+//         }
+//       }
+//     },
+//     slideChangeTransitionEnd: function () {
+//       var slides = this.slides;
+//       var activeIndex = this.activeIndex;
 
-      for (var i = 0; i < slides.length; i++) {
-        if (i === activeIndex) {
-          slides[i].style.marginRight = rem(17.3);
-          slides[i].style.marginLeft = rem(17.3);
-        } else {
-          slides[i].style.marginRight = rem(4);
-        }
-      }
-    }
+//       for (var i = 0; i < slides.length; i++) {
+//         if (i === activeIndex) {
+//           slides[i].style.marginRight = rem(17.3);
+//           slides[i].style.marginLeft = rem(17.3);
+//         } else {
+//           slides[i].style.marginRight = rem(4);
+//         }
+//       }
+//     }
 
     //   slides.each(function (index, slide) {
     //     if (slide.classList.contains('swiper-slide-active')) {
@@ -147,14 +150,14 @@ const slider = new Swiper('.exclusivity-swiper', {
     //     }
     //   });
     // },
-  }
-});
-let curnum = document.querySelector('.exclusivity-pagination .current');
-slider.on('slideChange', function () {
-  let ind = slider.realIndex + 1,
-    indRes = ind >= 10 ? ind : `0${ind}`;
-  curnum.innerHTML = indRes;
-});
+//   }
+// });
+// let curnum = document.querySelector('.exclusivity-pagination .current');
+// slider.on('slideChange', function () {
+//   let ind = slider.realIndex + 1,
+//     indRes = ind >= 10 ? ind : `0${ind}`;
+//   curnum.innerHTML = indRes;
+// });
 
 
 const slider2 = new Swiper('.baner__swiper', {

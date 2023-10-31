@@ -190,13 +190,6 @@ form {
   background-size: contain;
   background-repeat: no-repeat;
 }
-// .swiper-button-next::before {
-//   background-image: url(../assets/images/icons/sl-arrow-left.svg);
-// }
-
-// .swiper-button-prev::before {
-//   background-image: url(../assets/images/icons/sl-arrow-left.svg);
-// }
 
 .btn-prev.swiper-button-disabled,
 .btn-next.swiper-button-disabled {
@@ -234,24 +227,6 @@ form {
   }
 }
 
-// .pagination-slider {
-//   font-family: Montserrat;
-//   font-size: 2rem;
-//   line-height: 120%;
-//   color: rgba(51, 51, 51, 0.5);
-//   & .total {
-//     font-weight: 700;
-//     font-size: 3rem;
-//     color: $blue;
-//   }
-//   & .current {
-//     margin-right: 1rem;
-//   }
-// }
-// .swiper-button-next.swiper-button-disabled,
-// .swiper-button-prev.swiper-button-disabled {
-//   opacity: 1;
-// }
 .swiper-horizontal > .swiper-pagination-progressbar {
   left: unset;
   top: unset;
@@ -259,18 +234,66 @@ form {
   height: 0.2rem;
 }
 
-// .swiper-pagination .swiper-pagination-bullet {
-//   width: 1.3rem;
-//   height: 1.3rem;
-//   background-color: transparent;
-//   border: 1px solid rgba(51, 51, 51, 0.5);
-//   border-radius: 50%;
-//   opacity: 1;
-//   &:not(:last-child) {
-//     margin-right: 2.6rem;
-//   }
-// }
-// .swiper-pagination .swiper-pagination-bullet-active {
-//   border: 1px solid #fe7200;
-//   background-color: #fe7200;
-// }
+.mob {
+  display: none;
+}
+
+@media (max-width: 48em) {
+  .heading {
+    font-family: 'Gilroy';
+    font-size: 6.4rem;
+    font-weight: 600;
+    line-height: 120%;
+    color: $black;
+  }
+  
+  .title {
+    font-family: 'Gilroy';
+    font-size: 4.4rem;
+    font-weight: 500;
+    line-height: 125%;
+    color: $black;
+  }
+  
+  .title-sm {
+    font-family: 'Gilroy';
+    font-size: 3.6rem;
+    font-weight: 500;
+    line-height: 166.6%;
+    color: $black;
+  }
+  
+  .text {
+    font-family: 'Gilroy';
+    font-size: 2.8rem;
+    font-weight: 400;
+    line-height: normal;
+    color: $black;
+  }
+  
+  .title-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8rem;
+  }
+  
+  .num {
+    font-family: 'Gilroy';
+    font-size: 3.6rem;
+    font-weight: 500;
+    line-height: 166.6%;
+    color: $black;
+  }
+
+  .button {
+    padding: 2rem 5.1rem;
+    background-color: $blue;
+    font-family: 'Gilroy';
+    font-size: 2.4rem;
+    font-weight: 600;
+    line-height: 100%;
+    color: $white;
+  }
+  
+}
