@@ -9,23 +9,23 @@
 <body>
   @include('components/header.html')
   <main>
-    <section class="baner baner-about">
-      <div class="baner__inner">
+    <section class="banner banner-about">
+      <div class="banner__inner">
         <div class="container">
           <div class="breadcrumbs">
-            <span class="breadcrumbs__link">Главная</span>
+            <a class="breadcrumbs__link" href="">Главная</a>
             <span class="breadcrumbs__current">О компании</span>
           </div>
-          <div class="baner__title-wrap">
-            <div class="baner__title heading">О компании РУНО</div>
-            <div class="baner__text text">
+          <div class="banner__title-wrap">
+            <div class="banner__title heading">О компании РУНО</div>
+            <div class="banner__text text">
               На сегодняшний день мы предлагаем своим Клиентам натяжные потолки нового 
               поколения любой сложности, нанесение любого индивидуального изображения на 
               потолок по вашим пожеланиям. Мы делаем все, чтобы Вы оставались довольны и будем рады сотрудничать!
             </div>
           </div>
         </div>
-        <div class="baner__image">
+        <div class="banner__image">
           <img src="./assets/images/about-baner.webp" alt="">
         </div>
       </div>
@@ -134,60 +134,120 @@
               </div>
             </div>
           </div>
-          <a class="btn mob" href="#">
-            <span>О компании</span>
-            <div>
-              <img src="./assets/images/icons/arrow-white.svg" alt="">
-            </div>
-          </a>
         </div>
       </div>
     </section>
 
-    <section class="sertificates">
+    <section class="team">
       <div class="container">
-        <div class="sertificates__inner">
-          <div class="sertificates__title title">Сертификаты</div>
-          <button class="sertificates-btn-prev btn-prev swiper-button-prev" type="button">
-            <img src="./assets/images/icons/sl-arrow.svg">
-          </button>
-          <button class="sertificates-btn-next btn-next swiper-button-next" type="button">
-            <img src="./assets/images/icons/sl-arrow.svg">
-          </button>
-          <div class="sertificates__swiper swiper">
+        <div class="team__inner">
+          <div class="title-wrap">
+            <div class="team__title title">Наша команда</div>
+            <div class="team__text text">
+              В нашей компании трудятся только профессионалы, имеющие большой опыт работы. Все сотрудники компании 
+              проходят курсы повышения квалификации в учебном центре. Присутствует строгий контроль качества выполнения работ исполнителями.
+            </div>
+          </div>
+          <div class="team__swiper swiper">
             <div class="swiper-wrapper">
-              <div class="sertificates__slide swiper-slide">
-                <div class="sertificates__slide-img">
+              <div class="team__slide swiper-slide">
+                <div class="team__slide-image">
+                  <img src="./assets/images/team1.webp" alt="">
+                </div>
+                <div class="team__slide-name">Иванов Иван</div>
+                <div class="team__slide-position text">технолог-замерщик</div>
+              </div>
+              <div class="team__slide swiper-slide">
+                <div class="team__slide-image">
+                  <img src="./assets/images/team2.webp" alt="">
+                </div>
+                <div class="team__slide-name">Иванов Иван</div>
+                <div class="team__slide-position text">старший монтажник</div>
+              </div>
+              <div class="team__slide swiper-slide">
+                <div class="team__slide-image">
+                  <img src="./assets/images/team3.webp" alt="">
+                </div>
+                <div class="team__slide-name">Иванов Иван</div>
+                <div class="team__slide-position text">выездной замерщик</div>
+              </div>
+              <div class="team__slide swiper-slide">
+                <div class="team__slide-image">
+                  <img src="./assets/images/team4.webp" alt="">
+                </div>
+                <div class="team__slide-name">Иванов Иван</div>
+                <div class="team__slide-position text">монтажник</div>
+              </div>
+              <div class="team__slide swiper-slide">
+                <div class="team__slide-image">
+                  <img src="./assets/images/team1.webp" alt="">
+                </div>
+                <div class="team__slide-name">Иванов Иван</div>
+                <div class="team__slide-position text">технолог-замерщик</div>
+              </div>
+              <div class="team__slide swiper-slide">
+                <div class="team__slide-image">
+                  <img src="./assets/images/team2.webp" alt="">
+                </div>
+                <div class="team__slide-name">Иванов Иван</div>
+                <div class="team__slide-position text">технолог-замерщик</div>
+              </div>
+            </div>
+          </div>
+          <button class="team-btn-prev btn-prev swiper-button-prev" type="button">
+            <img src="./assets/images/icons/sl-arrow.svg">
+          </button>
+          <button class="team-btn-next btn-next swiper-button-next" type="button">
+            <img src="./assets/images/icons/sl-arrow.svg">
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="certificates">
+      <div class="container">
+        <div class="certificates__inner">
+          <div class="certificates__title title">Сертификаты</div>
+          <button class="certificates-btn-prev btn-prev swiper-button-prev" type="button">
+            <img src="./assets/images/icons/sl-arrow.svg">
+          </button>
+          <button class="certificates-btn-next btn-next swiper-button-next" type="button">
+            <img src="./assets/images/icons/sl-arrow.svg">
+          </button>
+          <div class="certificates__swiper swiper">
+            <div class="swiper-wrapper">
+              <div class="certificates__slide swiper-slide">
+                <div class="certificates__slide-img">
                   <img src="./assets/images/sertificate1.webp" alt="">
                 </div>
-                <div class="sertificates__slide-bottom">
+                <div class="certificates__slide-bottom">
                   <div>Сертификат</div>
                   <div class="title-sm">PONGS</div>
                 </div>
               </div>
-              <div class="sertificates__slide swiper-slide">
-                <div class="sertificates__slide-img">
+              <div class="certificates__slide swiper-slide">
+                <div class="certificates__slide-img">
                   <img src="./assets/images/sertificate2.webp" alt="">
                 </div>
-                <div class="sertificates__slide-bottom">
+                <div class="certificates__slide-bottom">
                   <div>Сертификат</div>
                   <div class="title-sm">Zhejjang</div>
                 </div>
               </div>
-              <div class="sertificates__slide swiper-slide">
-                <div class="sertificates__slide-img">
+              <div class="certificates__slide swiper-slide">
+                <div class="certificates__slide-img">
                   <img src="./assets/images/sertificate3.webp" alt="">
                 </div>
-                <div class="sertificates__slide-bottom">
+                <div class="certificates__slide-bottom">
                   <div>Сертификат</div>
                   <div class="title-sm">BAUF</div>
                 </div>
               </div>
-              <div class="sertificates__slide swiper-slide">
-                <div class="sertificates__slide-img">
+              <div class="certificates__slide swiper-slide">
+                <div class="certificates__slide-img">
                   <img src="./assets/images/sertificate1.webp" alt="">
                 </div>
-                <div class="sertificates__slide-bottom">
+                <div class="certificates__slide-bottom">
                   <div>Сертификат</div>
                   <div class="title-sm">PONGS</div>
                 </div>

@@ -1,0 +1,45 @@
+.team {
+  margin-bottom: 22rem;
+  &__inner {
+    position: relative;
+    padding-bottom: 14.8rem;
+  }
+  .title-wrap {
+    margin-bottom: 10rem;
+  }
+  &__text {
+    width: 63.7rem;
+  }
+  &__swiper {
+    width: 109.4%;
+    margin-left: auto;
+  }
+  &__slide {
+    width: 100%;
+    &-image {
+      width: 100%;
+      margin-bottom: 4rem;
+      & img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+    &-name {
+      font-family: 'Gilroy';
+      font-size: 2.4rem;
+      font-weight: 600;
+      line-height: normal;
+      margin-bottom: 1.2rem;
+    }
+  }
+  &-btn-next,
+  &-btn-prev {
+    top: unset;
+    bottom: 0rem;
+    left: 0;
+  }
+  &-btn-next {
+    left: 9.8rem;
+  }
+}

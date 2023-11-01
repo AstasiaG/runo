@@ -77,17 +77,17 @@ $(".header__dropdown-catalog-item").each(function () {
 
 //sliders
 
-const slider1 = new Swiper('.baner__swiper', {
+const slider1 = new Swiper('.banner__swiper', {
   slidesPerView: 1.18,
   spaceBetween: rem(0),
   loop: true,
   slideToClickedSlide: true,
   parallax: true,
   navigation: {
-    nextEl: '.baner-btn-next',
+    nextEl: '.banner-btn-next',
   },
   pagination: {
-    el: '.baner-progress',
+    el: '.banner-progress',
     type: 'progressbar',
     },
   speed: 1000,
@@ -103,14 +103,14 @@ const slider2 = new Swiper('.catalog__swiper', {
   speed: 1000,
 });
 
-const slider3 = new Swiper('.sertificates__swiper', {
+const slider3 = new Swiper('.certificates__swiper', {
   slidesPerView: 3,
   slidesPerGroup: 3,
   spaceBetween: rem(4),
   speed: 1000,
   navigation: {
-    nextEl: '.sertificates-btn-next',
-    prevEl: '.sertificates-btn-prev',
+    nextEl: '.certificates-btn-next',
+    prevEl: '.certificates-btn-prev',
   },
 });
 
@@ -126,6 +126,16 @@ const slider4 = new Swiper('.reviews__swiper', {
   navigation: {
     nextEl: '.reviews-btn-next',
     prevEl: '.reviews-btn-prev',
+  },
+});
+
+const slider5 = new Swiper('.team__swiper', {
+  slidesPerView: 3.3,
+  spaceBetween: rem(4),
+  speed: 1000,
+  navigation: {
+    nextEl: '.team-btn-next',
+    prevEl: '.team-btn-prev',
   },
 });
 
