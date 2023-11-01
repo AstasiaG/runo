@@ -57,6 +57,9 @@ $(".dropdown").on("mouseleave", function () {
 $(".header__dropdown-catalog-item").each(function () {
   let hide = $(this).find('.header__dropdown-catalog-content');
   hide.hide();
+  if($(this).hasClass('active')) {
+    $(this).find('.header__dropdown-catalog-content').show();
+  }
   $(this).on("click",function () {
     $(".header__dropdown-catalog-item").each(function () {
       $(this).find('.header__dropdown-catalog-content').hide();
@@ -115,7 +118,7 @@ const slider4 = new Swiper('.reviews__swiper', {
   slidesPerView: 1,
   spaceBetween: rem(1),
   loop: true,
-  speed: 1500,
+  speed: 1000,
   effect: 'fade',
   fadeEffect: {
     crossFade: true,
