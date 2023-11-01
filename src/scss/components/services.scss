@@ -1,0 +1,44 @@
+.services {
+  margin-bottom: 22rem;
+  &__title {
+  }
+
+  &__items {
+    display: flex;
+    gap: 4rem;
+  }
+  &__item {
+    width: 50.7rem;
+    padding: 6.3rem 6rem 6rem;
+    background: $light-grey;
+    &-num {
+      position: relative;
+      z-index: 0;
+      font-family: 'Gilroy';
+      font-size: 30rem;
+      font-weight: 500;
+      line-height: 75%;
+      color: rgba(234, 234, 234, 0.30);
+      margin-left: -2rem;
+      margin-bottom: -5.5rem;
+    }
+    &-name {
+      position: relative;
+      z-index: 1;
+      margin-bottom: 6rem;
+    }
+    &-text {
+      width: 32rem;
+      margin-bottom: 4rem;
+    }
+    &-img {
+      width: 44.7rem;
+      margin-left: -6rem;
+      & img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+  }
+}
