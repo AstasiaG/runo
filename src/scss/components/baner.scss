@@ -75,3 +75,23 @@
     transform: translate(0, -50%);
   }
 }
+
+.baner-about {
+  .baner {
+    &__inner {
+      display: flex;
+      flex-direction: column;
+    }
+    &__title {
+      margin-right: 14.4rem;
+    }
+    &__text {
+      width: 77.5rem
+    }
+    &__title-wrap {
+      display: flex;
+      margin-top: 3.6rem;
+      margin-bottom: 6rem;
+    }
+  }
+}

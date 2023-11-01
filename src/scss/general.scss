@@ -6,6 +6,7 @@ $d-blue: #0D71AC;
 $dies: #E9E9E9;
 $grey: #959595;
 $disable: #BEBEBE;
+$light-grey: #F9F9F9;
 
 body {
   background-color: $white;
@@ -15,7 +16,7 @@ body {
 
 .heading {
   font-family: 'Gilroy';
-  font-size: 5.2rem;
+  font-size: 6rem;
   font-weight: 600;
   line-height: 100%;
   color: $black;
@@ -58,6 +59,23 @@ body {
   font-weight: 500;
   line-height: 93%;
   color: $black;
+}
+
+.breadcrumbs {
+  display: flex;
+  font-family: 'Gilroy';
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 100%;
+  color: $black;
+  margin-top: 4rem;
+  &__link {
+    margin-right: 0.8rem;
+  }
+  &__current {
+    color: $blue;
+    margin-left: 0.8rem;
+  }
 }
 
 //blocks//
@@ -276,7 +294,7 @@ form {
   }
 }
 .btn-prev.swiper-button-disabled::before {
-  transform: rotate(180deg);
+  transform: translateX(50%) rotate(180deg);
 }
 
 .swiper-button-next.swiper-button-disabled,
