@@ -139,3 +139,12 @@ catalogBtns.forEach(e => {
     slider2.slideTo(idx);
   })
 })
+
+const select = new Choices('.select', {
+	searchEnabled: false,
+  position: 'bottom',
+	itemSelectText: '',
+	classNames: {
+		containerOuter: 'choices select-choices',
+	},
+});
