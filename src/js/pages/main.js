@@ -111,6 +111,21 @@ const slider3 = new Swiper('.sertificates__swiper', {
   },
 });
 
+const slider4 = new Swiper('.reviews__swiper', {
+  slidesPerView: 1,
+  spaceBetween: rem(1),
+  loop: true,
+  speed: 1500,
+  effect: 'fade',
+  fadeEffect: {
+    crossFade: true,
+  },
+  navigation: {
+    nextEl: '.reviews-btn-next',
+    prevEl: '.reviews-btn-prev',
+  },
+});
+
 const catalogBtns = Array.from(document.querySelectorAll('.catalog__button'));
 let idx;
 

@@ -1,0 +1,64 @@
+.reviews {
+  margin-bottom: 22rem;
+  &__inner {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    &-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    &-right {
+      position: relative;
+      width: 93.8rem;
+    }
+  }
+  &__title {
+    width: 45.1rem;
+  }
+  &__text {
+    width: 27.7rem;
+  }
+  &__swiper {
+  }
+
+  &__slide {
+    padding: 6rem;
+    background: #ffffff;
+    &-num {
+      color: $blue;
+      margin-bottom: 6rem;
+    }
+    &-text {
+      width: 77.5rem;
+      font-size: 2.4rem;
+      margin-bottom: 7.35rem;
+    }
+    &-author {
+      display: flex;
+      flex-direction: column;
+    }
+    &-name {
+      font-family: 'Gilroy';
+      font-size: 2.4rem;
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+    }
+    &-date {
+
+    }
+  }
+  &-btn-next,
+  &-btn-prev {
+    top: unset;
+    left: unset;
+    bottom: 6rem;
+  }
+  &-btn-prev {
+    right: 13.8rem;
+  }
+  &-btn-next {
+    right: 4rem;
+  }
+}

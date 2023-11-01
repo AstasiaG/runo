@@ -13,9 +13,13 @@
     width: 37rem;
   }
   &-swiper {
-    height: 87.1rem;
+    //height: 87.1rem;
     &-wrap {
       position: relative;
+      margin-top: -15rem;
+      height: 93rem;
+      padding-top: 15rem;
+      overflow: hidden;
     }
     & .swiper-wrapper {
       overflow: visible;
@@ -70,7 +74,7 @@
     right: 14.5rem;
   }
   &-pagination {
-    top: 0;
+    top: 2.5rem;
     left: unset;
     right: 14.2rem;
     & .current {
@@ -82,7 +86,7 @@
 @media (min-width: 48em) {
   .exclusivity {
     &-swiper {
-      margin-top: 6rem;
+      //margin-top: 6rem;
       &-wrap {
         &::before,
         &::after {

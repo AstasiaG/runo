@@ -197,6 +197,9 @@ form {
   &::before {
     background-image: url(./assets/images/icons/sl-arrow-inactive.svg);
   }
+  & img {
+    opacity: 0;
+  }
 }
 
 .swiper-button-next.swiper-button-disabled,
