@@ -100,6 +100,17 @@ const slider2 = new Swiper('.catalog__swiper', {
   speed: 1000,
 });
 
+const slider3 = new Swiper('.sertificates__swiper', {
+  slidesPerView: 3,
+  slidesPerGroup: 3,
+  spaceBetween: rem(4),
+  speed: 1000,
+  navigation: {
+    nextEl: '.sertificates-btn-next',
+    prevEl: '.sertificates-btn-prev',
+  },
+});
+
 const catalogBtns = Array.from(document.querySelectorAll('.catalog__button'));
 let idx;
 
