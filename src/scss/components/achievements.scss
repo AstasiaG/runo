@@ -1,0 +1,31 @@
+.achievements {
+  margin-bottom: 22rem;
+  .title-wrap {
+    align-items: flex-start;
+  }
+  &__title {
+    width: 57.8rem;
+  }
+  &__text {
+    width: 63.7rem;
+  }
+  &__list {
+    margin-top: 10rem;
+  }
+  &__item {
+    display: flex;
+    padding: 6rem 0 3.6rem;
+    align-items: flex-start;
+    border-top: 0.1rem solid #DCDCDC;
+    &-name {
+      width: 27rem;
+      margin-right: 27.8rem;
+    }
+    &-text {
+      width: 50.4rem;
+    }
+    &-num {
+      margin-left: auto;
+    }
+  }
+}
