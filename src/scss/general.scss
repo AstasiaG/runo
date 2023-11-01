@@ -270,6 +270,26 @@ form {
   }
 }
 
+.btn-up {
+  position: sticky;
+  top: unset;
+  //left: unset;
+  right: 3.6rem;
+  bottom: 22.7rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 8.8rem;
+  height: 8.8rem;
+  background: $blue;
+  border-radius: 50%;
+  & img {
+    width: 2.4rem;
+    height: 2.4rem;
+    object-fit: contain;
+    transform: rotate(-90deg);
+  }
+}
 // .swiper-wrapper {
 //   //overflow: hidden;
 // }
@@ -287,22 +307,12 @@ form {
 .btn-prev.swiper-button-disabled,
 .btn-next.swiper-button-disabled {
   background-color: $dies;
-  &::before {
-    content: '';
-    width: 2.4rem;
-    height: 2.4rem;
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-image: url(./assets/images/icons/sl-arrow-inactive.svg); 
-    transform: translateX(50%);
-  }
-  & img {
-    opacity: 0;
+  & path {
+    fill: #D2D2D2;
   }
 }
 .btn-prev.swiper-button-disabled::before {
-  transform: translateX(50%) rotate(180deg);
+  transform: rotate(180deg);
 }
 
 .swiper-button-next.swiper-button-disabled,
@@ -317,18 +327,26 @@ form {
   background: $dies;
   width: 8.8rem;
   height: 8.8rem;
-  & img {
+  & svg {
     width: 2.4rem;
     height: 2.4rem;
-    object-fit: contain;
+    & path {
+      fill: $black;
+    }
   }
   &::before {
     content: none;
   }
+  &:hover {
+    background: $blue;
+    & path {
+      fill: $white;
+    }
+  }
 }
 
 .btn-prev {
-  & img {
+  & svg {
     transform: rotate(-180deg);
   }
 }
