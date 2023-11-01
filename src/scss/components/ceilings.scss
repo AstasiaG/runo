@@ -1,0 +1,34 @@
+.ceilings {
+  margin-bottom: 22rem;
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+  }
+  &__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 82.2rem;
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__content {
+    margin-left: auto;
+    width: 77.9rem;
+  }
+
+
+  &__title {
+    width: 70.6rem;
+    margin-bottom: 6rem;
+  }
+  &__text {
+    width: 100%;
+    line-height: normal;
+  }
+}

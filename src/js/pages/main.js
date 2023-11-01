@@ -143,11 +143,13 @@ catalogBtns.forEach(e => {
   })
 })
 
-const select = new Choices('.select', {
-	searchEnabled: false,
-  position: 'bottom',
-	itemSelectText: '',
-	classNames: {
-		containerOuter: 'choices select-choices',
-	},
-});
+if(document.querySelector('.select')) {
+  const select = new Choices('.select', {
+    searchEnabled: false,
+    position: 'bottom',
+    itemSelectText: '',
+    classNames: {
+      containerOuter: 'choices select-choices',
+    },
+  });
+}
