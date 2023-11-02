@@ -79,10 +79,13 @@ body {
   margin-top: 4rem;
   &__link {
     margin-right: 0.8rem;
+    &::after {
+      content: '/';
+      margin-left: 0.8rem;
+    }
   }
   &__current {
     color: $blue;
-    margin-left: 0.8rem;
   }
 }
 
@@ -231,6 +234,11 @@ form {
 
 }
 
+.main {
+  position: relative;
+  width: 100%;
+}
+
 //buttons//
 
 .button {
@@ -272,9 +280,9 @@ form {
 
 .btn-up {
   position: sticky;
+  z-index: 100;
   top: unset;
-  //left: unset;
-  right: 3.6rem;
+  left: 179.6rem;
   bottom: 22.7rem;
   display: flex;
   justify-content: center;
@@ -290,9 +298,6 @@ form {
     transform: rotate(-90deg);
   }
 }
-// .swiper-wrapper {
-//   //overflow: hidden;
-// }
 
 .swiper-button-next,
 .swiper-button-prev {

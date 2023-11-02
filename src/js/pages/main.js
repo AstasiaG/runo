@@ -74,6 +74,18 @@ $(".header__dropdown-catalog-item").each(function () {
 //   hide.slideToggle();
 //   $(this).toggleClass('active')
 // });
+$('.btn-up').hide()
+window.addEventListener("scroll", function() {
+  if (window.scrollY > 900) { // Измените значение (200) на желаемую высоту прокрутки
+    $('.btn-up').show(200)
+  } else {
+    $('.btn-up').hide()
+  }
+});
+
+$('.btn-up').on("click", function() {
+  window.scrollTo(0, 0); // Прокрутка страницы наверх
+});
 
 //sliders
 
