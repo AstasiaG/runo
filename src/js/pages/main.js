@@ -31,6 +31,8 @@ $(".widget__icon").on("click",function () {
   $(this).toggleClass('active')
 });
 
+//dropdown//
+
 $(".dropdown").find('.header__dropdown').hide();
 $(".dropdown").on("mouseenter",
   function () {
@@ -69,14 +71,13 @@ $(".header__dropdown-catalog-item").each(function () {
     $(this).addClass('active')
   });
 });
-// .on("click",function () {
-//   let hide = $('.header__dropdown-catalog-content');
-//   hide.slideToggle();
-//   $(this).toggleClass('active')
-// });
+
+
+//button up
+
 $('.btn-up').hide()
 window.addEventListener("scroll", function() {
-  if (window.scrollY > 900) { // Измените значение (200) на желаемую высоту прокрутки
+  if (window.scrollY > 900) { 
     $('.btn-up').show(200)
   } else {
     $('.btn-up').hide()
@@ -84,10 +85,10 @@ window.addEventListener("scroll", function() {
 });
 
 $('.btn-up').on("click", function() {
-  window.scrollTo(0, 0); // Прокрутка страницы наверх
+  window.scrollTo(0, 0); 
 });
 
-//sliders
+//sliders//
 
 const slider1 = new Swiper('.banner__swiper', {
   slidesPerView: 1.18,

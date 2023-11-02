@@ -86,7 +86,7 @@ module.exports = {
     //название js файла в билде
     // [name] - стандартный по вебпаку (main), [contenthash] - добавляептся хэш к названию
     filename: "[name][contenthash].js",
-    assetModuleFilename: "assets/images",
+    assetModuleFilename: "assets/images/*",
   },
 
   plugins: [

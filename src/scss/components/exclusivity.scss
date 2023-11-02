@@ -14,6 +14,7 @@
   }
   &-swiper {
     //height: 87.1rem;
+    margin-top: 0;
     &-wrap {
       position: relative;
       margin-top: -15rem;
@@ -41,6 +42,7 @@
       color: $dies;
       text-align: left;
       margin-bottom: 1.2rem;
+      transition: all 0.5s ease-in-out;
     }
     &-img {
       // width: 23.3rem;
