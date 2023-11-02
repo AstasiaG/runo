@@ -59,7 +59,7 @@
       &:last-child {
         border-bottom: 0;
         & img {
-          transform: rotate(90deg);
+          transform: rotate(-90deg);
         }
       }
     }
