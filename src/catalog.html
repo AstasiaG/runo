@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css">
+</head>
+<body>
+  <include src="./components/header.html"></include>
+  <main>
+    <section class="catalog catalog-page">
+      <div class="container">
+        <div class="breadcrumbs">
+          <a class="breadcrumbs__link" href="">Главная</a>
+          <span class="breadcrumbs__current">О компании</span>
+        </div>
+        <div class="catalog__title title">Каталог</div>
+        <div class="catalog__wrapper">
+          <button class="catalog-btn btn" type="button">
+            <div>
+              <img src="./assets/images/icons/whatsapp-white.svg" alt="">
+            </div>
+          </button>
+          <div class="catalog__btns swiper">
+            <button class="catalog-btn-prev btn-prev swiper-button-prev" type="button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M1 11C0.447715 11 0 11.4477 0 12C0 12.5523 0.447715 13 1 13V11ZM22.9203 12.7071C23.3108 12.3166 23.3108 11.6834 22.9203 11.2929L16.5563 4.92893C16.1658 4.53841 15.5327 4.53841 15.1421 4.92893C14.7516 5.31946 14.7516 5.95262 15.1421 6.34315L20.799 12L15.1421 17.6569C14.7516 18.0474 14.7516 18.6805 15.1421 19.0711C15.5327 19.4616 16.1658 19.4616 16.5563 19.0711L22.9203 12.7071ZM1 13L22.2132 13V11L1 11V13Z" fill="#28292E"/>
+              </svg>
+            </button>
+            <div class="swiper-wrapper">
+              <button class="catalog__button button swiper-slide" type="button">Все</button>
+              <select class="select-filter swiper-slide">
+                <option>Тип помещения</option>
+                <option>Кухня</option>
+                <option>Гостиная</option>
+                <option>Спальня</option>
+                <option>Спальня</option>
+                <option>Спальня</option>
+                <option>Спальня</option>
+              </select>
+              <button class="catalog__button button swiper-slide" type="button">С подсветкой</button>
+              <button class="catalog__button button active swiper-slide" type="button">Материал</button>
+              <button class="catalog__button button swiper-slide" type="button">По конструкции</button>
+              <button class="catalog__button button swiper-slide" type="button">Дизайн</button>
+              <button class="catalog__button button swiper-slide" type="button">Освещение</button>
+              <button class="catalog__button button swiper-slide" type="button">Производители</button>
+            </div>
+            <button class="catalog-btn-next btn-next swiper-button-next" type="button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M1 11C0.447715 11 0 11.4477 0 12C0 12.5523 0.447715 13 1 13V11ZM22.9203 12.7071C23.3108 12.3166 23.3108 11.6834 22.9203 11.2929L16.5563 4.92893C16.1658 4.53841 15.5327 4.53841 15.1421 4.92893C14.7516 5.31946 14.7516 5.95262 15.1421 6.34315L20.799 12L15.1421 17.6569C14.7516 18.0474 14.7516 18.6805 15.1421 19.0711C15.5327 19.4616 16.1658 19.4616 16.5563 19.0711L22.9203 12.7071ZM1 13L22.2132 13V11L1 11V13Z" fill="#28292E"/>
+              </svg>
+            </button>
+          </div>
+          <div class="catalog__swiper swiper">
+            <div class="catalog__swiper-wrap swiper-wrapper">
+              <div class="catalog__slide swiper-slide">
+                <div class="catalog__slide-item">
+                  <div class="catalog__slide-img">
+                    <img src="./assets/images/main-examples1.webp" alt="">
+                  </div>
+                  <div class="catalog__slide-bottom">
+                    <div>Матовые</div>
+                    <div class="title-sm">от 390<span>₽/м<sup>2</sup></span></div>
+                  </div>
+                </div>
+                <div class="catalog__slide-item">
+                  <div class="catalog__slide-img">
+                    <img src="./assets/images/main-examples1.webp" alt="">
+                  </div>
+                  <div class="catalog__slide-bottom">
+                    <div>Глянцевые</div>
+                    <div class="title-sm">от 390<span>₽/м<sup>2</sup></span></div>
+                  </div>
+                </div>
+                <div class="catalog__slide-item">
+                  <div class="catalog__slide-img">
+                    <img src="./assets/images/main-examples1.webp" alt="">
+                  </div>
+                  <div class="catalog__slide-bottom">
+                    <div>Сатиновые</div>
+                    <div class="title-sm">от 390<span>₽/м<sup>2</sup></span></div>
+                  </div>
+                </div>
+                <div class="catalog__slide-item">
+                  <div class="catalog__slide-img">
+                    <img src="./assets/images/main-examples1.webp" alt="">
+                  </div>
+                  <div class="catalog__slide-bottom">
+                    <div>Тканевые</div>
+                    <div class="title-sm">от 390<span>₽/м<sup>2</sup></span></div>
+                  </div>
+                </div>
+                <div class="catalog__slide-item">
+                  <div class="catalog__slide-img">
+                    <img src="./assets/images/main-examples1.webp" alt="">
+                  </div>
+                  <div class="catalog__slide-bottom">
+                    <div>Фактурные</div>
+                    <div class="title-sm">от 390<span>₽/м<sup>2</sup></span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="catalog__slide swiper-slide">
+                <div class="catalog__slide-item">
+                  <div class="catalog__slide-img">
+                    <img src="./assets/images/main-examples1.webp" alt="">
+                  </div>
+                  <div class="catalog__slide-bottom">
+                    <div>Матовые</div>
+                    <div class="title-sm">от 390<span>₽/м<sup>2</sup></span></div>
+                  </div>
+                </div>
+                <div class="catalog__slide-item">
+                  <div class="catalog__slide-img">
+                    <img src="./assets/images/main-examples1.webp" alt="">
+                  </div>
+                  <div class="catalog__slide-bottom">
+                    <div>Глянцевые</div>
+                    <div class="title-sm">от 390<span>₽/м<sup>2</sup></span></div>
+                  </div>
+                </div>
+                <div class="catalog__slide-item">
+                  <div class="catalog__slide-img">
+                    <img src="./assets/images/main-examples1.webp" alt="">
+                  </div>
+                  <div class="catalog__slide-bottom">
+                    <div>Сатиновые</div>
+                    <div class="title-sm">от 390<span>₽/м<sup>2</sup></span></div>
+                  </div>
+                </div>
+                <div class="catalog__slide-item">
+                  <div class="catalog__slide-img">
+                    <img src="./assets/images/main-examples1.webp" alt="">
+                  </div>
+                  <div class="catalog__slide-bottom">
+                    <div>Тканевые</div>
+                    <div class="title-sm">от 390<span>₽/м<sup>2</sup></span></div>
+                  </div>
+                </div>
+                <div class="catalog__slide-item">
+                  <div class="catalog__slide-img">
+                    <img src="./assets/images/main-examples1.webp" alt="">
+                  </div>
+                  <div class="catalog__slide-bottom">
+                    <div>Фактурные</div>
+                    <div class="title-sm">от 390<span>₽/м<sup>2</sup></span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="catalog__slide swiper-slide">
+                <div class="catalog__slide-item">
+                  <div class="catalog__slide-img">
+                    <img src="./assets/images/main-examples1.webp" alt="">
+                  </div>
+                  <div class="catalog__slide-bottom">
+                    <div>Матовые</div>
+                    <div class="title-sm">от 390<span>₽/м<sup>2</sup></span></div>
+                  </div>
+                </div>
+                <div class="catalog__slide-item">
+                  <div class="catalog__slide-img">
+                    <img src="./assets/images/main-examples1.webp" alt="">
+                  </div>
+                  <div class="catalog__slide-bottom">
+                    <div>Глянцевые</div>
+                    <div class="title-sm">от 390<span>₽/м<sup>2</sup></span></div>
+                  </div>
+                </div>
+                <div class="catalog__slide-item">
+                  <div class="catalog__slide-img">
+                    <img src="./assets/images/main-examples1.webp" alt="">
+                  </div>
+                  <div class="catalog__slide-bottom">
+                    <div>Сатиновые</div>
+                    <div class="title-sm">от 390<span>₽/м<sup>2</sup></span></div>
+                  </div>
+                </div>
+                <div class="catalog__slide-item">
+                  <div class="catalog__slide-img">
+                    <img src="./assets/images/main-examples1.webp" alt="">
+                  </div>
+                  <div class="catalog__slide-bottom">
+                    <div>Тканевые</div>
+                    <div class="title-sm">от 390<span>₽/м<sup>2</sup></span></div>
+                  </div>
+                </div>
+                <div class="catalog__slide-item">
+                  <div class="catalog__slide-img">
+                    <img src="./assets/images/main-examples1.webp" alt="">
+                  </div>
+                  <div class="catalog__slide-bottom">
+                    <div>Фактурные</div>
+                    <div class="title-sm">от 390<span>₽/м<sup>2</sup></span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="catalog__slide swiper-slide">
+                <div class="catalog__slide-item">
+                  <div class="catalog__slide-img">
+                    <img src="./assets/images/main-examples1.webp" alt="">
+                  </div>
+                  <div class="catalog__slide-bottom">
+                    <div>Матовые</div>
+                    <div class="title-sm">от 390<span>₽/м<sup>2</sup></span></div>
+                  </div>
+                </div>
+                <div class="catalog__slide-item">
+                  <div class="catalog__slide-img">
+                    <img src="./assets/images/main-examples1.webp" alt="">
+                  </div>
+                  <div class="catalog__slide-bottom">
+                    <div>Глянцевые</div>
+                    <div class="title-sm">от 390<span>₽/м<sup>2</sup></span></div>
+                  </div>
+                </div>
+                <div class="catalog__slide-item">
+                  <div class="catalog__slide-img">
+                    <img src="./assets/images/main-examples1.webp" alt="">
+                  </div>
+                  <div class="catalog__slide-bottom">
+                    <div>Сатиновые</div>
+                    <div class="title-sm">от 390<span>₽/м<sup>2</sup></span></div>
+                  </div>
+                </div>
+                <div class="catalog__slide-item">
+                  <div class="catalog__slide-img">
+                    <img src="./assets/images/main-examples1.webp" alt="">
+                  </div>
+                  <div class="catalog__slide-bottom">
+                    <div>Тканевые</div>
+                    <div class="title-sm">от 390<span>₽/м<sup>2</sup></span></div>
+                  </div>
+                </div>
+                <div class="catalog__slide-item">
+                  <div class="catalog__slide-img">
+                    <img src="./assets/images/main-examples1.webp" alt="">
+                  </div>
+                  <div class="catalog__slide-bottom">
+                    <div>Фактурные</div>
+                    <div class="title-sm">от 390<span>₽/м<sup>2</sup></span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="catalog__slide swiper-slide">
+                <div class="catalog__slide-item">
+                  <div class="catalog__slide-img">
+                    <img src="./assets/images/main-examples1.webp" alt="">
+                  </div>
+                  <div class="catalog__slide-bottom">
+                    <div>Матовые</div>
+                    <div class="title-sm">от 390<span>₽/м<sup>2</sup></span></div>
+                  </div>
+                </div>
+                <div class="catalog__slide-item">
+                  <div class="catalog__slide-img">
+                    <img src="./assets/images/main-examples1.webp" alt="">
+                  </div>
+                  <div class="catalog__slide-bottom">
+                    <div>Глянцевые</div>
+                    <div class="title-sm">от 390<span>₽/м<sup>2</sup></span></div>
+                  </div>
+                </div>
+                <div class="catalog__slide-item">
+                  <div class="catalog__slide-img">
+                    <img src="./assets/images/main-examples1.webp" alt="">
+                  </div>
+                  <div class="catalog__slide-bottom">
+                    <div>Сатиновые</div>
+                    <div class="title-sm">от 390<span>₽/м<sup>2</sup></span></div>
+                  </div>
+                </div>
+                <div class="catalog__slide-item">
+                  <div class="catalog__slide-img">
+                    <img src="./assets/images/main-examples1.webp" alt="">
+                  </div>
+                  <div class="catalog__slide-bottom">
+                    <div>Тканевые</div>
+                    <div class="title-sm">от 390<span>₽/м<sup>2</sup></span></div>
+                  </div>
+                </div>
+                <div class="catalog__slide-item">
+                  <div class="catalog__slide-img">
+                    <img src="./assets/images/main-examples1.webp" alt="">
+                  </div>
+                  <div class="catalog__slide-bottom">
+                    <div>Фактурные</div>
+                    <div class="title-sm">от 390<span>₽/м<sup>2</sup></span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="benefits">
+      <div class="container">
+        <div class="benefits__inner">
+          <div class="title-wrap">
+            <div class="benefits__title title">Преимущества работы с нами</div>
+          </div>
+          <div class="benefits__items">
+            <div class="benefits__item">
+              <div class="benefits__item-icon">
+                <img src="./assets/images/icons/hand.svg" alt="">
+              </div>
+              <div class="benefits__item-title">Честная цена<br>без подводных камней</div>
+              <div class="benefits__item-text text">
+                Сразу называем конечную цену, у нас нет скрытых и дополнительных
+                 платежей. Мы ответственно относимся к работе
+              </div>
+            </div>
+            <div class="benefits__item">
+              <div class="benefits__item-icon">
+                <img src="./assets/images/icons/eco.svg" alt="">
+              </div>
+              <div class="benefits__item-title">Экологичные материалы</div>
+              <div class="benefits__item-text text">
+                Используем европейские и отечественные экологичные 
+                материалы. Предоставим оригиналы всех документов!
+              </div>
+            </div>
+            <div class="benefits__item">
+              <div class="benefits__item-icon">
+                <img src="./assets/images/icons/time.svg" alt="">
+              </div>
+              <div class="benefits__item-title">Качественная<br>установка в короткие сроки</div>
+              <div class="benefits__item-text text">
+                Вам не придется ждать свой потолок месяц. От заказа до установки пройдет 1-2 дня
+              </div>
+            </div>
+            <div class="benefits__item">
+              <div class="benefits__item-icon">
+                <img src="./assets/images/icons/document.svg" alt="">
+              </div>
+              <div class="benefits__item-title">Работа по договору</div>
+              <div class="benefits__item-text text">
+                Вы юридически защищены от срывов сроков и некачественного монтажа на основании заключенного договора
+              </div>
+            </div>
+            <div class="benefits__item">
+              <div class="benefits__item-icon">
+                <img src="./assets/images/icons/brush.svg" alt="">
+              </div>
+              <div class="benefits__item-title">Нанесение любого изображения на полотно</div>
+              <div class="benefits__item-text text">
+                У нас есть все возможности и желание нанести на полотно потолка любой ваш запрос по изображению
+              </div>
+            </div>
+            <div class="benefits__item">
+              <div class="benefits__item-icon">
+                <img src="./assets/images/icons/guarantee.svg" alt="">
+              </div>
+              <div class="benefits__item-title">Гарантия</div>
+              <div class="benefits__item-text text">
+                Гарантия 25 лет на натяжные полотна. И исправим недочеты монтажа в случае их допущения
+              </div>
+            </div>
+          </div>
+          <a class="btn mob" href="#">
+            <span>О компании</span>
+            <div>
+              <img src="./assets/images/icons/arrow-white.svg" alt="">
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="application">
+      <div class="container">
+        <div class="application__inner">
+          <div class="application__form">
+            <div class="application__title title">Оставьте заявку</div>
+            <div class="application__text text">Хотите узнать стоимость и заказать самый ровный натяжной потолок? Оставьте ваш номер телефона, вам перезвонит наш специалист</div>
+            <form>
+              <label class="form__input">
+                <span>Имя</span>
+                <input type="text" placeholder="Введите ваше имя" required>
+              </label>
+              <label class="form__input">
+                <span>Номер телефона</span>
+                <input class='phone-mask' type="text" placeholder="+7 (9__) ___ __ __" required>
+              </label>
+              <button class="application__form-button button" type="submit">Оставить заявку</button>
+            </form>
+          </div>
+          <div class="application__content">
+            <div class="application__content-title title-sm">Контактная информация</div>
+            <div class="application__content-contacts">
+              <div class="application__content-phone phone__block">
+                <a class="phone__block-num" href="#">
+                  <div class="phone__block-num-icon">
+                    <img src="./assets/images/icons/phone.svg" alt="">
+                  </div>
+                  8 (800) 301-07-90
+                </a>
+                <span class="phone__block-text text">круглосуточно без выходных</span>
+              </div>
+              <a class="application__content-mail mail__block" href="#">
+                <div class="mail__block-icon">
+                  <img src="./assets/images/icons/mail.svg" alt="">
+                </div>
+                email@mail.ru
+              </a>
+              <a class="application__content-address address__block" href="#">
+                <div class="address__block-icon">
+                  <img src="./assets/images/icons/map.svg" alt="">
+                </div>
+                6689078, г. Москва, ул. Московская, д. 1, офис 204
+              </a>
+            </div>
+            <div class="application__content-socials">
+              <div class="application__content-title title-sm">Или напишите нам:</div>
+              <div class="application__content-socials-links">
+                <a class="application__content-socials-link" href="#">
+                  <img src="./assets/images/icons/telegram.svg" alt="">
+                </a>
+                <a class="application__content-socials-link" href="#">
+                  <img src="./assets/images/icons/whatsapp.svg" alt="">
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="application__image">
+            <img src="./assets/images/main-application.webp" alt="">
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div class="widget">
+    <div class="widget__icon">
+      <img src="./assets/images/icons/cross.svg" alt="">
+    </div>
+    <div class="widget__content">
+      <a class="widget__content-item" href="#">
+        <div class="widget__content-item-icon">
+          <img src="./assets/images/icons/calculator.svg" alt="">
+        </div>
+        <div class="widget__content-item-text">Калькулятор расчета стоимости</div>
+      </a>
+      <a class="widget__content-item" href="#">
+        <div class="widget__content-item-icon">
+          <img src="./assets/images/icons/ruler.svg" alt="">
+        </div>
+        <div class="widget__content-item-text">Вызвать замерщика</div>
+      </a>
+      <a class="widget__content-item" href="#">
+        <div class="widget__content-item-icon">
+          <img src="./assets/images/icons/arrow-white.svg" alt="">
+        </div>
+        <div class="widget__content-item-text">Наверх</div>
+      </a>
+    </div>
+  </div>
+  <include src="./components/footer.html"></include>
+  <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+</body>
+</html>

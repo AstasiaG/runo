@@ -1,5 +1,6 @@
 'use strict';
 import Swiper from 'swiper/bundle';
+import Choices from 'choices.js';
 import 'inputmask';
 window.$ = window.jQuery = require('jquery');
 let timer;
@@ -106,15 +107,57 @@ const slider1 = new Swiper('.banner__swiper', {
   speed: 1000,
 });
 
-const slider2 = new Swiper('.catalog__swiper', {
-  slidesPerView: 1,
-  spaceBetween: rem(1),
-  effect: 'fade',
-  fadeEffect: {
-    crossFade: true
-  },
-  speed: 1000,
-});
+if(document.querySelector('.catalog__swiper')) {
+  const slider2 = new Swiper('.catalog__swiper', {
+    slidesPerView: 1,
+    spaceBetween: rem(1),
+    effect: 'fade',
+    fadeEffect: {
+      crossFade: true
+    },
+    speed: 1000,
+  });
+  
+  const sliderThumbs = new Swiper('.catalog__btns', {
+    slidesPerView: 'auto',
+    watchOverflow: true,
+    spaceBetween: rem(2),
+    speed: 1000,
+    navigation: {
+      nextEl: '.catalog-btn-next',
+      prevEl: '.catalog-btn-prev',
+    },
+    on: {
+      //Показать и скрыть кнопки при прокрутке
+      reachEnd: function () {
+        document.querySelector('.catalog-btn-next').style.display = 'none';
+      },
+      fromEdge: function () {
+        document.querySelector('.catalog-btn-next').style.display = 'flex';
+        document.querySelector('.catalog-btn-prev').style.display = 'flex';
+      },
+      reachBeginning: function () {
+        document.querySelector('.catalog-btn-prev').style.display = 'none';
+      },
+    },
+  });
+  
+  const catalogBtns = Array.from(document.querySelectorAll('.catalog__button'));
+  let idx;
+  
+  catalogBtns.forEach(e => {
+    e.addEventListener('click', () => {
+      for(let i = 0; i < catalogBtns.length;i++){
+        catalogBtns[i].classList.remove('active');
+      }
+      e.classList.add('active');
+      idx = catalogBtns.indexOf(e);
+      slider2.slideTo(idx);
+    })
+  })
+  
+  sliderThumbs.controller.control = slider2;
+}
 
 const slider3 = new Swiper('.certificates__swiper', {
   slidesPerView: 3,
@@ -125,6 +168,23 @@ const slider3 = new Swiper('.certificates__swiper', {
     nextEl: '.certificates-btn-next',
     prevEl: '.certificates-btn-prev',
   },
+  pagination: {
+    el: '.certificates-pagination',
+    type: 'bullets',
+    clickable: true,
+  },
+  breakpoints: {
+    769: {
+      slidesPerView: 3,
+      slidesPerGroup: 3,
+      spaceBetween: rem(4),
+    },
+    210: {
+      slidesPerView: 1,
+      slidesPerGroup: 1,
+      spaceBetween: rem(1),
+    }
+  }
 });
 
 const slider4 = new Swiper('.reviews__swiper', {
@@ -140,6 +200,11 @@ const slider4 = new Swiper('.reviews__swiper', {
     nextEl: '.reviews-btn-next',
     prevEl: '.reviews-btn-prev',
   },
+  pagination: {
+    el: '.reviews-pagination',
+    type: 'bullets',
+    clickable: true,
+  },
 });
 
 const slider5 = new Swiper('.team__swiper', {
@@ -152,19 +217,27 @@ const slider5 = new Swiper('.team__swiper', {
   },
 });
 
-const catalogBtns = Array.from(document.querySelectorAll('.catalog__button'));
-let idx;
-
-catalogBtns.forEach(e => {
-  e.addEventListener('click', () => {
-    for(let i = 0; i < catalogBtns.length;i++){
-      catalogBtns[i].classList.remove('active');
+const slider6 = new Swiper('.prices__items', {
+  slidesPerView: 3,
+  spaceBetween: rem(4),
+  speed: 1000,
+  watchOverflow: true,
+  pagination: {
+    el: '.prices-pagination',
+    type: 'bullets',
+    clickable: true,
+  },
+  breakpoints: {
+    769: {
+      slidesPerView: 3,
+      spaceBetween: rem(4),
+    },
+    210: {
+      slidesPerView: 1,
+      spaceBetween: rem(1),
     }
-    e.classList.add('active');
-    idx = catalogBtns.indexOf(e);
-    slider2.slideTo(idx);
-  })
-})
+  }
+});
 
 if(document.querySelector('.select')) {
   const select = new Choices('.select', {
@@ -173,6 +246,17 @@ if(document.querySelector('.select')) {
     itemSelectText: '',
     classNames: {
       containerOuter: 'choices select-choices',
+    },
+  });
+}
+
+if(document.querySelector('.select-filter')) {
+  const filter = new Choices('.select-filter', {
+    searchEnabled: false,
+    position: 'bottom',
+    itemSelectText: '',
+    classNames: {
+      containerOuter: 'choices select-choices swiper-slide',
     },
   });
 }

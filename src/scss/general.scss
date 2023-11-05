@@ -214,8 +214,6 @@ form {
       color: $black;
     }
   }
-  
-
 
   &.is-open {
     .choices__list {
@@ -231,7 +229,10 @@ form {
       transform: translateY(-50%) rotate(180deg);
     }
   }
+}
 
+.choices {
+  
 }
 
 .main {
@@ -363,6 +364,10 @@ form {
   height: 0.2rem;
 }
 
+.pagination {
+  display: none;
+}
+
 .mob {
   display: none;
 }
@@ -423,6 +428,61 @@ form {
     font-weight: 600;
     line-height: 100%;
     color: $white;
+  }
+  
+  .phone__block {
+    &-num {
+      font-size: 3.2rem;
+      &-icon {
+        width: 4.8rem;
+        height: 4.8rem;
+        margin-right: 2.4rem;
+      }
+    }
+    &-text {
+      margin-top: 0.6rem;
+    }
+  }
+
+  .form__input {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 4rem;
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+  
+  form {
+    & input {
+      width: 100%;
+      padding: 2.6rem 2.4rem;
+      margin-top: 2.4rem;
+      font-size: 2.8rem;
+      &::placeholder {
+        font-size: 2.8rem;
+        line-height: normal;
+      }
+    }
+  }
+
+  .pagination {
+    display: block;
+    bottom: 0;
+    transform: translateY(150%);
+  }
+  .swiper-pagination .swiper-pagination-bullet {
+    width: 1.6rem;
+    height: 1.6rem;
+    background-color: $grey;
+    border-radius: 50%;
+    opacity: 1;
+    &:not(:last-child) {
+      margin-right: 2.4rem;
+    }
+  }
+  .swiper-pagination .swiper-pagination-bullet-active {
+    background-color: $black;
   }
   
 }
