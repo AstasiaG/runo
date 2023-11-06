@@ -17,6 +17,7 @@ const entryPoints = {
   mainpage: path.resolve(__dirname, "src", "index.js"),
   about: path.resolve(__dirname, "src", "index.js"),
   catalog: path.resolve(__dirname, "src", "index.js"),
+  detail_product: path.resolve(__dirname, "src", "index.js"),
 };
 
 // Создаем экземпляры HtmlWebpackPlugin для каждой страницы

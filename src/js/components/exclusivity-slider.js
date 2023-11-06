@@ -53,55 +53,76 @@ const initSlider = (swiper, isLooped) => {
 
 // build slider
 if (document.querySelector('.exclusivity-swiper')) {
-  const slider = new Swiper('.exclusivity-swiper', {
-    speed: 1000,
-    spaceBetween: 0,
-    slidesPerView: 3,
-    centeredSlides: true,
-    allowTouchMove: false,
-    watchSlidesProgress: true,
-    watchSlidesVisibility: true,
-
-    // navigation
-    navigation: {
-      prevEl: '.exclusivity-btn-next',
-      nextEl: '.exclusivity-btn-prev',
-    },
-
-    pagination: {
-      el: '.exclusivity-pagination .total',
-      type: 'custom',
-      renderCustom: function (swiper, current, total) {
-        let totalRes2 = total >= 10 ? total : `-0${total}`;
-        return totalRes2;
+  if(window.innerWidth > 769){
+    const slider = new Swiper('.exclusivity-swiper', {
+      speed: 1000,
+      spaceBetween: 0,
+      slidesPerView: 3,
+      centeredSlides: true,
+      allowTouchMove: false,
+      watchSlidesProgress: true,
+      watchSlidesVisibility: true,
+  
+      // navigation
+      navigation: {
+        prevEl: '.exclusivity-btn-next',
+        nextEl: '.exclusivity-btn-prev',
       },
-    },
-
-    // events
-    on: {
-      afterInit: swiper => {
-        swiper.slideTo(4);
-        setTimeout(() => {
+  
+      pagination: {
+        el: '.exclusivity-pagination .total',
+        type: 'custom',
+        renderCustom: function (swiper, current, total) {
+          let totalRes2 = total >= 10 ? total : `-0${total}`;
+          return totalRes2;
+        },
+      },
+  
+      // events
+      on: {
+        afterInit: swiper => {
+          swiper.slideTo(4);
+          setTimeout(() => {
+            initSlider(swiper, false);
+          }, 0);
+        },
+        slideChange: swiper => {
           initSlider(swiper, false);
-        }, 0);
+        },
       },
-      slideChange: swiper => {
-        initSlider(swiper, false);
+    });
+    let curnum = document.querySelector('.exclusivity-pagination .current');
+    let slides = slider.slides;
+    const slideNum = slides[slider.realIndex].querySelector('.num');
+    slider.on('slideChange', function () {
+      console.log(slides[slider.realIndex].querySelector('.num'))
+      if(slider.realIndex - 1 < slides.length) {
+        let ind = slides.length - (slider.realIndex);
+        let indRes = ind >= 10 ? ind : `0${ind}`;
+        curnum.innerHTML = indRes;
+        //slides[slider.realIndex].style.fontSize = '3.2rem';
+      } else {
+        curnum.innerHTML = '01';
+      }
+    });
+  }
+
+  if(window.innerWidth < 769) {
+    const slider = new Swiper('.exclusivity-swiper', {
+      speed: 1000,
+      spaceBetween: 40,
+      slidesPerView: 1,
+      centeredSlides: true,
+      allowTouchMove: false,
+      watchSlidesProgress: true,
+      watchSlidesVisibility: true,
+
+  
+      pagination: {
+        el: '.exclusivity-pagination',
+        type: 'bullets',
+        clickable: true,
       },
-    },
-  });
-  let curnum = document.querySelector('.exclusivity-pagination .current');
-  let slides = slider.slides;
-  const slideNum = slides[slider.realIndex].querySelector('.num');
-  slider.on('slideChange', function () {
-    console.log(slides[slider.realIndex].querySelector('.num'))
-    if(slider.realIndex - 1 < slides.length) {
-      let ind = slides.length - (slider.realIndex);
-      let indRes = ind >= 10 ? ind : `0${ind}`;
-      curnum.innerHTML = indRes;
-      //slides[slider.realIndex].style.fontSize = '3.2rem';
-    } else {
-      curnum.innerHTML = '01';
-    }
-  });
+    });
+  }
 }
