@@ -31,16 +31,11 @@
         object-fit: contain;
       }
     }
-    &-btn-next,
-    &-btn-prev {
-      top: 58.7rem;
-    }
     &-btn-next {
+      bottom: 6.5rem;
+      top: unset;
       left: unset;
-      right: -2rem;
-    }
-    &-btn-prev {
-      left: 0;
+      right: -2rem
     }
   }
 
@@ -85,6 +80,7 @@
       &-num {
         font-size: 5.2rem;
         color: $blue;
+        line-height: 125%;
         & span {
           font-size: 3.2rem;
         }

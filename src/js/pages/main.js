@@ -170,17 +170,11 @@ if(document.querySelector('.catalog__swiper')) {
     },
     on: {
       //Показать и скрыть кнопки при прокрутке
-      reachEnd: function () {
-        document.querySelector('.catalog-btn-next').style.display = 'none';
-      },
       fromEdge: function () {
         if(document.querySelector('.catalog-btn-next')) {
           document.querySelector('.catalog-btn-next').style.display = 'flex';
           document.querySelector('.catalog-btn-prev').style.display = 'flex';
         }
-      },
-      reachBeginning: function () {
-        document.querySelector('.catalog-btn-prev').style.display = 'none';
       },
     },
     breakpoints: {
@@ -196,6 +190,15 @@ if(document.querySelector('.catalog__swiper')) {
 
     
   });
+
+  if(document.querySelector('.catalog-btn-next')) {
+    sliderThumbs.on('reachEnd', () => {
+      document.querySelector('.catalog-btn-next').style.display = 'none';
+    })
+    sliderThumbs.on('reachBeginning', () => {
+      document.querySelector('.catalog-btn-prev').style.display = 'none';
+    })
+  }
   
   const catalogBtns = Array.from(document.querySelectorAll('.catalog__button'));
   let idx;
