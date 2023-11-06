@@ -45,9 +45,6 @@
       font-weight: 600;
       margin-bottom: 0.8rem;
     }
-    &-date {
-
-    }
   }
   &-btn-next,
   &-btn-prev {
@@ -60,5 +57,55 @@
   }
   &-btn-next {
     right: 4rem;
+  }
+}
+
+@media (max-width: 48em) {
+  .reviews {
+    margin-bottom: 20rem;
+    &__inner {
+      width: 100%;
+      display: block;
+      &-left {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      &-right {
+        position: relative;
+        width: 100%;
+        padding-bottom: 6.4rem;
+      }
+    }
+    &__title {
+      width: 38.2rem;
+      margin-bottom: 8rem;
+    }
+    &__text {
+      display: none;
+    }
+    &__slide {
+      padding: 6.4rem;
+      &-num {
+        margin-bottom: 4.8rem;
+      }
+      &-text {
+        width: 100%;
+        font-size: 2.8rem;
+        margin-bottom: 4.8rem;
+      }
+      &-name {
+        font-size: 3.2rem;
+        font-weight: 600;
+        margin-bottom: 1.6rem;
+      }
+    }
+    &-btn-next,
+    &-btn-prev {
+      display: none;
+    }
+    &-pagination {
+      bottom: 0;
+    }
   }
 }

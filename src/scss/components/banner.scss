@@ -95,3 +95,65 @@
     }
   }
 }
+
+@media (max-width: 48em) {
+  .banner {
+    margin-bottom: 20rem;
+    &__inner {
+    }
+  
+    &__swiper {
+      margin: 0;
+      &-wrapper {
+        width: 100%;
+        overflow: visible;
+      }
+    }
+    &__button {
+      width: 39rem;
+      text-align: center;
+    }
+    &-slide {
+      position: relative;
+      padding: 66.6rem 0 8rem;
+    
+      &__content {
+        position: relative;
+        z-index: 5;
+        margin: 4.2rem 2rem 0;
+      } 
+      &__title {
+        width: 100%;
+        margin-bottom: 4.8rem;
+      } 
+  
+      &__text {
+        width: 95%;
+        margin-bottom: 6.4rem;
+      }
+  
+      &__img {
+        width: 100%;
+        height: 66.6rem;
+      }
+    }
+    &-btn-next {
+      display: none;
+    }
+    &-progress {
+      background: transparent;
+      height: fit-content;
+      &.swiper-pagination-bullets {
+        bottom: 0;
+      }
+    }
+    &-btn {
+      display: none;
+    }
+    &__button {
+      padding: 2.7rem 5.1rem;
+      font-size: 2.8rem;
+      width: 100%;
+    }
+  }
+}

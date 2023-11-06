@@ -16,6 +16,8 @@ const entryPoints = {
   index: path.resolve(__dirname, "src", "index.js"),
   mainpage: path.resolve(__dirname, "src", "index.js"),
   about: path.resolve(__dirname, "src", "index.js"),
+  catalog: path.resolve(__dirname, "src", "index.js"),
+  detail_product: path.resolve(__dirname, "src", "index.js"),
 };
 
 // Создаем экземпляры HtmlWebpackPlugin для каждой страницы
@@ -86,7 +88,7 @@ module.exports = {
     //название js файла в билде
     // [name] - стандартный по вебпаку (main), [contenthash] - добавляептся хэш к названию
     filename: "[name][contenthash].js",
-    assetModuleFilename: "assets/images",
+    assetModuleFilename: "assets/images/*",
   },
 
   plugins: [

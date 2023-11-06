@@ -71,6 +71,49 @@
   }
 }
 
+.benefits-details {
+  margin-bottom: 22rem;
+  &__inner {
+    position: relative;
+    display: flex;
+    gap: 6rem;
+  }
+  &__title {
+    width: 48.7rem;
+  }
+  &__swiper {
+    width: 105.2rem;
+  }
+  &__slide {
+    width: 50.6rem;
+    padding: 3.2rem;
+    background: $light-grey;
+    &-num {
+      color: $blue;
+      margin-bottom: 9.2rem;
+    }
+    &-title {
+      font-weight: 500;
+      margin-bottom: 1.6rem;
+    }
+    &-text {
+      width: 43.8rem;
+    }
+  }
+  &-btn-prev,
+  &-btn-next {
+    top: unset;
+    bottom: 0;
+  }
+  &-btn-prev {
+    left: 0;
+  }
+  &-btn-next {
+    left: 10rem;
+  }
+}
+
+
 @media (max-width: 48em) {
   .benefits {
     &__inner {
