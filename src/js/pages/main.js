@@ -317,6 +317,16 @@ const slider9 = new Swiper('.product__images', {
   },
 });
 
+const slider10 = new Swiper('.benefits-details__swiper', {
+  slidesPerView: 2,
+  spaceBetween: rem(4),
+  speed: 1000,
+  navigation: {
+    nextEl: '.benefits-details-btn-next',
+    prevEl: '.benefits-details-btn-prev',
+  },
+});
+
 if(document.querySelector('.select')) {
   const select = new Choices('.select', {
     searchEnabled: false,

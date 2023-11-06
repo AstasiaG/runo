@@ -65,6 +65,89 @@
   }
 }
 
+.detail-prices {
+  margin-bottom: 22rem;
+  &__title {
+    width: 63rem;
+  }
+
+  &__text {
+    width: 63.7rem;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4rem;
+  }
+  &__item {
+    width: 50.6rem;
+    padding: 3.2rem 3.2rem 3rem;
+    background: $light-grey;
+    &-top {
+      display: flex;
+      gap: 4.6rem;
+      margin-bottom: 4rem;
+    }
+    &-logo {
+      width: 12.2rem;
+    }
+    &-name {
+
+    }
+    &-content {
+      padding-bottom: 3.2rem;
+      border-bottom: 0.1rem solid #DCDCDC;
+    }
+    &-title {
+      font-family: 'Gilroy';
+      font-size: 2.4rem;
+      font-weight: 600;
+      margin-bottom: 2.4rem;
+    }
+    &-feature {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1.6rem;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    .btn {
+      display: none;
+    }
+    &:hover {
+      background: #EAEAEA;
+      .btn {
+        display: flex;
+      }
+    }
+  }
+
+  &__item-cost {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    &-num {
+      font-family: 'Gilroy';
+      font-size: 5.2rem;
+      color: $blue;
+      font-weight: 500;
+      line-height: 125%;
+      & span {
+        font-size: 3.2rem;
+      }
+    }
+    &-wrap {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 3.2rem;
+    }
+  }
+}
+
+
 @media (max-width: 48em) {
   .prices {
     &__inner {
