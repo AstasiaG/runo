@@ -178,6 +178,9 @@
           & span {
             text-align: right;
           }
+          &-num {
+            color: $blue;
+          }
         }
       }
       &__button {
