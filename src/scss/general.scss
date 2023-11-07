@@ -239,6 +239,7 @@ form {
 .main {
   position: relative;
   width: 100%;
+  height: fit-content;
 }
 
 //buttons//
@@ -299,6 +300,11 @@ form {
     object-fit: contain;
     transform: rotate(-90deg);
   }
+}
+
+.sticky-btn {
+  position: sticky;
+  bottom: 22.7rem;
 }
 
 .swiper-button-next,

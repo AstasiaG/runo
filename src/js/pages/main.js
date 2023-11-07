@@ -32,12 +32,21 @@ $(".widget__icon").on("click",function () {
   $(this).toggleClass('active')
 });
 
+// window.addEventListener('scroll', function () {
+//   if (containerRect.top >= 988) {
+//     $('.banner__btn').addClass('sticky-btn');
+//   } else {
+//     $('.banner__btn').removeClass('sticky-btn');
+//   }
+// });
+
 //dropdown//
 
 $(".dropdown").find('.header__dropdown').hide();
 $(".dropdown").on("mouseenter",
   function () {
     clearTimeout(timer);
+    $(".dropdown").find('.header__dropdown').hide();
     $(this).find(".header__dropdown").show();
   })
 
@@ -125,10 +134,12 @@ const slider1 = new Swiper('.banner__swiper', {
 if(document.querySelector('.catalog__swiper')) {
     const slider7 = new Swiper('.catalog__slide-content-images', {
       slidesPerView: 'auto',
-      allowTouchMove: true,
-      whatchOverflow: true,
+      //allowTouchMove: true,
+      //noSwiping: false,
+      //noSwipingClass: 'catalog__slide',
       spaceBetween: rem(4),
       speed: 1000,
+      touchRatio: 2.0,
       breakpoints: {
         769: {
           slidesPerView: 'auto',
@@ -144,20 +155,31 @@ if(document.querySelector('.catalog__swiper')) {
   const slider2 = new Swiper('.catalog__swiper', {
     slidesPerView: 1,
     spaceBetween: rem(1),
-    allowTouchMove: false,
+    // allowTouchMove: false,
+    //noSwiping: true,
+    noSwipingClass: 'catalog__slide',
     effect: 'fade',
     fadeEffect: {
       crossFade: true
     },
     speed: 1000,
-    on: {
-      slideChangeTransitionStart: function () {
-        if(window.innerWidth < 769) {
-          slider7.allowTouchMove = true;
-        }
-      },
-    },
+    // on: {
+    //   slideChangeTransitionStart: function () {
+    //     if(window.innerWidth < 769) {
+    //       slider7.allowTouchMove = true;
+    //     }
+    //   },
+    // },
+    
   });
+
+  slider2.on('slideChangeTransitionEnd', function () {
+    // Проверьте, что текущий слайд родительского слайдера содержит вложенный слайдер
+    if (slider2.activeIndex === 0) {
+      // Если условие выполняется, инициализируйте вложенный слайдер
+      slider7.init();
+    }
+  })
   
   const sliderThumbs = new Swiper('.catalog__btns', {
     slidesPerView: 'auto',
@@ -249,7 +271,6 @@ const slider3 = new Swiper('.certificates__swiper', {
 const slider4 = new Swiper('.reviews__swiper', {
   slidesPerView: 1,
   spaceBetween: rem(1),
-  loop: true,
   speed: 1000,
   effect: 'fade',
   fadeEffect: {

@@ -1,6 +1,7 @@
 .banner {
   margin-bottom: 22rem;
   &__inner {
+    position: relative;
   }
 
   &__swiper {
@@ -68,11 +69,11 @@
     }
   }
   &-btn {
-    position: absolute;
-    left: unset;
-    right: 15rem;
-    z-index: 5;
-    transform: translate(0, -50%);
+    position: sticky;
+    top: unset;
+    bottom: 0;
+    left: 167.9rem;
+    z-index: 125;
   }
 }
 

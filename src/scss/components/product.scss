@@ -22,6 +22,9 @@
 
   &__thumbs {
     width: 100%;
+    &-wrapper {
+      position: relative;
+    }
     &-item {
       width: 18.2rem;
       height: 19.2rem;
@@ -32,7 +35,8 @@
       }
     }
     &-btn-next {
-      bottom: 6.5rem;
+      bottom: 50%;
+      transform: translateY(45%);
       top: unset;
       left: unset;
       right: -2rem
