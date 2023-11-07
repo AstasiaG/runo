@@ -2,10 +2,159 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
   <title>Document</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css">
 </head>
 <body>
-  
+  <include src="./components/header.html"></include>
+  <main>
+    <section class="services-page">
+      <div class="container">
+        <div class="breadcrumbs">
+          <a class="breadcrumbs__link" href="">Главная</a>
+          <span class="breadcrumbs__current">Услуги</span>
+        </div>
+        <div class="services-page__title heading">Услуги</div>
+        <div class="services-page__items">
+          <div class="services-page__item">
+            <div class="services-page__item-img">
+              <img src="./assets/images/services-page1.webp" alt="">
+            </div>
+            <div class="services-page__item-content">
+              <div class="services-page__item-title title">Замер натяжного потолка</div>
+              <div class="services-page__item-text text">
+                Натяжной потолок - это конструкция, позволяющая получить идеально ровное и гладкое 
+                покрытие, которое прослужит десятками лет.  Однако добиться такого результата можно 
+                только при правильном изготовлении и подготовке натяжного полотна к установке. Важно, 
+                чтобы форма полотна и его размеры полностью совпадали с потолком. Для этого необходимо 
+                точно выполнить замеры помещения, по которым будет построен чертеж.
+              </div>
+              <a class="btn" href="#">
+                <span>Подробнее</span>
+                <div>
+                  <img src="./assets/images/icons/arrow-white.svg" alt="">
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="services-page__item">
+            <div class="services-page__item-img">
+              <img src="./assets/images/services-page2.webp" alt="">
+            </div>
+            <div class="services-page__item-content">
+              <div class="services-page__item-title title">Монтаж натяжного потолка</div>
+              <div class="services-page__item-text text">
+                Натяжной потолок - это конструкция, позволяющая получить идеально ровное и гладкое 
+                покрытие, которое прослужит десятками лет.  Однако добиться такого результата можно 
+                только при правильном изготовлении и подготовке натяжного полотна к установке. Важно, 
+                чтобы форма полотна и его размеры полностью совпадали с потолком. Для этого необходимо 
+                точно выполнить замеры помещения, по которым будет построен чертеж.
+              </div>
+              <a class="btn" href="#">
+                <span>Подробнее</span>
+                <div>
+                  <img src="./assets/images/icons/arrow-white.svg" alt="">
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="services-page__item">
+            <div class="services-page__item-img">
+              <img src="./assets/images/services-page3.webp" alt="">
+            </div>
+            <div class="services-page__item-content">
+              <div class="services-page__item-title title">Ремонт натяжного потолка</div>
+              <div class="services-page__item-text text">
+                Натяжной потолок - это конструкция, позволяющая получить идеально ровное и гладкое 
+                покрытие, которое прослужит десятками лет.  Однако добиться такого результата можно 
+                только при правильном изготовлении и подготовке натяжного полотна к установке. Важно, 
+                чтобы форма полотна и его размеры полностью совпадали с потолком. Для этого необходимо 
+                точно выполнить замеры помещения, по которым будет построен чертеж.
+              </div>
+              <a class="btn" href="#">
+                <span>Подробнее</span>
+                <div>
+                  <img src="./assets/images/icons/arrow-white.svg" alt="">
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+`   </section>
+
+    <section class="application" id="application">
+      <div class="container">
+        <div class="application__inner">
+          <div class="application__form">
+            <div class="application__title title">Оставьте заявку</div>
+            <div class="application__text text">Хотите узнать стоимость и заказать самый ровный натяжной потолок? Оставьте ваш номер телефона, вам перезвонит наш специалист</div>
+            <form>
+              <label class="form__input">
+                <span>Имя</span>
+                <input type="text" placeholder="Введите ваше имя" required>
+              </label>
+              <label class="form__input">
+                <span>Номер телефона</span>
+                <input class='phone-mask' type="text" placeholder="+7 (9__) ___ __ __" required>
+              </label>
+              <button class="application__form-button button" type="submit">Оставить заявку</button>
+            </form>
+          </div>
+          <div class="application__content">
+            <div class="application__content-title title-sm">Контактная информация</div>
+            <div class="application__content-contacts">
+              <div class="application__content-phone phone__block">
+                <a class="phone__block-num" href="#">
+                  <div class="phone__block-num-icon">
+                    <img src="./assets/images/icons/phone.svg" alt="">
+                  </div>
+                  8 (800) 301-07-90
+                </a>
+                <span class="phone__block-text text">круглосуточно без выходных</span>
+              </div>
+              <a class="application__content-mail mail__block" href="#">
+                <div class="mail__block-icon">
+                  <img src="./assets/images/icons/mail.svg" alt="">
+                </div>
+                email@mail.ru
+              </a>
+              <a class="application__content-address address__block" href="#">
+                <div class="address__block-icon">
+                  <img src="./assets/images/icons/map.svg" alt="">
+                </div>
+                6689078, г. Москва, ул. Московская, д. 1, офис 204
+              </a>
+            </div>
+            <div class="application__content-socials">
+              <div class="application__content-title title-sm">Или напишите нам:</div>
+              <div class="application__content-socials-links">
+                <a class="application__content-socials-link" href="#">
+                  <img src="./assets/images/icons/telegram.svg" alt="">
+                </a>
+                <a class="application__content-socials-link" href="#">
+                  <img src="./assets/images/icons/whatsapp.svg" alt="">
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="application__image">
+            <img src="./assets/images/main-application.webp" alt="">
+          </div>
+        </div>
+      </div>
+    </section>
+    <button class="banner-btn btn" type="button">
+      <div>
+        <img src="./assets/images/icons/whatsapp-white.svg" alt="">
+      </div>
+    </button>
+    <include src="./components/widget.html"></include>
+    <button class="btn-up" type="button">
+      <img src="./assets/images/icons/arrow-white.svg" alt="">
+    </button>
+  </main>
+  <include src="./components/footer.html"></include>
 </body>
 </html>
