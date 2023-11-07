@@ -8,7 +8,7 @@
 </head>
 <body>
   <include src="./components/header.html"></include>
-  <main>
+  <main class="main">
     <section class="banner">
       <div class="banner__inner">
         <div class="banner__swiper swiper">
@@ -51,13 +51,9 @@
           </button>
           <div class="banner-progress swiper-pagination"></div>
         </div>
-        <button class="banner-btn btn" type="button">
-          <div>
-            <img src="./assets/images/icons/whatsapp-white.svg" alt="">
-          </div>
-        </button>
       </div>
     </section>
+
     <section class="catalog">
       <div class="container">
         <div class="catalog__inner">
@@ -619,7 +615,15 @@
 
     <section class="questions">
       <div class="container">
-        <div class="questions__title title">Вопрос-ответ</div>
+        <div class="title-wrap">
+          <div class="questions__title title">Вопрос-ответ</div>
+          <a class="btn" href="#">
+            <span>Перейти в раздел</span>
+            <div>
+              <img src="./assets/images/icons/arrow-white.svg" alt="">
+            </div>
+          </a>
+        </div>
         <div class="questions__content">
           <div class="questions__item">
             <div class="questions__item-heading">
@@ -928,31 +932,13 @@
       </div>
     </section>
 
-    <div class="widget">
-      <div class="widget__icon">
-        <img src="./assets/images/icons/cross.svg" alt="">
+    <button class="banner-btn btn" type="button">
+      <div>
+        <img src="./assets/images/icons/whatsapp-white.svg" alt="">
       </div>
-      <div class="widget__content">
-        <a class="widget__content-item" href="#calculator">
-          <div class="widget__content-item-icon">
-            <img src="./assets/images/icons/calculator.svg" alt="">
-          </div>
-          <div class="widget__content-item-text">Калькулятор расчета стоимости</div>
-        </a>
-        <a class="widget__content-item" href="#application">
-          <div class="widget__content-item-icon">
-            <img src="./assets/images/icons/ruler.svg" alt="">
-          </div>
-          <div class="widget__content-item-text">Вызвать замерщика</div>
-        </a>
-        <a class="widget__content-item" href="#">
-          <div class="widget__content-item-icon">
-            <img src="./assets/images/icons/arrow-white.svg" alt="">
-          </div>
-          <div class="widget__content-item-text">Наверх</div>
-        </a>
-      </div>
-    </div>
+    </button>
+
+    <include src="./components/widget.html"></include>
   </main>
   <footer class="footer">
     <div class="footer__inner">
