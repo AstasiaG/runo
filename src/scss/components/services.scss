@@ -42,3 +42,42 @@
     }
   }
 }
+
+.services-page {
+  margin-bottom: 22rem;
+  &__title {
+    margin-bottom: 10rem;
+  }
+
+  &__items {
+
+  }
+  &__item {
+    display: flex;
+    margin-bottom: 4rem;
+    &-img {
+      width: 50.7rem;
+      margin-right: 4rem;
+      & img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+    &-content {
+      width: 105.3rem;
+      padding: 6rem 15rem 10.4rem 6rem;
+      background: $light-grey;
+    }
+    &-title {
+      margin-bottom: 6rem;
+    }
+    &-text {
+      width: 75.4rem;
+      margin-bottom: 6rem;
+    }
+    &:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+  }
+}
