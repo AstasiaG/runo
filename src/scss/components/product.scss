@@ -44,7 +44,13 @@
       transform: translateY(45%);
       top: unset;
       left: unset;
-      right: -2rem
+      right: -2rem;
+    }
+    &-btn-prev {
+      bottom: 50%;
+      transform: translateY(45%);
+      top: unset;
+      left: 0;
     }
   }
 

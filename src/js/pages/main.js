@@ -16,6 +16,13 @@ const rem = function (rem) {
 const mask = new Inputmask('+7 (999) 999 99 99');
 mask.mask($('.phone-mask'));
 
+$(function () {
+  $(".before-after").twentytwenty({
+    move_slider_on_hover: true,
+  });
+  
+});
+
 $(".questions__item").each(function () {
   let hide = $(this).find('.questions__item-text');
   hide.hide();
@@ -474,12 +481,20 @@ const slider11 = new Swiper('.modal-thumbs__swiper', {
   speed: 1000,
 });
 
+
 const closeBtn = document.querySelector('.modal__close');
+const closeBtn2 = document.querySelector('.modal2__close');
 let slider = document.querySelector('.modal')
+let sliderTwo = document.querySelector('.modal2')
 let index;
 if(closeBtn) {
   closeBtn.addEventListener('click', () => {
     slider.classList.remove('active');
+  })
+}
+if(closeBtn2) {
+  closeBtn2.addEventListener('click', () => {
+    sliderTwo.classList.remove('active');
   })
 }
 
@@ -492,7 +507,7 @@ const slider12 = new Swiper('.modal__swiper', {
     prevEl: '.modal-btn-prev',
   },
   pagination: {
-    el: '.modal-pagination',
+    el: '.modal-pagination .total',
     type: 'custom',
         renderCustom: function (swiper, current, total) {
           let totalRes2 = total >= 10 ? total : `/0${total}`;
@@ -504,13 +519,77 @@ const slider12 = new Swiper('.modal__swiper', {
   },
 });
 
+let current3 = document.querySelector('.modal-pagination .current');
+console.log(current3)
+slider12.on('slideChange', function () {
+  let ind2 = slider12.realIndex + 1;
+  let indRes2 = ind2 >= 10 ? ind2 : `0${ind2}`;
+    current3.innerText = indRes2; // Используйте .text() для изменения текста
+});
+
 document.addEventListener('click', (el) => {
   const modal = document.querySelector('.modal__wrapper');
+  const modal2 = document.querySelector('.modal2__wrapper');
   const notSlider = el.composedPath().includes(modal);
   const notModal = el.composedPath().includes(slider);
+  const notSlider2 = el.composedPath().includes(modal2);
+  const notModal2 = el.composedPath().includes(sliderTwo);
+    if(sliderTwo.className.includes('active')) {
+      if(notModal2 && !notSlider2){
+        sliderTwo.classList.remove('active');
+      }
+    }
     if(slider.className.includes('active')) {
       if(notModal && !notSlider){
         slider.classList.remove('active');
+      }
+    }
+})
+
+
+
+const slider13 = new Swiper('.modal-thumbs2__swiper', {
+  slidesPerView: 4,
+  spaceBetween: rem(2),
+  speed: 1000,
+});
+
+const slider14 = new Swiper('.modal2__swiper', {
+  slidesPerView: 1,
+  spaceBetween: rem(4),
+  speed: 1000,
+  navigation: {
+    nextEl: '.modal2-btn-next',
+    prevEl: '.modal2-btn-prev',
+  },
+  pagination: {
+    el: '.modal2-pagination .total',
+    type: 'custom',
+        renderCustom: function (swiper, current, total) {
+          let totalRes2 = total >= 10 ? total : `/0${total}`;
+          return totalRes2;
+        },
+  },
+  thumbs: {
+    swiper: slider13,
+  },
+});
+
+let current4 = document.querySelector('.modal2-pagination .current');
+
+slider14.on('slideChange', function () {
+  let ind2 = slider14.realIndex + 1;
+  let indRes2 = ind2 >= 10 ? ind2 : `0${ind2}`;
+    current4.innerText = indRes2; // Используйте .text() для изменения текста
+});
+
+document.addEventListener('click', (el) => {
+  const modal = document.querySelector('.modal__wrapper');
+  const notSlider = el.composedPath().includes(modal);
+  const notModal = el.composedPath().includes(sliderTwo);
+    if(sliderTwo.className.includes('active')) {
+      if(notModal && !notSlider){
+        sliderTwo.classList.remove('active');
       }
     }
 })
@@ -552,15 +631,6 @@ const slider3 = new Swiper('.certificates__swiper', {
     },
   }
 });
-
-let current3 = $(".modal-pagination .current");
-
-slider12.on('slideChange', function () {
-  let ind2 = slider12.realIndex + 1,
-    indRes2 = ind2 >= 10 ? ind2 : `0${ind2}`;
-  current3.text(indRes2); // Используйте .text() для изменения текста
-});
-
 
 if(document.querySelector('.select')) {
   const select = new Choices('.select', {
