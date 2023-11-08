@@ -152,6 +152,17 @@ form {
       line-height: 150%;
       color: $grey;
     }
+    &.invalid {
+      border: 0.2rem solid #C72E37;
+      color: #C72E37;
+    }
+  }
+  .error {
+    display: none;
+    font-family: 'Gilroy';
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: #C72E37;
   }
 }
 

@@ -148,9 +148,10 @@
         overflow: visible;
       }
       &__slide {
-        display: flex;
+        display: none;
         flex-wrap: wrap;
         gap: 4rem;
+        animation: fade-in 0.5s ease-in-out;
         &-item {
           width: 50.6rem;
           background: $light-grey;
@@ -181,6 +182,10 @@
           &-num {
             color: $blue;
           }
+        }
+        &.active {
+          display: flex;
+          animation: fade-in 0.5s ease-in-out;
         }
       }
       &__button {
@@ -253,6 +258,23 @@
       background-size: contain;
       border: 0;
     }
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }
 

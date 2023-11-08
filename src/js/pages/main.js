@@ -39,6 +39,32 @@ $(".widget__icon").on("click",function () {
 //     $('.banner__btn').removeClass('sticky-btn');
 //   }
 // });
+$('.steps__content-item').each(function () {
+  let hide = $(this).find('.steps__content-item-img');
+  hide.hide();
+  if($(this).hasClass('active')) {
+    $(this).find('.steps__content-item-img').show();
+  }
+  $(this).on("click",function () {
+    $(".header__dropdown-catalog-item").each(function () {
+      $(this).find('.header__dropdown-catalog-content').hide();
+      $(this).removeClass('active')
+    })
+    hide.show();
+    $(this).addClass('active')
+  });
+})
+
+$('.steps__content-item').on("mouseenter",
+  function () {
+    $('.steps__content-item').find('.steps__content-item-img').hide(200);
+    $(this).find(".steps__content-item-img").show(200);
+  })
+
+$(".steps__content-item").on("mouseleave", function () {
+  $(this).find(".steps__content-item-img").hide(200);
+  }
+);
 
 //dropdown//
 
@@ -98,6 +124,163 @@ $('.btn-up').on("click", function() {
   window.scrollTo(0, 0); 
 });
 
+//validation//
+
+// function formFieldsInit() {
+//   const formFields = $('input[placeholder]');
+  
+//   if (formFields.length) {
+//     formFields.each(function() {
+//       if (!$(this).is('[data-placeholder-nohide]')) {
+//         $(this).data('placeholder', $(this).attr('placeholder'));
+//       }
+//     });
+//   }
+  
+//   $('body').on('focusin', function(e) {
+//     const targetElement = $(e.target);
+//     if (targetElement.is('input')) {
+//       if (targetElement.data('placeholder')) {
+//         targetElement.attr('placeholder', '');
+//       }
+
+//       // Добавьте здесь логику валидации
+//       if (targetElement.is('[data-validate]')) {
+//         validateInput(targetElement);
+//       }
+//     }
+//   });
+  
+//   $('body').on('focusout', function(e) {
+//     const targetElement = $(e.target);
+//     if (targetElement.is('input')) {
+//       if (targetElement.data('placeholder')) {
+//         targetElement.attr('placeholder', targetElement.data('placeholder'));
+//       }
+//     }
+//   });
+
+//   // Функция для валидации поля
+//   function validateInput(input) {
+//     const value = input.val().trim();
+//     const fieldName = input.attr('name');
+
+//     if (fieldName === 'name' && value.length === 0) {
+//       // Если поле имени пустое, добавьте класс ошибки
+//       input.addClass('invalid');
+//       input.closest('label').find('.error').show();
+//       // Добавьте сообщение об ошибке (если необходимо)
+//       // Подход к валидации может зависеть от ваших требований
+//     } else if (fieldName === 'phone' && value.length === 0) {
+//       // Если поле телефона не соответствует правильному формату, добавьте класс ошибки
+//       input.addClass('invalid');
+//       input.closest('label').find('.error').show();
+//       // Добавьте сообщение об ошибке (если необходимо)
+//     } else {
+//       // Если поле прошло валидацию, уберите класс ошибки (если он был)
+//       input.removeClass('invalid');
+//       input.closest('label').find('.error').hide();
+//       // Удалите сообщение об ошибке (если было)
+//     }
+//   }
+// }
+
+// formFieldsInit();
+let formValidate = {
+  getErrors(form) {
+    let error = 0;
+    let formRequiredItems = form.querySelectorAll('*[data-required]');
+    if (formRequiredItems.length) {
+      formRequiredItems.forEach(formRequiredItem => {
+        if (
+          (formRequiredItem.offsetParent !== null ||
+            formRequiredItem.tagName === 'SELECT') &&
+          !formRequiredItem.disabled
+        ) {
+          error += this.validateInput(formRequiredItem);
+        }
+      });
+    }
+    return error;
+  },
+  validateInput(formRequiredItem) {
+    let error = 0;
+    if (formRequiredItem.dataset.required === 'email') {
+      formRequiredItem.value = formRequiredItem.value.replace(' ', '');
+      if (this.emailTest(formRequiredItem)) {
+        this.addError(formRequiredItem);
+        error++;
+      } else {
+        this.removeError(formRequiredItem);
+      }
+    } else if (
+      formRequiredItem.type === 'checkbox' &&
+      !formRequiredItem.checked
+    ) {
+      this.addError(formRequiredItem);
+      error++;
+    } else {
+      if (!formRequiredItem.value.trim()) {
+        this.addError(formRequiredItem);
+        error++;
+      } else {
+        this.removeError(formRequiredItem);
+      }
+    }
+    return error;
+  },
+  addError(formRequiredItem) {
+    formRequiredItem.classList.add('.error');
+    formRequiredItem.parentElement.classList.add('.error');
+    let inputError =
+      formRequiredItem.parentElement.querySelector('.error');
+    if (inputError) formRequiredItem.parentElement.removeChild(inputError);
+    if (formRequiredItem.dataset.error) {
+      formRequiredItem.parentElement.insertAdjacentHTML(
+        'beforeend',
+        `<span class="error">${formRequiredItem.dataset.error}</span>`
+      );
+    }
+  },
+  removeError(formRequiredItem) {
+    formRequiredItem.classList.remove('.error');
+    formRequiredItem.parentElement.classList.remove('.error');
+    if (formRequiredItem.parentElement.querySelector('.error')) {
+      formRequiredItem.parentElement.removeChild(
+        formRequiredItem.parentElement.querySelector('.error')
+      );
+    }
+  },
+}
+
+//video-control//
+
+$('.banner-zamer__video-control').on("click", function() {
+  let video = $('.banner-zamer__video').find('.video')[0];
+  if (video.paused) {
+    video.play();
+    $(this).find('.banner-zamer__video-control').hide();
+  } 
+  if(!video.paused || video.ended) {
+    video.pause();
+    $(this).find('.banner-zamer__video-control').show();
+  }
+});
+
+//tabs//
+
+$('.catalog__button').on('click', function() {
+  let id = $(this).attr('data-tab');
+  let content = $('.catalog__slide[data-tab="'+ id +'"]');
+  
+  $('.catalog__button.active').removeClass('active'); // 1
+  $(this).addClass('active'); // 2
+  
+  $('.catalog__slide').removeClass('active'); // 3
+  content.addClass('active'); // 4
+});
+
+
 //sliders//
 
 const slider1 = new Swiper('.banner__swiper', {
@@ -152,34 +335,34 @@ if(document.querySelector('.catalog__swiper')) {
       },
     });
 
-  const slider2 = new Swiper('.catalog__swiper', {
-    slidesPerView: 1,
-    spaceBetween: rem(1),
-    // allowTouchMove: false,
-    //noSwiping: true,
-    noSwipingClass: 'catalog__slide',
-    effect: 'fade',
-    fadeEffect: {
-      crossFade: true
-    },
-    speed: 1000,
-    // on: {
-    //   slideChangeTransitionStart: function () {
-    //     if(window.innerWidth < 769) {
-    //       slider7.allowTouchMove = true;
-    //     }
-    //   },
-    // },
+  // const slider2 = new Swiper('.catalog__swiper', {
+  //   slidesPerView: 1,
+  //   spaceBetween: rem(1),
+  //   // allowTouchMove: false,
+  //   //noSwiping: true,
+  //   noSwipingClass: 'catalog__slide',
+  //   effect: 'fade',
+  //   fadeEffect: {
+  //     crossFade: true
+  //   },
+  //   speed: 1000,
+  //   // on: {
+  //   //   slideChangeTransitionStart: function () {
+  //   //     if(window.innerWidth < 769) {
+  //   //       slider7.allowTouchMove = true;
+  //   //     }
+  //   //   },
+  //   // },
     
-  });
+  // });
 
-  slider2.on('slideChangeTransitionEnd', function () {
-    // Проверьте, что текущий слайд родительского слайдера содержит вложенный слайдер
-    if (slider2.activeIndex === 0) {
-      // Если условие выполняется, инициализируйте вложенный слайдер
-      slider7.init();
-    }
-  })
+  // slider2.on('slideChangeTransitionEnd', function () {
+  //   // Проверьте, что текущий слайд родительского слайдера содержит вложенный слайдер
+  //   if (slider2.activeIndex === 0) {
+  //     // Если условие выполняется, инициализируйте вложенный слайдер
+  //     slider7.init();
+  //   }
+  // })
   
   const sliderThumbs = new Swiper('.catalog__btns', {
     slidesPerView: 'auto',
@@ -222,19 +405,19 @@ if(document.querySelector('.catalog__swiper')) {
     })
   }
   
-  const catalogBtns = Array.from(document.querySelectorAll('.catalog__button'));
-  let idx;
+  // const catalogBtns = Array.from(document.querySelectorAll('.catalog__button'));
+  // let idx;
   
-  catalogBtns.forEach(e => {
-    e.addEventListener('click', () => {
-      for(let i = 0; i < catalogBtns.length;i++){
-        catalogBtns[i].classList.remove('active');
-      }
-      e.classList.add('active');
-      idx = catalogBtns.indexOf(e);
-      slider2.slideTo(idx);
-    })
-  })
+  // catalogBtns.forEach(e => {
+  //   e.addEventListener('click', () => {
+  //     for(let i = 0; i < catalogBtns.length;i++){
+  //       catalogBtns[i].classList.remove('active');
+  //     }
+  //     e.classList.add('active');
+  //     idx = catalogBtns.indexOf(e);
+  //     slider2.slideTo(idx);
+  //   })
+  // })
   
   //sliderThumbs.controller.control = slider2;
 }

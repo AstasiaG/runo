@@ -71,6 +71,7 @@
           width: 100%;
           position: relative;
           padding: 6rem 0 5rem;
+          transition: all 0.3s ease-in-out;
           &-num {
             margin-right: 35.9rem;
           }
@@ -91,9 +92,23 @@
               height: 100%;
             }
           }
+          &:hover {
+            color: $blue;
+            .steps__content-item-num,
+            .steps__content-item-text {
+              color: $blue;
+            }
+          }
+          &:last-child {
+            border-bottom: 0.1rem solid #DCDCDC;
+          }
+          &:first-child {
+            border-top: 0.1rem solid #DCDCDC;
+          }
         }
         &-list {
           width: 100%;
+          row-gap: 0;
         }
       }
     }
