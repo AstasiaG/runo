@@ -25,10 +25,12 @@
         flex-direction: column;
         background-color: $light-grey;
         transition: background-color 0.2s ease-in-out;
+
         svg {
             width: 4.4rem;
             height: 4.4rem;
         }
+
         &:hover {
             background-color: $dies;
         }
@@ -52,8 +54,6 @@
         margin-top: 2.4rem;
     }
 
-    // .contacts__text 
-    &__text {}
 
     // .contacts__link 
     &__link {
@@ -67,24 +67,100 @@
     }
 }
 
-.contacts-page{
+.contacts-page {
 
-    .application{
+    .application {
         margin-top: 20rem;
     }
 
-    .application__left-side{
+    .application__left-side {
         margin-top: 2rem;
         width: 100%;
         max-width: 64rem;
     }
 
-    .application__inner{
+    .application__inner {
         align-items: space-between;
     }
 
-    .application__form{
+    .application__form {
         background-color: $light-grey;
         padding: 6rem;
+    }
+}
+
+@media (max-width: 48em) {
+    .contacts {
+
+        // .contacts__title 
+        &__title {}
+
+        // .contacts__wrapper 
+        &__wrapper {
+            margin-top: 8.8rem;
+        }
+
+        // .contacts__list 
+        &__list {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        // .contacts__item 
+        &__item {
+            padding: 6.6rem;
+            width: 71rem;
+            align-items: center;
+
+            svg {
+                width: 6.4rem;
+                height: 6.4rem;
+            }
+        }
+
+        // .contacts__title-h4 
+        &__title-h4 {
+            font-size: 3.2rem;
+        }
+
+        // .contacts__item-bottom 
+        &__item-bottom {
+            align-items: center
+        }
+
+
+        // .contacts__text 
+        &__text {
+            text-align: center;
+        }
+
+        // .contacts__link 
+        &__link {
+            color: $blue;
+            font-size: 3.2rem;
+        }
+    }
+
+    .contacts-page {
+
+        .application {
+            margin-top: 8rem;
+        }
+
+        .application__left-side {
+            margin-top: 10rem;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .application__inner {
+            align-items: space-between;
+        }
+
+        .application__form {
+            background-color: transparent;
+            padding: 0;
+        }
     }
 }
