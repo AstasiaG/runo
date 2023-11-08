@@ -21,6 +21,7 @@ const entryPoints = {
   services: path.resolve(__dirname, "src", "index.js"),
   services_zamer: path.resolve(__dirname, "src", "index.js"),
   "our-works": path.resolve(__dirname, "src", "index.js"),
+  contacts: path.resolve(__dirname, "src", "index.js"),
 };
 
 // Создаем экземпляры HtmlWebpackPlugin для каждой страницы
