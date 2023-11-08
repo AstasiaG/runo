@@ -852,14 +852,16 @@
           <div class="application__form">
             <div class="application__title title">Оставьте заявку</div>
             <div class="application__text text">Хотите узнать стоимость и заказать самый ровный натяжной потолок? Оставьте ваш номер телефона, вам перезвонит наш специалист</div>
-            <form>
-              <label class="form__input">
+            <form data-dev>
+              <label class="form__input" data-validate>
                 <span>Имя</span>
-                <input type="text" placeholder="Введите ваше имя" required>
+                <input type="text" name="form[]" data-error="Заполните поле" placeholder="Введите ваше имя" minlength="2" maxlength="32">
+                <span class="error">Необходимо ввести числовое значение</span>
               </label>
               <label class="form__input">
                 <span>Номер телефона</span>
-                <input class='phone-mask' type="text" placeholder="+7 (9__) ___ __ __" required>
+                <input class='phone-mask' name="form[]" data-error="Заполните поле" type="text" placeholder="+7 (9__) ___ __ __">
+                <span class="error">Необходимо ввести числовое значение</span>
               </label>
               <button class="application__form-button button" type="submit">Оставить заявку</button>
             </form>
