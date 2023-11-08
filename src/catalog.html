@@ -24,7 +24,7 @@
               </svg>
             </button>
             <div class="swiper-wrapper">
-              <button class="catalog__button button swiper-slide" type="button">Все</button>
+              <button class="catalog__button button swiper-slide" type="button" data-tab="all">Все</button>
               <select class="select-filter swiper-slide">
                 <option>Тип помещения</option>
                 <option>Кухня</option>
@@ -34,12 +34,12 @@
                 <option>Спальня</option>
                 <option>Спальня</option>
               </select>
-              <button class="catalog__button button swiper-slide" type="button">С подсветкой</button>
-              <button class="catalog__button button active swiper-slide" type="button">Материал</button>
-              <button class="catalog__button button swiper-slide" type="button">По конструкции</button>
-              <button class="catalog__button button swiper-slide" type="button">Дизайн</button>
-              <button class="catalog__button button swiper-slide" type="button">Освещение</button>
-              <button class="catalog__button button swiper-slide" type="button">Производители</button>
+              <button class="catalog__button button swiper-slide" type="button" data-tab="1">С подсветкой</button>
+              <button class="catalog__button button active swiper-slide" type="button" data-tab="2">Материал</button>
+              <button class="catalog__button button swiper-slide" type="button" data-tab="3">По конструкции</button>
+              <button class="catalog__button button swiper-slide" type="button" data-tab="4">Дизайн</button>
+              <button class="catalog__button button swiper-slide" type="button" data-tab="5">Освещение</button>
+              <button class="catalog__button button swiper-slide" type="button" data-tab="6">Производители</button>
             </div>
             <button class="catalog-btn-next btn-next swiper-button-next" type="button">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -47,9 +47,9 @@
               </svg>
             </button>
           </div>
-          <div class="catalog__swiper swiper">
-            <div class="catalog__swiper-wrap swiper-wrapper">
-              <div class="catalog__slide swiper-slide">
+          <div class="catalog__swiper">
+            <div class="catalog__swiper-wrap">
+              <div class="catalog__slide" data-tab="all">
                 <div class="catalog__slide-item">
                   <div class="catalog__slide-img">
                     <img src="./assets/images/main-examples1.webp" alt="">
@@ -96,7 +96,7 @@
                   </div>
                 </div>
               </div>
-              <div class="catalog__slide swiper-slide">
+              <div class="catalog__slide" data-tab="1">
                 <div class="catalog__slide-item">
                   <div class="catalog__slide-img">
                     <img src="./assets/images/main-examples1.webp" alt="">
@@ -143,7 +143,7 @@
                   </div>
                 </div>
               </div>
-              <div class="catalog__slide swiper-slide">
+              <div class="catalog__slide active" data-tab="2">
                 <div class="catalog__slide-item">
                   <div class="catalog__slide-img">
                     <img src="./assets/images/main-examples1.webp" alt="">
@@ -190,7 +190,7 @@
                   </div>
                 </div>
               </div>
-              <div class="catalog__slide swiper-slide">
+              <div class="catalog__slide" data-tab="3">
                 <div class="catalog__slide-item">
                   <div class="catalog__slide-img">
                     <img src="./assets/images/main-examples1.webp" alt="">
@@ -206,6 +206,24 @@
                   </div>
                   <div class="catalog__slide-bottom">
                     <div class="title-sm">Глянцевые</div>
+                    <div class="catalog__slide-bottom-num title-sm">от 390<span>₽/м<sup>2</sup></span></div>
+                  </div>
+                </div>
+                <div class="catalog__slide-item">
+                  <div class="catalog__slide-img">
+                    <img src="./assets/images/main-examples1.webp" alt="">
+                  </div>
+                  <div class="catalog__slide-bottom">
+                    <div class="title-sm">Сатиновые</div>
+                    <div class="catalog__slide-bottom-num title-sm">от 390<span>₽/м<sup>2</sup></span></div>
+                  </div>
+                </div>
+                <div class="catalog__slide-item">
+                  <div class="catalog__slide-img">
+                    <img src="./assets/images/main-examples1.webp" alt="">
+                  </div>
+                  <div class="catalog__slide-bottom">
+                    <div class="title-sm">Сатиновые</div>
                     <div class="catalog__slide-bottom-num title-sm">от 390<span>₽/м<sup>2</sup></span></div>
                   </div>
                 </div>
@@ -237,7 +255,7 @@
                   </div>
                 </div>
               </div>
-              <div class="catalog__slide swiper-slide">
+              <div class="catalog__slide" data-tab="4">
                 <div class="catalog__slide-item">
                   <div class="catalog__slide-img">
                     <img src="./assets/images/main-examples1.webp" alt="">
@@ -256,12 +274,14 @@
                     <div class="catalog__slide-bottom-num title-sm">от 390<span>₽/м<sup>2</sup></span></div>
                   </div>
                 </div>
+              </div>
+              <div class="catalog__slide" data-tab="5">
                 <div class="catalog__slide-item">
                   <div class="catalog__slide-img">
                     <img src="./assets/images/main-examples1.webp" alt="">
                   </div>
                   <div class="catalog__slide-bottom">
-                    <div class="title-sm">Сатиновые</div>
+                    <div class="title-sm">Матовые</div>
                     <div class="catalog__slide-bottom-num title-sm">от 390<span>₽/м<sup>2</sup></span></div>
                   </div>
                 </div>
@@ -270,16 +290,7 @@
                     <img src="./assets/images/main-examples1.webp" alt="">
                   </div>
                   <div class="catalog__slide-bottom">
-                    <div class="title-sm">Тканевые</div>
-                    <div class="catalog__slide-bottom-num title-sm">от 390<span>₽/м<sup>2</sup></span></div>
-                  </div>
-                </div>
-                <div class="catalog__slide-item">
-                  <div class="catalog__slide-img">
-                    <img src="./assets/images/main-examples1.webp" alt="">
-                  </div>
-                  <div class="catalog__slide-bottom">
-                    <div class="title-sm">Фактурные</div>
+                    <div class="title-sm">Глянцевые</div>
                     <div class="catalog__slide-bottom-num title-sm">от 390<span>₽/м<sup>2</sup></span></div>
                   </div>
                 </div>
