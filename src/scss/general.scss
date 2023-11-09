@@ -163,7 +163,11 @@ form {
     font-size: 1.4rem;
     font-weight: 400;
     color: #C72E37;
+    &.active {
+      display: block;
+    }
   }
+  
 }
 
 //select//

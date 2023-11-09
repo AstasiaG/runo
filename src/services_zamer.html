@@ -13,7 +13,8 @@
       <div class="container">
         <div class="breadcrumbs">
           <a class="breadcrumbs__link" href="">Главная</a>
-          <span class="breadcrumbs__current">Услуги</span>
+          <a class="breadcrumbs__link" href="">Услуги</a>
+          <span class="breadcrumbs__current">Замер</span>
         </div>
         <div class="title-wrap">
           <div class="banner-services-detail__title heading">Замер помещения</div>
@@ -182,14 +183,16 @@
           <div class="application__form">
             <div class="application__title title">Оставьте заявку</div>
             <div class="application__text text">Хотите узнать стоимость и заказать самый ровный натяжной потолок? Оставьте ваш номер телефона, вам перезвонит наш специалист</div>
-            <form>
+            <form class="application__form">
               <label class="form__input">
                 <span>Имя</span>
-                <input type="text" placeholder="Введите ваше имя" minlength="2" maxlength="32" required>
+                <input class='name' type="text" name="name" placeholder="Введите ваше имя" pattern="\D+" minlength="3" maxlength="32">
+                <span class="error">Необходимо ввести числовое значение</span>
               </label>
               <label class="form__input">
                 <span>Номер телефона</span>
-                <input class='phone-mask' type="text" placeholder="+7 (9__) ___ __ __" required>
+                <input class='phone-mask' name="phone"  type="text" placeholder="+7 (9__) ___ __ __">
+                <span class="error">Необходимо ввести числовое значение</span>
               </label>
               <button class="application__form-button button" type="submit">Оставить заявку</button>
             </form>
@@ -233,29 +236,6 @@
           </div>
           <div class="application__image">
             <img src="./assets/images/main-application.webp" alt="">
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="ceilings">
-      <div class="ceilings__inner">
-        <div class="ceilings__img">
-          <img src="./assets/images/ceilings-img.webp" alt="">
-        </div>
-        <div class="container">
-          <div class="ceilings__content">
-            <div class="ceilings__title title">Замер потолков в Москве и Московской области</div>
-            <div class="ceilings__text text">
-              Мы выполняем монтаж натяжного потолка в Москве и области. Ниже представлены разные виды 
-              полотен и типы конструкций, которые собирают наши монтажники. Применяем технологии, 
-              включающие образование декоративного зазора или создания плотного примыкания профильной 
-              системы к стене. Также умеем собирать подсветки сложного электромонтажа. Заботимся о 
-              безопасном соединении проводов и безопасности при прогреве ПВХ полотна. Для этого подключаем
-               тепловую пушку к композитному баллону. Для соблюдения геометрической точности, создаём лазерную 
-               разметку нивелиром. По линии закрепляют профили, ставят внутренние составляющие комплектующих 
-               осветительных приборов. Каждый наш сотрудник знает как, производится монтаж натяжного потолка с 
-               начала предварительных работ до особенностей выполнения установок со знанием производителей материалов.
-            </div>
           </div>
         </div>
       </div>
