@@ -94,3 +94,89 @@
     cursor: pointer;
   }
 }
+
+@media (max-width: 48em) {
+  .modal,
+  .modal2 {
+    position: fixed;
+    z-index: 500;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    &::after {
+      content: '';
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.70);
+      backdrop-filter: blur(2px);
+    }
+
+    &__swiper {
+    position: relative;
+    z-index: 1000;
+    width: 71rem;
+    }
+    &__slide {
+      width: 100%;
+      height: 93rem;
+      & img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+    &__wrapper {
+      position: relative;
+      padding: 4.4rem 0 16.8rem;
+    }
+    &__close {
+        position: absolute;
+        z-index: 1000;
+        right: 3.6rem;
+        top: 0;
+        width: 3.2rem;
+        height: 3.2rem;
+        cursor: pointer;
+    }
+    & .swiper-pagination {
+      display: none;
+    }
+    &__wr {
+        z-index: 105;
+        width: 100%;
+    }
+    &-btn-prev,
+    &-btn-next {
+        position: absolute;
+        z-index: 1000;
+        top: unset;
+        bottom: 0;
+    }
+    &-btn-prev {
+        left: 2rem;
+    }
+    &-btn-next {
+        left: unset;
+        right: 2rem;
+    }
+    &.active {
+      display: flex;
+      animation: fade-in 0.5s ease-in-out;
+    }
+  }
+
+  .modal-thumbs {
+    &__swiper {
+      display: none;
+    }
+  }
+}

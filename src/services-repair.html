@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
   <title>Document</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css">
-  
 </head>
 <body>
   <include src="./components/header.html"></include>
@@ -25,72 +24,56 @@
           </div>
         </div>
       </div>
-      <div class="banner-services-detail__video">
-        <div class="banner-services-detail__video-control">
-          <svg xmlns="http://www.w3.org/2000/svg" width="132" height="132" viewBox="0 0 132 132" fill="none">
-            <circle cx="66" cy="66" r="66" fill="#2E8EC7"/>
-            <path d="M79 66.5L59.5 80.7894L59.5 52.2106L79 66.5Z" fill="#F9F9F9"/>
-          </svg>
-        </div>
-        <div class="banner__image">
-          <img src="./assets/images/services3.webp" alt="">
-        </div>
+      <div class="banner__image">
+        <img src="./assets/images/services3.webp" alt="">
       </div>
     </section>
 
-    <section class="exclusivity">
+    <section class="prices-table">
       <div class="container">
-        <div class="exclusivity__title title">Эксклюзивность наших работ</div>
-        <div class="exclusivity__text text">Мы можем воплотить любую Вашу идею в жизнь! Мы осуществляем нанесение любого изображения на полотна по Вашим запросам.</div>
-        <div class="exclusivity-swiper-wrap">
-          <div class="exclusivity-swiper swiper">
-            <div class="exclusivity__slider swiper-wrapper">
-              <div class="exclusivity__slide swiper-slide">
-                <div class="exclusivity__slide-num num">05</div>
-                <div class="exclusivity__slide-img before-after">
-                  <img src="./assets/images/services-page3.webp" alt="">
-                  <img src="./assets/images/services-page2.webp" alt="">
-                </div>
-              </div>
-              <div class="exclusivity__slide swiper-slide">
-                <div class="exclusivity__slide-num num">04</div>
-                <div class="exclusivity__slide-img">
-                  <img src="./assets/images/services-page3.webp" alt="">
-                </div>
-              </div>
-              <div class="exclusivity__slide swiper-slide">
-                <div class="exclusivity__slide-num num">03</div>
-                <div class="exclusivity__slide-img">
-                  <img src="./assets/images/services-page3.webp" alt="">
-                </div>
-              </div>
-              <div class="exclusivity__slide swiper-slide">
-                <div class="exclusivity__slide-num num">02</div>
-                <div class="exclusivity__slide-img">
-                  <img src="./assets/images/services-page3.webp" alt="">
-                </div>
-              </div>
-              <div class="exclusivity__slide swiper-slide">
-                <div class="exclusivity__slide-num num">01</div>
-                <div class="exclusivity__slide-img">
-                  <img src="./assets/images/services-page3.webp" alt="">
-                </div>
-              </div>
-            </div>
-          </div>
-          <button class="exclusivity-btn-prev btn-prev swiper-button-prev" type="button">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path d="M1 11C0.447715 11 0 11.4477 0 12C0 12.5523 0.447715 13 1 13V11ZM22.9203 12.7071C23.3108 12.3166 23.3108 11.6834 22.9203 11.2929L16.5563 4.92893C16.1658 4.53841 15.5327 4.53841 15.1421 4.92893C14.7516 5.31946 14.7516 5.95262 15.1421 6.34315L20.799 12L15.1421 17.6569C14.7516 18.0474 14.7516 18.6805 15.1421 19.0711C15.5327 19.4616 16.1658 19.4616 16.5563 19.0711L22.9203 12.7071ZM1 13L22.2132 13V11L1 11V13Z" fill="#28292E"/>
-            </svg>
-          </button>
-          <button class="exclusivity-btn-next btn-next swiper-button-next" type="button">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path d="M1 11C0.447715 11 0 11.4477 0 12C0 12.5523 0.447715 13 1 13V11ZM22.9203 12.7071C23.3108 12.3166 23.3108 11.6834 22.9203 11.2929L16.5563 4.92893C16.1658 4.53841 15.5327 4.53841 15.1421 4.92893C14.7516 5.31946 14.7516 5.95262 15.1421 6.34315L20.799 12L15.1421 17.6569C14.7516 18.0474 14.7516 18.6805 15.1421 19.0711C15.5327 19.4616 16.1658 19.4616 16.5563 19.0711L22.9203 12.7071ZM1 13L22.2132 13V11L1 11V13Z" fill="#28292E"/>
-            </svg>
-          </button>
-          <div class="exclusivity-pagination swiper-pagination num">
-            <span class="current">01</span><span class="total">-</span>
-          </div>
+        <div class="title-wrap">
+          <div class="prices-table__title title">Стоимость ремонта натяжных потолоков</div>
+          <button class="button" type="button">Расчет стоимости</button>
+        </div>
+        <div class="prices-table__table-wrapper">
+          <table class="prices-table__table">
+            <thead class="prices-table__table-head">
+              <tr>
+                <th class="prices-table__column1" colspan="1">Наименование услуги</th>
+                <th class="prices-table__column2" colspan="1">Стоимость</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="prices-table__line text">
+                <td class="prices-table__column1">Демонтаж системы крепления натяжного потолка</td>
+                <td class="prices-table__column2">130 ₽/м</td>
+              </tr>
+              <tr class="prices-table__line text">
+                <td class="prices-table__column1">Монтаж системы крепления натяжного потолка</td>
+                <td class="prices-table__column2">130 ₽/м</td>
+              </tr>
+              <tr class="prices-table__line text">
+                <td class="prices-table__column1">Устранение посторонних объектов из натяжного потолка</td>
+                <td class="prices-table__column2">130 ₽/м</td>
+              </tr>
+              <tr class="prices-table__line text">
+                <td class="prices-table__column1">Установка вытяжки (вентиляционной решетки) на натяжной потолок</td>
+                <td class="prices-table__column2">130 ₽/м</td>
+              </tr>
+              <tr class="prices-table__line text">
+                <td class="prices-table__column1">Установка люстры</td>
+                <td class="prices-table__column2">130 ₽/м</td>
+              </tr>
+              <tr class="prices-table__line text">
+                <td class="prices-table__column1">Установка точечного светильника</td>
+                <td class="prices-table__column2">130 ₽/м</td>
+              </tr>
+              <tr class="prices-table__line text">
+                <td class="prices-table__column1">Изготовление и установка карниза</td>
+                <td class="prices-table__column2">130 ₽/м</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </section>
@@ -175,71 +158,9 @@
       </div>
     </section>
 
-    <section class="application" id="application">
-      <div class="container">
-        <div class="application__inner">
-          <div class="application__form">
-            <div class="application__title title">Оставьте заявку</div>
-            <div class="application__text text">Хотите узнать стоимость и заказать самый ровный натяжной потолок? Оставьте ваш номер телефона, вам перезвонит наш специалист</div>
-            <form>
-              <label class="form__input">
-                <span>Имя</span>
-                <input type="text" placeholder="Введите ваше имя" minlength="2" maxlength="32" required>
-              </label>
-              <label class="form__input">
-                <span>Номер телефона</span>
-                <input class='phone-mask' type="text" placeholder="+7 (9__) ___ __ __" required>
-              </label>
-              <button class="application__form-button button" type="submit">Оставить заявку</button>
-            </form>
-          </div>
-          <div class="application__content">
-            <div class="application__content-title title-sm">Контактная информация</div>
-            <div class="application__content-contacts">
-              <div class="application__content-phone phone__block">
-                <a class="phone__block-num" href="#">
-                  <div class="phone__block-num-icon">
-                    <img src="./assets/images/icons/phone.svg" alt="">
-                  </div>
-                  8 (800) 301-07-90
-                </a>
-                <span class="phone__block-text text">круглосуточно без выходных</span>
-              </div>
-              <a class="application__content-mail mail__block" href="#">
-                <div class="mail__block-icon">
-                  <img src="./assets/images/icons/mail.svg" alt="">
-                </div>
-                email@mail.ru
-              </a>
-              <a class="application__content-address address__block" href="#">
-                <div class="address__block-icon">
-                  <img src="./assets/images/icons/map.svg" alt="">
-                </div>
-                6689078, г. Москва, ул. Московская, д. 1, офис 204
-              </a>
-            </div>
-            <div class="application__content-socials">
-              <div class="application__content-title title-sm">Или напишите нам:</div>
-              <div class="application__content-socials-links">
-                <a class="application__content-socials-link" href="#">
-                  <img src="./assets/images/icons/telegram.svg" alt="">
-                </a>
-                <a class="application__content-socials-link" href="#">
-                  <img src="./assets/images/icons/whatsapp.svg" alt="">
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="application__image">
-            <img src="./assets/images/main-application.webp" alt="">
-          </div>
-        </div>
-      </div>
-    </section>
     <include src="./components/widget.html"></include>
   </main>
   <include src="./components/footer.html"></include>
-  <script src="./js/utils/jquery.event.move.js"></script>
-  <script src="./js/utils/jquery.twentytwenty.js"></script>
+  <script src="https://unpkg.com/cocoen/dist/cocoen.js"></script>
 </body>
 </html>

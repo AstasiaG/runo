@@ -1,6 +1,7 @@
 'use strict';
 import Swiper from 'swiper/bundle';
 import Choices from 'choices.js';
+//import Cocoen from 'cocoen';
 import 'inputmask';
 window.$ = window.jQuery = require('jquery');
 let timer;
@@ -16,12 +17,16 @@ const rem = function (rem) {
 const mask = new Inputmask('+7 (999) 999 99 99');
 mask.mask($('.phone-mask'));
 
-$(function () {
-  $(".before-after").twentytwenty({
-    move_slider_on_hover: true,
-  });
-  
-});
+// $(document).ready(function(){
+//   $('.cocoen').cocoen();
+// });
+if(document.querySelector('.cocoen')) {
+  Cocoen.create(document.querySelector('.cocoen'));
+  // $('.cocoen').cocoen({
+  //   orientation: 'horizontal',
+  //   start: '50',
+  // });
+}
 
 $(".questions__item").each(function () {
   let hide = $(this).find('.questions__item-text');
@@ -133,132 +138,99 @@ $('.btn-up').on("click", function() {
 
 //validation//
 
-// function formFieldsInit() {
-//   const formFields = $('input[placeholder]');
-  
-//   if (formFields.length) {
-//     formFields.each(function() {
-//       if (!$(this).is('[data-placeholder-nohide]')) {
-//         $(this).data('placeholder', $(this).attr('placeholder'));
-//       }
-//     });
-//   }
-  
-//   $('body').on('focusin', function(e) {
-//     const targetElement = $(e.target);
-//     if (targetElement.is('input')) {
-//       if (targetElement.data('placeholder')) {
-//         targetElement.attr('placeholder', '');
-//       }
+if(document.querySelector(".application__form")) {
+  const form = document.querySelector(".application__form");
+  const name = document.querySelector(".name");
+  const phone = document.querySelector(".phone-mask");
 
-//       // Добавьте здесь логику валидации
-//       if (targetElement.is('[data-validate]')) {
-//         validateInput(targetElement);
-//       }
-//     }
-//   });
-  
-//   $('body').on('focusout', function(e) {
-//     const targetElement = $(e.target);
-//     if (targetElement.is('input')) {
-//       if (targetElement.data('placeholder')) {
-//         targetElement.attr('placeholder', targetElement.data('placeholder'));
-//       }
-//     }
-//   });
+  function validateName(){
+    const nameError = document.querySelector(".name + span.error");
 
-//   // Функция для валидации поля
-//   function validateInput(input) {
-//     const value = input.val().trim();
-//     const fieldName = input.attr('name');
-
-//     if (fieldName === 'name' && value.length === 0) {
-//       // Если поле имени пустое, добавьте класс ошибки
-//       input.addClass('invalid');
-//       input.closest('label').find('.error').show();
-//       // Добавьте сообщение об ошибке (если необходимо)
-//       // Подход к валидации может зависеть от ваших требований
-//     } else if (fieldName === 'phone' && value.length === 0) {
-//       // Если поле телефона не соответствует правильному формату, добавьте класс ошибки
-//       input.addClass('invalid');
-//       input.closest('label').find('.error').show();
-//       // Добавьте сообщение об ошибке (если необходимо)
-//     } else {
-//       // Если поле прошло валидацию, уберите класс ошибки (если он был)
-//       input.removeClass('invalid');
-//       input.closest('label').find('.error').hide();
-//       // Удалите сообщение об ошибке (если было)
-//     }
-//   }
-// }
-
-// formFieldsInit();
-let formValidate = {
-  getErrors(form) {
-    let error = 0;
-    let formRequiredItems = form.querySelectorAll('*[data-required]');
-    if (formRequiredItems.length) {
-      formRequiredItems.forEach(formRequiredItem => {
-        if (
-          (formRequiredItem.offsetParent !== null ||
-            formRequiredItem.tagName === 'SELECT') &&
-          !formRequiredItem.disabled
-        ) {
-          error += this.validateInput(formRequiredItem);
-        }
-      });
-    }
-    return error;
-  },
-  validateInput(formRequiredItem) {
-    let error = 0;
-    if (formRequiredItem.dataset.required === 'email') {
-      formRequiredItem.value = formRequiredItem.value.replace(' ', '');
-      if (this.emailTest(formRequiredItem)) {
-        this.addError(formRequiredItem);
-        error++;
+    name.addEventListener("input", function (event) {
+      // Каждый раз, когда пользователь что-то вводит,
+      // мы проверяем, являются ли поля формы валидными
+      if (name.validity.valid) {
+        nameError.textContent = "";
+        nameError.className = "error";
+        name.classList.remove('invalid')
       } else {
-        this.removeError(formRequiredItem);
+        showError();
       }
-    } else if (
-      formRequiredItem.type === 'checkbox' &&
-      !formRequiredItem.checked
-    ) {
-      this.addError(formRequiredItem);
-      error++;
-    } else {
-      if (!formRequiredItem.value.trim()) {
-        this.addError(formRequiredItem);
-        error++;
+    });
+    function showError() {
+      if (name.validity.valueMissing) {
+        // Если поле пустое,
+        // отображаем следующее сообщение об ошибке
+        nameError.textContent = "Поле не должно быть пустым";
+        
+      } else if (name.validity.patternMismatch) {
+        // Если содержимое слишком короткое,
+        // отображаем следующее сообщение об ошибке
+        nameError.textContent = "Имя не должно содержать цифры";
+      } else if (name.validity.tooShort) {
+        // Если содержимое слишком короткое,
+        // отображаем следующее сообщение об ошибке
+        nameError.textContent = `Слишком короткое имя`;
+      }
+  
+      // Задаём соответствующую стилизацию
+      nameError.className = "error active";
+      name.classList.add('invalid')
+    }
+  }
+
+  function validatePhone(){
+    const phoneError = document.querySelector(".phone-mask + span.error");
+
+    phone.addEventListener("input", function (event) {
+      // Каждый раз, когда пользователь что-то вводит,
+      // мы проверяем, являются ли поля формы валидными
+      if (phone.validity.valid) {
+        phoneError.textContent = "";
+        phoneError.className = "error";
+        phone.classList.remove('invalid')
       } else {
-        this.removeError(formRequiredItem);
+        showError();
       }
+    });
+    function showError() {
+      if (phone.validity.valueMissing) {
+        // Если поле пустое,
+        // отображаем следующее сообщение об ошибке
+        phoneError.textContent = "Поле не должно быть пустым";
+        
+      } else if (phone.validity.patternMismatch) {
+        // Если содержимое слишком короткое,
+        // отображаем следующее сообщение об ошибке
+        phoneError.textContent = "Имя не должно содержать цифры";
+      } else if (phone.validity.tooShort) {
+        // Если содержимое слишком короткое,
+        // отображаем следующее сообщение об ошибке
+        phoneError.textContent = `Слишком короткое имя`;
+      }
+  
+      // Задаём соответствующую стилизацию
+      phoneError.className = "error active";
+      phone.classList.add('invalid')
     }
-    return error;
-  },
-  addError(formRequiredItem) {
-    formRequiredItem.classList.add('.error');
-    formRequiredItem.parentElement.classList.add('.error');
-    let inputError =
-      formRequiredItem.parentElement.querySelector('.error');
-    if (inputError) formRequiredItem.parentElement.removeChild(inputError);
-    if (formRequiredItem.dataset.error) {
-      formRequiredItem.parentElement.insertAdjacentHTML(
-        'beforeend',
-        `<span class="error">${formRequiredItem.dataset.error}</span>`
-      );
+  }
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    if (!name.validity.valid) {
+      showError();
     }
-  },
-  removeError(formRequiredItem) {
-    formRequiredItem.classList.remove('.error');
-    formRequiredItem.parentElement.classList.remove('.error');
-    if (formRequiredItem.parentElement.querySelector('.error')) {
-      formRequiredItem.parentElement.removeChild(
-        formRequiredItem.parentElement.querySelector('.error')
-      );
+    if (!name || !phone) {
+      phoneError.textContent = "Заполните поле";
+      phone.classList.add('invalid')
+      nameError.textContent = "Заполните поле";
+      name.classList.add('invalid')
+      return;
     }
-  },
+  });
 }
+
 
 //video-control//
 
@@ -337,6 +309,7 @@ const slider1 = new Swiper('.banner__swiper', {
 const slider2 = new Swiper('.catalog__slide-content-images', {
   slidesPerView: 'auto',
   spaceBetween: rem(4),
+  watchOverflow: true,
   speed: 1000,
   breakpoints: {
     769: {
@@ -528,12 +501,13 @@ slider12.on('slideChange', function () {
 });
 
 document.addEventListener('click', (el) => {
-  const modal = document.querySelector('.modal__wrapper');
-  const modal2 = document.querySelector('.modal2__wrapper');
-  const notSlider = el.composedPath().includes(modal);
-  const notModal = el.composedPath().includes(slider);
-  const notSlider2 = el.composedPath().includes(modal2);
-  const notModal2 = el.composedPath().includes(sliderTwo);
+  if(sliderTwo || slider) {
+    const modal = document.querySelector('.modal__wrapper');
+    const modal2 = document.querySelector('.modal2__wrapper');
+    const notSlider = el.composedPath().includes(modal);
+    const notModal = el.composedPath().includes(slider);
+    const notSlider2 = el.composedPath().includes(modal2);
+    const notModal2 = el.composedPath().includes(sliderTwo);
     if(sliderTwo.className.includes('active')) {
       if(notModal2 && !notSlider2){
         sliderTwo.classList.remove('active');
@@ -544,6 +518,7 @@ document.addEventListener('click', (el) => {
         slider.classList.remove('active');
       }
     }
+  }
 })
 
 
@@ -583,16 +558,16 @@ slider14.on('slideChange', function () {
     current4.innerText = indRes2; // Используйте .text() для изменения текста
 });
 
-document.addEventListener('click', (el) => {
-  const modal = document.querySelector('.modal__wrapper');
-  const notSlider = el.composedPath().includes(modal);
-  const notModal = el.composedPath().includes(sliderTwo);
-    if(sliderTwo.className.includes('active')) {
-      if(notModal && !notSlider){
-        sliderTwo.classList.remove('active');
-      }
-    }
-})
+// document.addEventListener('click', (el) => {
+//   const modal = document.querySelector('.modal__wrapper');
+//   const notSlider = el.composedPath().includes(modal);
+//   const notModal = el.composedPath().includes(sliderTwo);
+//     if(sliderTwo.className.includes('active')) {
+//       if(notModal && !notSlider){
+//         sliderTwo.classList.remove('active');
+//       }
+//     }
+// })
 
 const slider3 = new Swiper('.certificates__swiper', {
   slidesPerView: 3,
