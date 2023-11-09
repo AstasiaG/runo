@@ -1,7 +1,6 @@
 'use strict';
 import Swiper from 'swiper/bundle';
 import Choices from 'choices.js';
-//import Cocoen from 'cocoen';
 import 'inputmask';
 window.$ = window.jQuery = require('jquery');
 let timer;
@@ -14,19 +13,9 @@ const rem = function (rem) {
     return (100 / 375) * (0.05 * window.innerWidth) * rem;
   }
 }
+
 const mask = new Inputmask('+7 (999) 999 99 99');
 mask.mask($('.phone-mask'));
-
-// $(document).ready(function(){
-//   $('.cocoen').cocoen();
-// });
-if(document.querySelector('.cocoen')) {
-  Cocoen.create(document.querySelector('.cocoen'));
-  // $('.cocoen').cocoen({
-  //   orientation: 'horizontal',
-  //   start: '50',
-  // });
-}
 
 $(".questions__item").each(function () {
   let hide = $(this).find('.questions__item-text');
@@ -44,13 +33,6 @@ $(".widget__icon").on("click",function () {
   $(this).toggleClass('active')
 });
 
-// window.addEventListener('scroll', function () {
-//   if (containerRect.top >= 988) {
-//     $('.banner__btn').addClass('sticky-btn');
-//   } else {
-//     $('.banner__btn').removeClass('sticky-btn');
-//   }
-// });
 $('.steps__content-item').each(function () {
   let hide = $(this).find('.steps__content-item-img');
   hide.hide();
@@ -120,36 +102,18 @@ $(".header__dropdown-catalog-item").each(function () {
   });
 });
 
-
-//button up
-
-$('.btn-up').hide()
-window.addEventListener("scroll", function() {
-  if (window.scrollY > 900) { 
-    $('.btn-up').show(200)
-  } else {
-    $('.btn-up').hide()
-  }
-});
-
-$('.btn-up').on("click", function() {
-  window.scrollTo(0, 0); 
-});
-
 //validation//
 
+const modalSuccess = document.querySelector('.submit');
 if(document.querySelector(".application__form")) {
   const form = document.querySelector(".application__form");
   const name = document.querySelector(".name");
   const phone = document.querySelector(".phone-mask");
   const nameError = document.querySelector(".name + span.error");
   const phoneError = document.querySelector(".phone-mask + span.error");
-  const modalSuccess = document.querySelector('.submit');
 
   //name validate//
   name.addEventListener("input", function (event) {
-    // Каждый раз, когда пользователь что-то вводит,
-    // мы проверяем, являются ли поля формы валидными
     if (name.validity.valid) {
       nameError.textContent = "";
       nameError.className = "error";
@@ -161,31 +125,18 @@ if(document.querySelector(".application__form")) {
 
   function showErrorName() {
     if (name.validity.valueMissing) {
-      // Если поле пустое,
-      // отображаем следующее сообщение об ошибке
       nameError.textContent = "Поле не должно быть пустым";
-      
     } else if (name.validity.patternMismatch) {
-      // Если содержимое слишком короткое,
-      // отображаем следующее сообщение об ошибке
       nameError.textContent = "Имя не должно содержать цифры";
     } else if (name.validity.tooShort) {
-      // Если содержимое слишком короткое,
-      // отображаем следующее сообщение об ошибке
       nameError.textContent = `Слишком короткое имя`;
     }
-
-    // Задаём соответствующую стилизацию
     nameError.className = "error active";
     name.classList.add('invalid')
   }
 
   //phone validate//
-
   phone.addEventListener("input", function (event) {
-    // Каждый раз, когда пользователь что-то вводит,
-    // мы проверяем, являются ли поля формы валидными
-    console.log(phone.value)
     if (phone.validity.valid) {
       phoneError.textContent = "";
       phoneError.className = "error";
@@ -197,17 +148,11 @@ if(document.querySelector(".application__form")) {
 
   function showErrorPhone() {
     if (phone.validity.valueMissing) {
-      // Если поле пустое,
-      // отображаем следующее сообщение об ошибке
       phoneError.textContent = "Поле не должно быть пустым";
-    } 
-
-    // Задаём соответствующую стилизацию
+    }
     phoneError.className = "error active";
     phone.classList.add('invalid')
   }
-
-  
 
   form.addEventListener("submit", function (event) {
     if (name.value == '' && phone.value == '') {
@@ -224,32 +169,6 @@ if(document.querySelector(".application__form")) {
     }
   });
 }
-
-
-//video-control//
-
-var video = $('.banner-zamer__video').find('.video')[0];
-
-$('.video').on('click', function () {
-  if (video.paused) {
-    video.play();
-    $('.banner-zamer__video-control').hide();
-  } else {
-    video.pause();
-    $('.banner-zamer__video-control').show();
-  }
-})
-
-$('.banner-zamer__video-control').on("click", function() {
-
-  if (video.paused) {
-    video.play();
-    $('.banner-zamer__video-control').hide();
-  } else {
-    video.pause();
-    $('.banner-zamer__video-control').show();
-  }
-});
 
 //tabs//
 
@@ -298,8 +217,6 @@ const slider1 = new Swiper('.banner__swiper', {
   }
 });
 
-
-
 const slider2 = new Swiper('.catalog__slide-content-images', {
   slidesPerView: 'auto',
   spaceBetween: rem(4),
@@ -317,7 +234,6 @@ const slider2 = new Swiper('.catalog__slide-content-images', {
   },
 });
 
-  
   const sliderThumbs = new Swiper('.catalog__btns', {
     slidesPerView: 'auto',
     watchOverflow: true,
@@ -346,8 +262,6 @@ const slider2 = new Swiper('.catalog__slide-content-images', {
         spaceBetween: rem(4),
       }
     }
-
-    
   });
 
   if(document.querySelector('.catalog-btn-next')) {
@@ -448,15 +362,24 @@ const slider11 = new Swiper('.modal-thumbs__swiper', {
   speed: 1000,
 });
 
-
+const btnContinue = document.querySelector('.modal__button')
 const closeBtn = document.querySelector('.modal__close');
 const closeBtn2 = document.querySelector('.modal2__close');
 let slider = document.querySelector('.modal')
 let sliderTwo = document.querySelector('.modal2')
 let index;
+console.log(modalSuccess)
 if(closeBtn) {
   closeBtn.addEventListener('click', () => {
     slider.classList.remove('active');
+    if(modalSuccess.className.includes('active')) {
+      modalSuccess.classList.remove('active');
+    }
+  })
+}
+if(btnContinue) {
+  btnContinue.addEventListener('click', () => {
+    modalSuccess.classList.remove('active');
   })
 }
 if(closeBtn2) {
@@ -494,26 +417,33 @@ slider12.on('slideChange', function () {
     current3.innerText = indRes2; // Используйте .text() для изменения текста
 });
 
-document.addEventListener('click', (el) => {
-  if(sliderTwo || slider) {
-    const modal = document.querySelector('.modal__wrapper');
-    const modal2 = document.querySelector('.modal2__wrapper');
-    const notSlider = el.composedPath().includes(modal);
-    const notModal = el.composedPath().includes(slider);
-    const notSlider2 = el.composedPath().includes(modal2);
-    const notModal2 = el.composedPath().includes(sliderTwo);
-    if(sliderTwo.className.includes('active')) {
-      if(notModal2 && !notSlider2){
-        sliderTwo.classList.remove('active');
-      }
-    }
-    if(slider.className.includes('active')) {
-      if(notModal && !notSlider){
-        slider.classList.remove('active');
-      }
-    }
-  }
-})
+// document.addEventListener('click', (el) => {
+//   if(sliderTwo || slider || modalSuccess) {
+//     const modal = document.querySelector('.modal__wrapper');
+//     const modal2 = document.querySelector('.modal2__wrapper');
+//     const notSlider = el.composedPath().includes(modal);
+//     const notModal = el.composedPath().includes(slider);
+//     const notSlider2 = el.composedPath().includes(modal2);
+//     const notModal2 = el.composedPath().includes(sliderTwo);
+//     const notModal3 = el.composedPath().includes(document.querySelector('.submit'));
+//     const notSuccess = el.composedPath().includes(modalSuccess);
+//     if(sliderTwo.className.includes('active')) {
+//       if(notModal2 && !notSlider2){
+//         sliderTwo.classList.remove('active');
+//       }
+//     }
+//     if(slider.className.includes('active')) {
+//       if(notModal && !notSlider){
+//         slider.classList.remove('active');
+//       }
+//     }
+//     if(modalSuccess.className.includes('active')) {
+//       if(notModal3 && !notSuccess){
+//         modalSuccess.classList.remove('active');
+//       }
+//     }
+//   }
+// })
 
 
 

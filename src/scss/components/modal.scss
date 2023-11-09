@@ -94,6 +94,35 @@
     cursor: pointer;
   }
 }
+.submit {
+  .modal {
+    &__wrapper {
+      width: 74.9rem;
+    }
+    &__submit {
+      position: relative;
+      z-index: 1000;
+      width: 74.9rem;
+      padding: 8rem 21rem;
+      text-align: center;
+      background: $light-grey;
+      &-title {
+        width: 31.9rem;
+        margin-bottom: 6rem;
+      }
+    }
+    &__close {
+      top: 3.2rem;
+      right: 3.2rem;
+      position: absolute;
+      & svg {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+  }
+}
 
 @media (max-width: 48em) {
   .modal,
