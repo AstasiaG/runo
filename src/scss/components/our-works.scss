@@ -63,7 +63,7 @@
       }
 
       &__slide {
-        display: flex;
+        display: none;
         flex-wrap: wrap;
         gap: 4rem;
 
@@ -105,6 +105,10 @@
           &-num {
             color: $blue;
           }
+        }
+        &.active {
+          display: flex;
+          animation: fade-in 0.5s ease-in-out;
         }
       }
 
@@ -157,7 +161,6 @@
         }
 
         &__slide {
-          display: flex;
           flex-wrap: wrap;
           gap: 4rem;
 
