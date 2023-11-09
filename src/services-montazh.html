@@ -13,7 +13,8 @@
       <div class="container">
         <div class="breadcrumbs">
           <a class="breadcrumbs__link" href="">Главная</a>
-          <span class="breadcrumbs__current">Услуги</span>
+          <a class="breadcrumbs__link" href="">Услуги</a>
+          <span class="breadcrumbs__current">Монтаж</span>
         </div>
         <div class="title-wrap">
           <div class="banner-services-detail__title heading">Монтаж натяжного потолка</div>
@@ -45,7 +46,7 @@
                 <div class="steps__content-item-img">
                   <img src="./assets/images/steps-services.webp" alt="">
                 </div>
-                <div class="steps__content-item-title">Замер потолка лазерной рулеткой</div>
+                <div class="steps__content-item-title">Установка лазерного уровня и отбивка уровня</div>
                 <div class="steps__content-item-text text">
                   Лазерный уровень крепится к базовому потолку. Позволяет с высокой точностью 
                   выполнять построение вертикальных, горизонтальных, наклонных плоскостей и разметку 
@@ -55,9 +56,9 @@
               <div class="steps__content-item">
                 <div class="steps__content-item-num num">02</div>
                 <div class="steps__content-item-img">
-                  <img src="./assets/images/steps-services.webp" alt="">
+                  <img src="./assets/images/steps-services2.webp" alt="">
                 </div>
-                <div class="steps__content-item-title">Замер стен помещения</div>
+                <div class="steps__content-item-title">Разметка и крепление профиля</div>
                 <div class="steps__content-item-text text">
                   Лазерный уровень крепится к базовому потолку. Позволяет с высокой точностью 
                   выполнять построение вертикальных, горизонтальных, наклонных плоскостей и разметку 
@@ -67,9 +68,9 @@
               <div class="steps__content-item">
                 <div class="steps__content-item-num num">03</div>
                 <div class="steps__content-item-img">
-                  <img src="./assets/images/steps-services.webp" alt="">
+                  <img src="./assets/images/steps-services2.webp" alt="">
                 </div>
-                <div class="steps__content-item-title">Построение эскиза</div>
+                <div class="steps__content-item-title">Установка закладных</div>
                 <div class="steps__content-item-text text">
                   Лазерный уровень крепится к базовому потолку. Позволяет с высокой точностью 
                   выполнять построение вертикальных, горизонтальных, наклонных плоскостей и разметку 
@@ -79,9 +80,9 @@
               <div class="steps__content-item">
                 <div class="steps__content-item-num num">04</div>
                 <div class="steps__content-item-img">
-                  <img src="./assets/images/steps-services.webp" alt="">
+                  <img src="./assets/images/steps-services2.webp" alt="">
                 </div>
-                <div class="steps__content-item-title">Передача эскиза на производство</div>
+                <div class="steps__content-item-title">Крепление полотна</div>
                 <div class="steps__content-item-text text">
                   Лазерный уровень крепится к базовому потолку. Позволяет с высокой точностью 
                   выполнять построение вертикальных, горизонтальных, наклонных плоскостей и разметку 
@@ -91,9 +92,9 @@
               <div class="steps__content-item">
                 <div class="steps__content-item-num num">05</div>
                 <div class="steps__content-item-img">
-                  <img src="./assets/images/steps-services.webp" alt="">
+                  <img src="./assets/images/steps-services2.webp" alt="">
                 </div>
-                <div class="steps__content-item-title">Передача эскиза на производство</div>
+                <div class="steps__content-item-title">Вырезание места под освещение</div>
                 <div class="steps__content-item-text text">
                   Лазерный уровень крепится к базовому потолку. Позволяет с высокой точностью 
                   выполнять построение вертикальных, горизонтальных, наклонных плоскостей и разметку 
@@ -103,9 +104,9 @@
               <div class="steps__content-item">
                 <div class="steps__content-item-num num">06</div>
                 <div class="steps__content-item-img">
-                  <img src="./assets/images/steps-services.webp" alt="">
+                  <img src="./assets/images/steps-services2.webp" alt="">
                 </div>
-                <div class="steps__content-item-title">Передача эскиза на производство</div>
+                <div class="steps__content-item-title">Маскировка потолочного стыка</div>
                 <div class="steps__content-item-text text">
                   Лазерный уровень крепится к базовому потолку. Позволяет с высокой точностью 
                   выполнять построение вертикальных, горизонтальных, наклонных плоскостей и разметку 
@@ -205,14 +206,16 @@
           <div class="application__form">
             <div class="application__title title">Оставьте заявку</div>
             <div class="application__text text">Хотите узнать стоимость и заказать самый ровный натяжной потолок? Оставьте ваш номер телефона, вам перезвонит наш специалист</div>
-            <form>
+            <form class="application__form">
               <label class="form__input">
                 <span>Имя</span>
-                <input type="text" placeholder="Введите ваше имя" minlength="2" maxlength="32" required>
+                <input class='name' type="text" name="name" placeholder="Введите ваше имя" pattern="\D+" minlength="3" maxlength="32">
+                <span class="error">Необходимо ввести числовое значение</span>
               </label>
               <label class="form__input">
                 <span>Номер телефона</span>
-                <input class='phone-mask' type="text" placeholder="+7 (9__) ___ __ __" required>
+                <input class='phone-mask' name="phone"  type="text" placeholder="+7 (9__) ___ __ __">
+                <span class="error">Необходимо ввести числовое значение</span>
               </label>
               <button class="application__form-button button" type="submit">Оставить заявку</button>
             </form>
