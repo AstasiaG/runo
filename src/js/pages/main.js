@@ -255,15 +255,26 @@ let formValidate = {
 
 //video-control//
 
-$('.banner-zamer__video-control').on("click", function() {
-  let video = $('.banner-zamer__video').find('.video')[0];
+var video = $('.banner-zamer__video').find('.video')[0];
+
+$('.video').on('click', function () {
   if (video.paused) {
     video.play();
-    $(this).find('.banner-zamer__video-control').hide();
-  } 
-  if(!video.paused || video.ended) {
+    $('.banner-zamer__video-control').hide();
+  } else {
     video.pause();
-    $(this).find('.banner-zamer__video-control').show();
+    $('.banner-zamer__video-control').show();
+  }
+})
+
+$('.banner-zamer__video-control').on("click", function() {
+
+  if (video.paused) {
+    video.play();
+    $('.banner-zamer__video-control').hide();
+  } else {
+    video.pause();
+    $('.banner-zamer__video-control').show();
   }
 });
 
@@ -278,7 +289,7 @@ $('.catalog__button').on('click', function() {
   
   $('.catalog__slide').removeClass('active'); // 3
   content.addClass('active'); // 4
-});
+})
 
 
 //sliders//
@@ -309,60 +320,29 @@ const slider1 = new Swiper('.banner__swiper', {
         el: '.banner-progress',
         type: 'bullets',
         clickable: true,
-        },
+      },
     }
   }
 });
 
-if(document.querySelector('.catalog__swiper')) {
-    const slider7 = new Swiper('.catalog__slide-content-images', {
+
+
+const slider2 = new Swiper('.catalog__slide-content-images', {
+  slidesPerView: 'auto',
+  spaceBetween: rem(4),
+  speed: 1000,
+  breakpoints: {
+    769: {
       slidesPerView: 'auto',
-      //allowTouchMove: true,
-      //noSwiping: false,
-      //noSwipingClass: 'catalog__slide',
       spaceBetween: rem(4),
-      speed: 1000,
-      touchRatio: 2.0,
-      breakpoints: {
-        769: {
-          slidesPerView: 'auto',
-          spaceBetween: rem(4),
-        },
-        210: {
-          slidesPerView: 'auto',
-          spaceBetween: rem(4),
-        }
-      },
-    });
+    },
+    210: {
+      slidesPerView: 'auto',
+      spaceBetween: rem(4),
+    }
+  },
+});
 
-  // const slider2 = new Swiper('.catalog__swiper', {
-  //   slidesPerView: 1,
-  //   spaceBetween: rem(1),
-  //   // allowTouchMove: false,
-  //   //noSwiping: true,
-  //   noSwipingClass: 'catalog__slide',
-  //   effect: 'fade',
-  //   fadeEffect: {
-  //     crossFade: true
-  //   },
-  //   speed: 1000,
-  //   // on: {
-  //   //   slideChangeTransitionStart: function () {
-  //   //     if(window.innerWidth < 769) {
-  //   //       slider7.allowTouchMove = true;
-  //   //     }
-  //   //   },
-  //   // },
-    
-  // });
-
-  // slider2.on('slideChangeTransitionEnd', function () {
-  //   // Проверьте, что текущий слайд родительского слайдера содержит вложенный слайдер
-  //   if (slider2.activeIndex === 0) {
-  //     // Если условие выполняется, инициализируйте вложенный слайдер
-  //     slider7.init();
-  //   }
-  // })
   
   const sliderThumbs = new Swiper('.catalog__btns', {
     slidesPerView: 'auto',
@@ -404,52 +384,6 @@ if(document.querySelector('.catalog__swiper')) {
       document.querySelector('.catalog-btn-prev').style.display = 'none';
     })
   }
-  
-  // const catalogBtns = Array.from(document.querySelectorAll('.catalog__button'));
-  // let idx;
-  
-  // catalogBtns.forEach(e => {
-  //   e.addEventListener('click', () => {
-  //     for(let i = 0; i < catalogBtns.length;i++){
-  //       catalogBtns[i].classList.remove('active');
-  //     }
-  //     e.classList.add('active');
-  //     idx = catalogBtns.indexOf(e);
-  //     slider2.slideTo(idx);
-  //   })
-  // })
-  
-  //sliderThumbs.controller.control = slider2;
-}
-
-
-const slider3 = new Swiper('.certificates__swiper', {
-  slidesPerView: 3,
-  slidesPerGroup: 3,
-  spaceBetween: rem(4),
-  speed: 1000,
-  navigation: {
-    nextEl: '.certificates-btn-next',
-    prevEl: '.certificates-btn-prev',
-  },
-  pagination: {
-    el: '.certificates-pagination',
-    type: 'bullets',
-    clickable: true,
-  },
-  breakpoints: {
-    769: {
-      slidesPerView: 3,
-      slidesPerGroup: 3,
-      spaceBetween: rem(4),
-    },
-    210: {
-      slidesPerView: 1,
-      slidesPerGroup: 1,
-      spaceBetween: rem(1),
-    }
-  }
-});
 
 const slider4 = new Swiper('.reviews__swiper', {
   slidesPerView: 1,
@@ -533,6 +467,100 @@ const slider10 = new Swiper('.benefits-details__swiper', {
     prevEl: '.benefits-details-btn-prev',
   },
 });
+
+const slider11 = new Swiper('.modal-thumbs__swiper', {
+  slidesPerView: 4,
+  spaceBetween: rem(2),
+  speed: 1000,
+});
+
+const closeBtn = document.querySelector('.modal__close');
+let slider = document.querySelector('.modal')
+let index;
+if(closeBtn) {
+  closeBtn.addEventListener('click', () => {
+    slider.classList.remove('active');
+  })
+}
+
+const slider12 = new Swiper('.modal__swiper', {
+  slidesPerView: 1,
+  spaceBetween: rem(4),
+  speed: 1000,
+  navigation: {
+    nextEl: '.modal-btn-next',
+    prevEl: '.modal-btn-prev',
+  },
+  pagination: {
+    el: '.modal-pagination',
+    type: 'custom',
+        renderCustom: function (swiper, current, total) {
+          let totalRes2 = total >= 10 ? total : `/0${total}`;
+          return totalRes2;
+        },
+  },
+  thumbs: {
+    swiper: slider11,
+  },
+});
+
+document.addEventListener('click', (el) => {
+  const modal = document.querySelector('.modal__wrapper');
+  const notSlider = el.composedPath().includes(modal);
+  const notModal = el.composedPath().includes(slider);
+    if(slider.className.includes('active')) {
+      if(notModal && !notSlider){
+        slider.classList.remove('active');
+      }
+    }
+})
+
+const slider3 = new Swiper('.certificates__swiper', {
+  slidesPerView: 3,
+  slidesPerGroup: 3,
+  spaceBetween: rem(4),
+  speed: 1000,
+  navigation: {
+    nextEl: '.certificates-btn-next',
+    prevEl: '.certificates-btn-prev',
+  },
+  pagination: {
+    el: '.certificates-pagination',
+    type: 'bullets',
+    clickable: true,
+  },
+  breakpoints: {
+    769: {
+      slidesPerView: 3,
+      slidesPerGroup: 3,
+      spaceBetween: rem(4),
+    },
+    210: {
+      slidesPerView: 1,
+      slidesPerGroup: 1,
+      spaceBetween: rem(1),
+    }
+  },
+  on: {
+    click: function (e) {
+      if(e.clickedSlide !== undefined) {
+        slider.classList.add('active');
+        index = e.clickedIndex;
+        slider12.slideTo(index, 0);
+        slider12.update();
+      }
+    },
+  }
+});
+
+let current3 = $(".modal-pagination .current");
+
+slider12.on('slideChange', function () {
+  let ind2 = slider12.realIndex + 1,
+    indRes2 = ind2 >= 10 ? ind2 : `0${ind2}`;
+  current3.text(indRes2); // Используйте .text() для изменения текста
+});
+
 
 if(document.querySelector('.select')) {
   const select = new Choices('.select', {
