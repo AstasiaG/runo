@@ -1,6 +1,5 @@
 .our-works {
-
-  // .our-works__list 
+  // .our-works__list
   &__list {
     display: flex;
     flex-direction: column;
@@ -11,6 +10,7 @@
   &__item {
     display: flex;
     flex-direction: row;
+    align-items: center;
     gap: 2rem;
   }
 
@@ -19,7 +19,7 @@
     position: relative;
     color: $blue;
     font-weight: 600;
-    &::after{
+    &::after {
       content: "₽";
       position: absolute;
       font-weight: 600;
@@ -37,11 +37,11 @@
     border-radius: 50%;
     display: flex;
     align-items: center;
-      justify-content: center;
-      svg{
-        width: 1.92rem;
-        height: 1.92rem;
-      }
+    justify-content: center;
+    svg {
+      width: 1.92rem;
+      height: 1.92rem;
+    }
   }
 
   // .our-works__item-text
@@ -145,15 +145,53 @@
 
 @media (max-width: 48em) {
   .our-works {
+      // .our-works__list
+  &__list {
+    gap: 2.4rem;
+  }
+
+  // .our-works__item
+  &__item {
+    gap: 2.4rem;
+  }
+
+  // .our-works__price
+  &__price {
+    &::after {
+      font-size: 2.8rem;
+      right: -1.7rem;
+      bottom: 0rem;
+    }
+  }
+
+  // .our-works__icon
+  &__icon {
+    width: 4.8rem;
+    height: 4.8rem;
+    svg {
+      width: 3.6rem;
+      height: 3.6rem;
+    }
+  }
     &.catalog {
+      .breadcrumbs {
+        max-width: 71rem;
+        margin: 4rem auto;
+        font-size: 2.8rem;
+      }
+      
+      
       .catalog {
         &__wrapper {
           overflow: hidden;
         }
 
         &__title {
-          margin-top: 3.6rem;
-          margin-bottom: 10rem;
+          margin: 4.6rem auto;
+          width: 71rem;
+          margin-bottom: 8rem;
+          font-size: 6.4rem;
+          line-height: 120%;
         }
 
         &-swiper {
@@ -165,7 +203,8 @@
           gap: 4rem;
 
           &-item {
-            width: 50.6rem;
+            margin: 0 auto;
+            width: 71rem;
 
             &-img {
               width: 100%;
@@ -183,7 +222,7 @@
             display: flex;
             justify-content: space-between;
             width: 100%;
-            padding: 3.2rem 3.2rem 3.4rem 3.3rem;
+            padding: 4.8rem;
             font-size: 2.4rem;
             font-style: normal;
             color: $black;
@@ -229,5 +268,4 @@
       }
     }
   }
-
 }
