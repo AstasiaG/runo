@@ -150,7 +150,6 @@
         overflow: visible;
       }
       &__slide {
-        display: none;
         flex-wrap: wrap;
         gap: 4rem;
         animation: fade-in 0.5s ease-in-out;
@@ -395,7 +394,6 @@
           overflow: visible;
         }
         &__slide {
-          display: flex;
           flex-wrap: wrap;
           gap: 4rem;
           &-item {
