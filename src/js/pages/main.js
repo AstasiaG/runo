@@ -142,91 +142,85 @@ if(document.querySelector(".application__form")) {
   const form = document.querySelector(".application__form");
   const name = document.querySelector(".name");
   const phone = document.querySelector(".phone-mask");
+  const nameError = document.querySelector(".name + span.error");
+  const phoneError = document.querySelector(".phone-mask + span.error");
+  const modalSuccess = document.querySelector('.submit');
 
-  function validateName(){
-    const nameError = document.querySelector(".name + span.error");
-
-    name.addEventListener("input", function (event) {
-      // Каждый раз, когда пользователь что-то вводит,
-      // мы проверяем, являются ли поля формы валидными
-      if (name.validity.valid) {
-        nameError.textContent = "";
-        nameError.className = "error";
-        name.classList.remove('invalid')
-      } else {
-        showError();
-      }
-    });
-    function showError() {
-      if (name.validity.valueMissing) {
-        // Если поле пустое,
-        // отображаем следующее сообщение об ошибке
-        nameError.textContent = "Поле не должно быть пустым";
-        
-      } else if (name.validity.patternMismatch) {
-        // Если содержимое слишком короткое,
-        // отображаем следующее сообщение об ошибке
-        nameError.textContent = "Имя не должно содержать цифры";
-      } else if (name.validity.tooShort) {
-        // Если содержимое слишком короткое,
-        // отображаем следующее сообщение об ошибке
-        nameError.textContent = `Слишком короткое имя`;
-      }
-  
-      // Задаём соответствующую стилизацию
-      nameError.className = "error active";
-      name.classList.add('invalid')
+  //name validate//
+  name.addEventListener("input", function (event) {
+    // Каждый раз, когда пользователь что-то вводит,
+    // мы проверяем, являются ли поля формы валидными
+    if (name.validity.valid) {
+      nameError.textContent = "";
+      nameError.className = "error";
+      name.classList.remove('invalid')
+    } else {
+      showErrorName();
     }
+  });
+
+  function showErrorName() {
+    if (name.validity.valueMissing) {
+      // Если поле пустое,
+      // отображаем следующее сообщение об ошибке
+      nameError.textContent = "Поле не должно быть пустым";
+      
+    } else if (name.validity.patternMismatch) {
+      // Если содержимое слишком короткое,
+      // отображаем следующее сообщение об ошибке
+      nameError.textContent = "Имя не должно содержать цифры";
+    } else if (name.validity.tooShort) {
+      // Если содержимое слишком короткое,
+      // отображаем следующее сообщение об ошибке
+      nameError.textContent = `Слишком короткое имя`;
+    }
+
+    // Задаём соответствующую стилизацию
+    nameError.className = "error active";
+    name.classList.add('invalid')
   }
 
-  function validatePhone(){
-    const phoneError = document.querySelector(".phone-mask + span.error");
+  //phone validate//
 
-    phone.addEventListener("input", function (event) {
-      // Каждый раз, когда пользователь что-то вводит,
-      // мы проверяем, являются ли поля формы валидными
-      if (phone.validity.valid) {
-        phoneError.textContent = "";
-        phoneError.className = "error";
-        phone.classList.remove('invalid')
-      } else {
-        showError();
-      }
-    });
-    function showError() {
-      if (phone.validity.valueMissing) {
-        // Если поле пустое,
-        // отображаем следующее сообщение об ошибке
-        phoneError.textContent = "Поле не должно быть пустым";
-        
-      } else if (phone.validity.patternMismatch) {
-        // Если содержимое слишком короткое,
-        // отображаем следующее сообщение об ошибке
-        phoneError.textContent = "Имя не должно содержать цифры";
-      } else if (phone.validity.tooShort) {
-        // Если содержимое слишком короткое,
-        // отображаем следующее сообщение об ошибке
-        phoneError.textContent = `Слишком короткое имя`;
-      }
-  
-      // Задаём соответствующую стилизацию
-      phoneError.className = "error active";
-      phone.classList.add('invalid')
+  phone.addEventListener("input", function (event) {
+    // Каждый раз, когда пользователь что-то вводит,
+    // мы проверяем, являются ли поля формы валидными
+    console.log(phone.value)
+    if (phone.validity.valid) {
+      phoneError.textContent = "";
+      phoneError.className = "error";
+      phone.classList.remove('invalid')
+    } else {
+      showErrorPhone();
     }
+  });
+
+  function showErrorPhone() {
+    if (phone.validity.valueMissing) {
+      // Если поле пустое,
+      // отображаем следующее сообщение об ошибке
+      phoneError.textContent = "Поле не должно быть пустым";
+    } 
+
+    // Задаём соответствующую стилизацию
+    phoneError.className = "error active";
+    phone.classList.add('invalid')
   }
+
+  
 
   form.addEventListener("submit", function (event) {
-    event.preventDefault();
-
-    if (!name.validity.valid) {
-      showError();
-    }
-    if (!name || !phone) {
+    if (name.value == '' && phone.value == '') {
+      event.preventDefault();
       phoneError.textContent = "Заполните поле";
       phone.classList.add('invalid')
       nameError.textContent = "Заполните поле";
       name.classList.add('invalid')
       return;
+    } else {
+      event.preventDefault();
+      $.ajax();
+      modalSuccess.classList.add('active')
     }
   });
 }

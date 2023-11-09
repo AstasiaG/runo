@@ -383,20 +383,22 @@
         </div>
     </section>
 
-    <section class="application">
+    <section class="application" id="application">
       <div class="container">
         <div class="application__inner">
           <div class="application__form">
             <div class="application__title title">Оставьте заявку</div>
             <div class="application__text text">Хотите узнать стоимость и заказать самый ровный натяжной потолок? Оставьте ваш номер телефона, вам перезвонит наш специалист</div>
-            <form>
+            <form class="application__form">
               <label class="form__input">
                 <span>Имя</span>
-                <input type="text" placeholder="Введите ваше имя" required>
+                <input class='name' type="text" name="name" placeholder="Введите ваше имя" pattern="\D+" minlength="3" maxlength="32">
+                <span class="error">Необходимо ввести числовое значение</span>
               </label>
               <label class="form__input">
                 <span>Номер телефона</span>
-                <input class='phone-mask' type="text" placeholder="+7 (9__) ___ __ __" required>
+                <input class='phone-mask' name="phone"  type="text" placeholder="+7 (9__) ___ __ __">
+                <span class="error">Необходимо ввести числовое значение</span>
               </label>
               <button class="application__form-button button" type="submit">Оставить заявку</button>
             </form>
@@ -444,14 +446,6 @@
         </div>
       </div>
     </section>
-    <button class="banner-btn btn" type="button">
-      <div>
-        <img src="./assets/images/icons/whatsapp-white.svg" alt="">
-      </div>
-    </button>
-    <button class="btn-up" type="button">
-      <img src="./assets/images/icons/arrow-white.svg" alt="">
-    </button>
     <include src="./components/widget.html"></include>
   </main>
   <include src="./components/footer.html"></include>
