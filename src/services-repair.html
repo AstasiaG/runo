@@ -157,7 +157,69 @@
         </div>
       </div>
     </section>
-
+    <section class="application" id="application">
+      <div class="container">
+        <div class="application__inner">
+          <div class="application__form">
+            <div class="application__title title">Оставьте заявку</div>
+            <div class="application__text text">Хотите узнать стоимость и заказать самый ровный натяжной потолок? Оставьте ваш номер телефона, вам перезвонит наш специалист</div>
+            <form class="application__form">
+              <label class="form__input">
+                <span>Имя</span>
+                <input class='name' type="text" name="name" placeholder="Введите ваше имя" pattern="\D+" minlength="3" maxlength="32">
+                <span class="error">Необходимо ввести числовое значение</span>
+              </label>
+              <label class="form__input">
+                <span>Номер телефона</span>
+                <input class='phone-mask' name="phone"  type="text" placeholder="+7 (9__) ___ __ __">
+                <span class="error">Необходимо ввести числовое значение</span>
+              </label>
+              <button class="application__form-button button" type="submit">Оставить заявку</button>
+            </form>
+          </div>
+          <div class="application__content">
+            <div class="application__content-title title-sm">Контактная информация</div>
+            <div class="application__content-contacts">
+              <div class="application__content-phone phone__block">
+                <a class="phone__block-num" href="#">
+                  <div class="phone__block-num-icon">
+                    <img src="./assets/images/icons/phone.svg" alt="">
+                  </div>
+                  8 (800) 301-07-90
+                </a>
+                <span class="phone__block-text text">круглосуточно без выходных</span>
+              </div>
+              <a class="application__content-mail mail__block" href="#">
+                <div class="mail__block-icon">
+                  <img src="./assets/images/icons/mail.svg" alt="">
+                </div>
+                email@mail.ru
+              </a>
+              <a class="application__content-address address__block" href="#">
+                <div class="address__block-icon">
+                  <img src="./assets/images/icons/map.svg" alt="">
+                </div>
+                6689078, г. Москва, ул. Московская, д. 1, офис 204
+              </a>
+            </div>
+            <div class="application__content-socials">
+              <div class="application__content-title title-sm">Или напишите нам:</div>
+              <div class="application__content-socials-links">
+                <a class="application__content-socials-link" href="#">
+                  <img src="./assets/images/icons/telegram.svg" alt="">
+                </a>
+                <a class="application__content-socials-link" href="#">
+                  <img src="./assets/images/icons/whatsapp.svg" alt="">
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="application__image">
+            <img src="./assets/images/main-application.webp" alt="">
+          </div>
+        </div>
+      </div>
+    </section>
     <include src="./components/widget.html"></include>
   </main>
   <include src="./components/footer.html"></include>

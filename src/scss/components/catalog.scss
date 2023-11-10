@@ -340,6 +340,7 @@
         flex-direction: column;
         width: 100%;
         &-images {
+          width: 100%;
           display: flex;
           margin-bottom: 4rem;
           padding: 0 2rem;
@@ -368,12 +369,12 @@
         }
       }
       &-items {
-        width: 105%;
+        width: 100%;
         display: flex;
         align-items: center;
         flex-wrap: wrap;
         gap: 4rem;
-        padding: 0 2rem;
+        padding: 0 0 0 2rem;
       }
     }
   

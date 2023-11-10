@@ -17,6 +17,8 @@ const rem = function (rem) {
 const mask = new Inputmask('+7 (999) 999 99 99');
 mask.mask($('.phone-mask'));
 
+const modalSuccess = document.querySelector('.submit');
+
 $(".questions__item").each(function () {
   let hide = $(this).find('.questions__item-text');
   hide.hide();
@@ -62,113 +64,258 @@ $(".steps__content-item").on("mouseleave", function () {
 
 //dropdown//
 
-$(".dropdown").find('.header__dropdown').hide();
-$(".dropdown").on("mouseenter",
-  function () {
-    clearTimeout(timer);
+$(function() {
+  if ($(window).width() > 768) {
     $(".dropdown").find('.header__dropdown').hide();
-    $(this).find(".header__dropdown").show();
-  })
-
-$(".dropdown").on("mouseleave", function () {
-  const drop = $(this).find(".header__dropdown");
-    timer = setTimeout(function () {
-      drop.hide();
-    }, 200);
-    $(this).find(".header__dropdown").on("mouseenter",
+    $(".dropdown").on("mouseenter",
       function () {
         clearTimeout(timer);
+        $(".dropdown").find('.header__dropdown').hide();
+        $(this).find(".header__dropdown").show();
       })
-    $(this).find(".header__dropdown").on("mouseleave",
-      function () {
-        drop.hide();
-      })
-  }
-);
 
-$(".header__dropdown-catalog-item").each(function () {
-  let hide = $(this).find('.header__dropdown-catalog-content');
-  hide.hide();
-  if($(this).hasClass('active')) {
-    $(this).find('.header__dropdown-catalog-content').show();
-  }
-  $(this).on("click",function () {
+    $(".dropdown").on("mouseleave", function () {
+      const drop = $(this).find(".header__dropdown");
+        timer = setTimeout(function () {
+          drop.hide();
+        }, 200);
+        $(this).find(".header__dropdown").on("mouseenter",
+          function () {
+            clearTimeout(timer);
+          })
+        $(this).find(".header__dropdown").on("mouseleave",
+          function () {
+            drop.hide();
+          })
+      }
+    );
+
     $(".header__dropdown-catalog-item").each(function () {
-      $(this).find('.header__dropdown-catalog-content').hide();
-      $(this).removeClass('active')
+      let hide = $(this).find('.header__dropdown-catalog-content');
+      hide.hide();
+      if($(this).hasClass('active')) {
+        $(this).find('.header__dropdown-catalog-content').show();
+      }
+      $(this).on("click",function () {
+        $(".header__dropdown-catalog-item").each(function () {
+          $(this).find('.header__dropdown-catalog-content').hide();
+          $(this).removeClass('active')
+        })
+        hide.show();
+        $(this).addClass('active')
+      });
+    });
+
+    $('.header__dropdown-catalog-content').first().css('right', '15.5rem');
+  }
+  if ($(window).width() <= 768) {
+    $(".header__dropdown-catalog-content").find('.list').hide();
+    $(".header__dropdown-catalog-content + .list-title").on("click", function () {
+      $(this).parent().find(".list").slideToggle();
     })
-    hide.show();
-    $(this).addClass('active')
-  });
-});
+
+    $(".dropdown").find('.header__dropdown').slideUp();
+    $(".dropdown > span").on("click", function () {
+      const parent = $(this).parent();
+
+        if(parent.hasClass('active')) {
+          parent.find(".header__dropdown").slideUp();
+          parent.removeClass('active');
+        } else {
+          parent.find(".header__dropdown").slideDown();
+          parent.addClass('active');
+        }
+    })
+
+    $(".list-wrap").on("click",function () {
+      if($(this).hasClass('active')) {
+        $(this).find('.list').slideUp();
+      } else {
+        $(this).find('.list').slideDown();
+      }
+      $(this).toggleClass('active');
+    });
+
+    $('.button__close').on('click', function () {
+      $('.header__nav').slideUp();
+      $('.header__phone').removeClass('active');
+      $('.header__burger').removeClass('active');
+      $('.button__close').removeClass('active');
+      $('.header__call').removeClass('active');
+    })
+
+    $('.header__burger').on('click', function () {
+      $('.header__nav').slideDown();
+      $('.header__phone').addClass('active');
+      $('.header__burger').addClass('active');
+      $('.button__close').addClass('active');
+      $('.header__call').addClass('active');
+    })
+  }
+})
+
 
 //validation//
-
-const modalSuccess = document.querySelector('.submit');
-if(document.querySelector(".application__form")) {
-  const form = document.querySelector(".application__form");
-  const name = document.querySelector(".name");
-  const phone = document.querySelector(".phone-mask");
-  const nameError = document.querySelector(".name + span.error");
-  const phoneError = document.querySelector(".phone-mask + span.error");
-
-  //name validate//
-  name.addEventListener("input", function (event) {
-    if (name.validity.valid) {
-      nameError.textContent = "";
-      nameError.className = "error";
-      name.classList.remove('invalid')
-    } else {
-      showErrorName();
+function validateForm() {
+  if(document.querySelector(".application__form")) {
+    const form = document.querySelector(".application__form");
+    const name = document.querySelector(".name");
+    const phone = document.querySelector(".phone-mask");
+    const nameError = document.querySelector(".name + span.error");
+    const phoneError = document.querySelector(".phone-mask + span.error");
+  
+    //name validate//
+    name.addEventListener("input", function (event) {
+      if (name.validity.valid) {
+        nameError.textContent = "";
+        nameError.className = "error";
+        name.classList.remove('invalid')
+      } else {
+        showErrorName();
+      }
+    });
+  
+    function showErrorName() {
+      if (name.validity.valueMissing) {
+        nameError.textContent = "Поле не должно быть пустым";
+      } else if (name.validity.patternMismatch) {
+        nameError.textContent = "Имя не должно содержать цифры";
+      } else if (name.validity.tooShort) {
+        nameError.textContent = `Слишком короткое имя`;
+      }
+      nameError.className = "error active";
+      name.classList.add('invalid')
     }
-  });
-
-  function showErrorName() {
-    if (name.validity.valueMissing) {
-      nameError.textContent = "Поле не должно быть пустым";
-    } else if (name.validity.patternMismatch) {
-      nameError.textContent = "Имя не должно содержать цифры";
-    } else if (name.validity.tooShort) {
-      nameError.textContent = `Слишком короткое имя`;
+  
+    //phone validate//
+    phone.addEventListener("input", function (event) {
+      if (phone.validity.valid) {
+        phoneError.textContent = "";
+        phoneError.className = "error";
+        phone.classList.remove('invalid')
+      } else {
+        showErrorPhone();
+      }
+    });
+  
+    function showErrorPhone() {
+      if (phone.validity.valueMissing) {
+        phoneError.textContent = "Поле не должно быть пустым";
+      }
+      phoneError.className = "error active";
+      phone.classList.add('invalid')
     }
-    nameError.className = "error active";
-    name.classList.add('invalid')
+  
+    form.addEventListener("submit", function (event) {
+      if (name.value == '' && phone.value == '') {
+        event.preventDefault();
+        phone.classList.add('invalid');
+        name.classList.add('invalid');
+        phoneError.textContent = "Заполните поле";
+        nameError.textContent = "Заполните поле";
+        return;
+      } else {
+        event.preventDefault();
+        $.ajax();
+        name.value ='';
+        phone.value ='';
+        modalSuccess.classList.add('active')
+      }
+    });
   }
+  
+}
 
-  //phone validate//
-  phone.addEventListener("input", function (event) {
-    if (phone.validity.valid) {
-      phoneError.textContent = "";
-      phoneError.className = "error";
-      phone.classList.remove('invalid')
+validateForm();
+
+if(document.querySelector(".calculator__form")) {
+  const form = document.querySelector(".calculator__form");
+  const square = document.querySelector(".square");
+  const lamps = document.querySelector(".lamps");
+  const lights = document.querySelector(".lights");
+  const squareError = document.querySelector(".square + span.error");
+  const lampsError = document.querySelector(".lamps + span.error");
+  const lightsError = document.querySelector(".lights + span.error");
+
+  lights.addEventListener("input", function (event) {
+    if (lights.validity.valid) {
+      lightsError.textContent = "";
+      lightsError.className = "error";
+      lights.classList.remove('invalid')
     } else {
-      showErrorPhone();
+      showError();
     }
   });
 
-  function showErrorPhone() {
-    if (phone.validity.valueMissing) {
-      phoneError.textContent = "Поле не должно быть пустым";
+  lamps.addEventListener("input", function (event) {
+    if (lamps.validity.valid) {
+      lampsError.textContent = "";
+      lampsError.className = "error";
+      lamps.classList.remove('invalid')
+    } else {
+      showError();
     }
-    phoneError.className = "error active";
-    phone.classList.add('invalid')
+  });
+
+  square.addEventListener("input", function (event) {
+    if (square.validity.valid) {
+      squareError.textContent = "";
+      squareError.className = "error";
+      square.classList.remove('invalid')
+    } else {
+      showError();
+    }
+  });
+
+  function showError() {
+    if (!square.validity.valid) {
+      if (square.validity.valueMissing) {
+        squareError.textContent = "Поле не должно быть пустым";
+      } else if (square.validity.patternMismatch) {
+        squareError.textContent = "Необходимо ввести числовое значение";
+      }
+      squareError.className = "error active";
+      square.classList.add('invalid')
+    }
+    if (!lights.validity.valid) {
+      if (lights.validity.patternMismatch) {
+        lightsError.textContent = "Необходимо ввести числовое значение";
+      }
+      lightsError.className = "error active";
+      lights.classList.add('invalid')
+    }
+    if (!lamps.validity.valid) {
+      if (lamps.validity.patternMismatch) {
+        lampsError.textContent = "Необходимо ввести числовое значение";
+      }
+      lampsError.className = "error active";
+      lamps.classList.add('invalid')
+    }
   }
 
   form.addEventListener("submit", function (event) {
-    if (name.value == '' && phone.value == '') {
+    if (square.value == '') {
       event.preventDefault();
-      phoneError.textContent = "Заполните поле";
-      phone.classList.add('invalid')
-      nameError.textContent = "Заполните поле";
-      name.classList.add('invalid')
+      square.classList.add('invalid');
+      squareError.textContent = "Заполните поле";
       return;
     } else {
       event.preventDefault();
       $.ajax();
-      modalSuccess.classList.add('active')
+      //modalSuccess.classList.add('active')
     }
   });
 }
+
+$('.widget__content-item').on('click', function () {
+  $('.modal__application').addClass('active');
+  validateForm()
+})
+
+$('#modal-open').on('click', function () {
+  $('.modal__application').addClass('active');
+  validateForm()
+})
 
 //tabs//
 
@@ -368,15 +515,17 @@ const closeBtn2 = document.querySelector('.modal2__close');
 let slider = document.querySelector('.modal')
 let sliderTwo = document.querySelector('.modal2')
 let index;
-console.log(modalSuccess)
-if(closeBtn) {
-  closeBtn.addEventListener('click', () => {
-    slider.classList.remove('active');
-    if(modalSuccess.className.includes('active')) {
-      modalSuccess.classList.remove('active');
-    }
-  })
-}
+
+$('.modal__close').on('click', function () {
+  slider.classList.remove('active');
+  if(modalSuccess.className.includes('active')) {
+    modalSuccess.classList.remove('active');
+  }
+  if($('.modal__application').hasClass('active')) {
+    $('.modal__application').addClass('active');
+  }
+})
+
 if(btnContinue) {
   btnContinue.addEventListener('click', () => {
     modalSuccess.classList.remove('active');
@@ -417,33 +566,40 @@ slider12.on('slideChange', function () {
     current3.innerText = indRes2; // Используйте .text() для изменения текста
 });
 
-// document.addEventListener('click', (el) => {
-//   if(sliderTwo || slider || modalSuccess) {
-//     const modal = document.querySelector('.modal__wrapper');
-//     const modal2 = document.querySelector('.modal2__wrapper');
-//     const notSlider = el.composedPath().includes(modal);
-//     const notModal = el.composedPath().includes(slider);
-//     const notSlider2 = el.composedPath().includes(modal2);
-//     const notModal2 = el.composedPath().includes(sliderTwo);
-//     const notModal3 = el.composedPath().includes(document.querySelector('.submit'));
-//     const notSuccess = el.composedPath().includes(modalSuccess);
-//     if(sliderTwo.className.includes('active')) {
-//       if(notModal2 && !notSlider2){
-//         sliderTwo.classList.remove('active');
-//       }
-//     }
-//     if(slider.className.includes('active')) {
-//       if(notModal && !notSlider){
-//         slider.classList.remove('active');
-//       }
-//     }
-//     if(modalSuccess.className.includes('active')) {
-//       if(notModal3 && !notSuccess){
-//         modalSuccess.classList.remove('active');
-//       }
-//     }
-//   }
-// })
+document.addEventListener('click', (el) => {
+  if(slider) {
+    const modal = document.querySelector('.modal__wrapper');
+    const notSlider = el.composedPath().includes(modal);
+    const notModal = el.composedPath().includes(slider);
+    if(slider.className.includes('active')) {
+      if(notModal && !notSlider){
+        slider.classList.remove('active');
+      }
+    }
+  }
+  if(modalSuccess) {
+    const modal3 = document.querySelector('.submit > .modal__wrapper');
+    const notModal3 = el.composedPath().includes(modal3);
+    const notSuccess = el.composedPath().includes(modalSuccess);
+    console.log(modal3)
+    if(modalSuccess.className.includes('active')) {
+      if(!notModal3 && !notSuccess){
+        modalSuccess.classList.remove('active');
+      }
+    }
+  }
+  if(sliderTwo) {
+    const modal2 = document.querySelector('.modal2__wrapper');
+    const notSlider2 = el.composedPath().includes(modal2);
+    const notModal2 = el.composedPath().includes(sliderTwo);
+
+    if(sliderTwo.className.includes('active')) {
+      if(notModal2 && !notSlider2){
+        sliderTwo.classList.remove('active');
+      }
+    }
+  }
+})
 
 
 
