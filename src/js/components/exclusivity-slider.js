@@ -95,7 +95,7 @@ if (document.querySelector('.exclusivity-swiper')) {
     let slides = slider.slides;
     const slideNum = slides[slider.realIndex].querySelector('.num');
     slider.on('slideChange', function () {
-      console.log(slides[slider.realIndex].querySelector('.num'))
+      //console.log(slides[slider.realIndex].querySelector('.num'))
       if(slider.realIndex - 1 < slides.length) {
         let ind = slides.length - (slider.realIndex);
         let indRes = ind >= 10 ? ind : `0${ind}`;
@@ -108,6 +108,16 @@ if (document.querySelector('.exclusivity-swiper')) {
   }
 
   if(window.innerWidth < 769) {
+    const sliderContainer = document.querySelector('.exclusivity__slider');
+    const slides = Array.from(sliderContainer.children);
+    console.log(slides);
+    slides.reverse();
+    console.log(slides)
+    sliderContainer.innerHTML = '';
+    slides.forEach(slide => {
+      sliderContainer.appendChild(slide);
+    });
+
     const slider = new Swiper('.exclusivity-swiper', {
       speed: 1000,
       spaceBetween: 40,

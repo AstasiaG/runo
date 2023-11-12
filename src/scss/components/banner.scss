@@ -188,7 +188,16 @@
       }
     }
     &-btn {
-      //display: none;
+      left: 62.6rem;
+      bottom: 22rem;
+      & div {
+        width: 10.4rem;
+        height: 10.4rem;
+        & img {
+          width: 4.8rem;
+          height: 4.8rem;
+        }
+      }
     }
     &__button {
       padding: 2.7rem 5.1rem;

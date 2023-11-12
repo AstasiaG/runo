@@ -28,7 +28,7 @@ function closeModal() {
   document.body.style.overflow = '';
 
   // Прокручиваем страницу к предыдущей сохраненной позиции
-  window.scrollTo(0, parseInt(document.body.dataset.scrollY || '0', 10)); 
+  window.scrollTo(parseInt(document.body.dataset.scrollY || '0', 10),0);
 }
 
 const mask = new Inputmask('+7 (999) 999 99 99');

@@ -195,7 +195,7 @@
     &__inner {
       position: relative;
       margin-bottom: 20rem;
-      padding-bottom: 8rem;
+      padding-bottom: 24.8rem;
     }
     &__title {
       margin-bottom: 8rem;
@@ -254,13 +254,19 @@
       }
     }
     &-pagination {
-      bottom: 0;
+      &.swiper-pagination-horizontal {
+        bottom: 16.8rem;
+      }
     }
     .btn {
       display: flex;
       &.mob {
+        left: 50%;
+        transform: translateX(-50%);
+        position: absolute;
         justify-content: center;
         display: flex;
+        bottom: 0;
       }
     }
   }

@@ -1,8 +1,5 @@
 .questions {
   margin-bottom: 22rem;
-  &__title {
-    margin-bottom: 10rem;
-  }
   &__content {
     
   }
@@ -46,7 +43,7 @@
       margin-left: 9.4rem;
       margin-top: 4rem;
     }
-    &:last-child {
+    &:last-of-type {
       border-bottom: 0.1rem solid #DCDCDC;
     }
     &.active {
@@ -77,8 +74,7 @@
     &__item {
       padding: 6.4rem 0;
       border-top: 0.1rem solid #DCDCDC;
-      &:last-child {
-        border-bottom: 0.1rem solid #DCDCDC;
+      &:last-of-type {
         margin-bottom: 8rem;
       }
       &-heading {
