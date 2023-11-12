@@ -20,12 +20,15 @@
     &-list {
       display: flex;
       flex-direction: column;
+      margin-left: 6rem;
+      margin-right: 0;
       row-gap: 6rem;
     }
     &-item {
       display: flex;
       align-items: flex-start;
       width: 90.5rem;
+      height: fit-content;
       padding-bottom: 6rem;
       padding-right: 9.7rem;
       border-bottom: 0.1rem solid #DCDCDC;
@@ -124,33 +127,38 @@
       margin-bottom: 10rem;
     }
     &__content {
+      position: relative;
       display: flex;
       justify-content: space-between;
+      padding-bottom: 8rem;
       &-image {
         display: none;
       }
       &-list {
         display: flex;
         flex-direction: column;
+        margin-left: 0;
         row-gap: 6rem;
       }
       &-item {
         display: flex;
         align-items: flex-start;
         width: 90.5rem;
-        padding-bottom: 6rem;
-        padding-right: 9.7rem;
+        height: 40.2rem;
+        padding: 6.4rem 0 6.4rem 0;
         border-bottom: 0.1rem solid #DCDCDC;
+        border-top: 0.1rem solid #DCDCDC;
         font-family: 'Gilroy';
-        font-size: 3.2rem;
+        font-size: 3.6rem;
         font-weight: 500;
-        line-height: 93%;
+        line-height: 166%;
         color: $black;
         &-num {
           margin-right: 4rem;
+          font-size: 3.6rem;
         }
         &-title {
-          margin-bottom: 4rem;
+          margin-bottom: 4.8rem;
         }
         &-text {
           & a {
@@ -159,20 +167,20 @@
             line-height: normal;
           }
         }
+        &:last-child {
+          border-bottom: 0.1rem solid #DCDCDC;
+          border-top: 0.1rem solid #DCDCDC;
+        }
         &-list {
           margin-left: 3rem;
           & li {
             font-family: 'Gilroy';
-            font-size: 2rem;
+            font-size: 2.8rem;
             font-weight: 400;
             line-height: normal;
             color: $black;
             list-style-type: disc;
           }
-        }
-        &:last-child {
-          border: 0;
-          padding-bottom: 0;
         }
       }
     }

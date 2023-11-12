@@ -149,40 +149,43 @@
 
 .prices-table {
   margin: 22rem;
-		&__title {
-		}
+  &__title {
+  }
 
-		&__table {
+  &__table {
+    width: 100%;
+    border-spacing: 0;
+    &-wrapper {
       width: 100%;
-      border-spacing: 0;
-      &-wrapper {
-        width: 100%;
-      }
-      &-head {
-        & th {
-          padding: 3.2rem 0 3.2rem 4rem;
-          background: $dies;
-          text-align: left;
-          font-family: 'Gilroy';
-          font-size: 2.4rem;
-          font-weight: 600;
-        }
-      }
-		}
-    &__column1 {
-      padding: 3.2rem 0 3.1rem 4rem;
-      width: 57%;
     }
-    &__column2 {
-      padding: 3.2rem 0 3.1rem 4rem;
-      width: 43%;
+    &-head {
+      & th {
+        padding: 3.2rem 0 3.2rem 4rem;
+        background: $dies;
+        text-align: left;
+        font-family: 'Gilroy';
+        font-size: 2.4rem;
+        font-weight: 600;
+      }
     }
-		&__line {
-      //padding: 3.2rem 0 3.1rem 4rem;
-      border-bottom: 0.1rem solid #C4C4C4;
-      background: $light-grey;
-      text-align: left;
-		}
+  }
+  &__column1 {
+    padding: 3.2rem 0 3.1rem 4rem;
+    width: 57%;
+  }
+  &__column2 {
+    padding: 3.2rem 0 3.1rem 4rem;
+    width: 43%;
+  }
+  &__line {
+    //padding: 3.2rem 0 3.1rem 4rem;
+    border-bottom: 0.1rem solid #C4C4C4;
+    background: $light-grey;
+    text-align: left;
+  }
+  .btn {
+    display: none;
+  }
 }
 
 
@@ -252,6 +255,13 @@
     }
     &-pagination {
       bottom: 0;
+    }
+    .btn {
+      display: flex;
+      &.mob {
+        justify-content: center;
+        display: flex;
+      }
     }
   }
 }

@@ -77,6 +77,10 @@
     &__item {
       padding: 6.4rem 0;
       border-top: 0.1rem solid #DCDCDC;
+      &:last-child {
+        border-bottom: 0.1rem solid #DCDCDC;
+        margin-bottom: 8rem;
+      }
       &-heading {
         align-items: flex-start;
       }
@@ -102,6 +106,13 @@
         width: 59.8rem;
         margin-left: 7.6rem;
         margin-top: 4.8rem;
+      }
+    }
+    .btn {
+      display: none;
+      &.mob {
+        justify-content: center;
+        display: flex;
       }
     }
   }

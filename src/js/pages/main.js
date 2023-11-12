@@ -14,6 +14,23 @@ const rem = function (rem) {
   }
 }
 
+function openModal() {
+ const scrollPosition = window.scrollY;
+
+  // Запрещаем прокрутку страницы
+  document.body.style.overflow = 'hidden';
+
+  // Запоминаем текущую позицию прокрутки
+  document.body.dataset.scrollY = scrollPosition;
+}
+
+function closeModal() {
+  document.body.style.overflow = '';
+
+  // Прокручиваем страницу к предыдущей сохраненной позиции
+  window.scrollTo(0, parseInt(document.body.dataset.scrollY || '0', 10)); 
+}
+
 const mask = new Inputmask('+7 (999) 999 99 99');
 mask.mask($('.phone-mask'));
 
@@ -158,6 +175,7 @@ $(function() {
 //validation//
 function validateForm() {
   if(document.querySelector(".application__form")) {
+    console.log('work');
     const form = document.querySelector(".application__form");
     const name = document.querySelector(".name");
     const phone = document.querySelector(".phone-mask");
@@ -207,20 +225,32 @@ function validateForm() {
     }
   
     form.addEventListener("submit", function (event) {
-      if (name.value == '' && phone.value == '') {
+      if (!name.validity.valid || !phone.validity.valid) {
         event.preventDefault();
-        phone.classList.add('invalid');
-        name.classList.add('invalid');
-        phoneError.textContent = "Заполните поле";
-        nameError.textContent = "Заполните поле";
+        showErrorName();
+        showErrorPhone();
         return;
-      } else {
-        event.preventDefault();
-        $.ajax();
-        name.value ='';
-        phone.value ='';
-        modalSuccess.classList.add('active')
       }
+
+      event.preventDefault();
+      name.value ='';
+      phone.value ='';
+      modalSuccess.classList.add('active')
+
+      // if (name.value == '' && phone.value == '') {
+      //   event.preventDefault();
+      //   phone.classList.add('invalid');
+      //   name.classList.add('invalid');
+      //   phoneError.textContent = "Заполните поле";
+      //   nameError.textContent = "Заполните поле";
+      //   return;
+      // } else {
+      //   event.preventDefault();
+      //   $.ajax();
+      //   name.value ='';
+      //   phone.value ='';
+      //   modalSuccess.classList.add('active')
+      // }
     });
   }
   
@@ -309,13 +339,17 @@ if(document.querySelector(".calculator__form")) {
 
 $('.widget__content-item').on('click', function () {
   $('.modal__application').addClass('active');
-  validateForm()
 })
+
+if(document.querySelector(".modal__application")) {
+  validateForm();
+}
+
 
 $('#modal-open').on('click', function () {
   $('.modal__application').addClass('active');
-  validateForm()
 })
+validateForm();
 
 //tabs//
 
@@ -520,20 +554,24 @@ $('.modal__close').on('click', function () {
   slider.classList.remove('active');
   if(modalSuccess.className.includes('active')) {
     modalSuccess.classList.remove('active');
+    openModal();
   }
   if($('.modal__application').hasClass('active')) {
     $('.modal__application').addClass('active');
+    closeModal();
   }
 })
 
 if(btnContinue) {
   btnContinue.addEventListener('click', () => {
     modalSuccess.classList.remove('active');
+    closeModal();
   })
 }
 if(closeBtn2) {
   closeBtn2.addEventListener('click', () => {
     sliderTwo.classList.remove('active');
+    closeModal();
   })
 }
 
@@ -559,7 +597,6 @@ const slider12 = new Swiper('.modal__swiper', {
 });
 
 let current3 = document.querySelector('.modal-pagination .current');
-console.log(current3)
 slider12.on('slideChange', function () {
   let ind2 = slider12.realIndex + 1;
   let indRes2 = ind2 >= 10 ? ind2 : `0${ind2}`;
@@ -574,6 +611,7 @@ document.addEventListener('click', (el) => {
     if(slider.className.includes('active')) {
       if(notModal && !notSlider){
         slider.classList.remove('active');
+        closeModal();
       }
     }
   }
@@ -585,6 +623,7 @@ document.addEventListener('click', (el) => {
     if(modalSuccess.className.includes('active')) {
       if(!notModal3 && !notSuccess){
         modalSuccess.classList.remove('active');
+        closeModal();
       }
     }
   }
@@ -596,6 +635,7 @@ document.addEventListener('click', (el) => {
     if(sliderTwo.className.includes('active')) {
       if(notModal2 && !notSlider2){
         sliderTwo.classList.remove('active');
+        closeModal();
       }
     }
   }
@@ -685,6 +725,37 @@ const slider3 = new Swiper('.certificates__swiper', {
       }
     },
   }
+});
+
+const slider15 = new Swiper('.steps__content-list', {
+  direction: 'vertical',
+  slidesPerView: 4,
+  spaceBetween: rem(6),
+  speed: 1000,
+  autoHeight: true,
+  pagination: {
+    el: '.steps-pagination',
+    type: 'bullets',
+    clickable: true,
+  },
+  breakpoints: {
+    769: {
+      slidesPerView: 4,
+      spaceBetween: rem(6),
+    },
+    210: {
+      autoHeight: false,
+      direction: 'horizontal',
+      slidesPerView: 1,
+      spaceBetween: rem(1),
+    }
+  },
+  // on: {
+  //   slideChange: function (sDSwiperSlider) {
+  //       $('.swiper-pagination-bullet').removeClass('swiper-pagination-bullet-active');
+  //       $('.swiper-pagination-bullet:nth-child('+ (sDSwiperSlider.realIndex % 2 + 1) +')').addClass('swiper-pagination-bullet-active');
+  //   }
+  // },
 });
 
 if(document.querySelector('.select')) {

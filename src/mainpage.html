@@ -459,41 +459,44 @@
             <div class="steps__content-image">
               <img src="./assets/images/main-steps.webp" alt="">
             </div>
-            <div class="steps__content-list">
-              <div class="steps__content-item">
-                <div class="steps__content-item-num num">01</div>
-                <div class="steps__content-item-">
-                  <div class="steps__content-item-title">Заявка на сайте</div>
-                  <div class="steps__content-item-text text">Вы звоните по телефону <a href="#">+7 (900) 000-00-00</a> или оставляете заявку через сайт на <a id='modal-open' href="#">Бесплатный вызов замерщика</a></div>
+            <div class="steps__content-list swiper">
+              <div class="swiper-wrapper">
+                <div class="steps__content-item swiper-slide">
+                  <div class="steps__content-item-num num">01</div>
+                  <div class="steps__content-item-">
+                    <div class="steps__content-item-title">Заявка на сайте</div>
+                    <div class="steps__content-item-text text">Вы звоните по телефону <a href="#">+7 (900) 000-00-00</a> или оставляете заявку через сайт на <a id='modal-open' href="#">Бесплатный вызов замерщика</a></div>
+                  </div>
                 </div>
-              </div>
-              <div class="steps__content-item">
-                <div class="steps__content-item-num num">02</div>
-                <div class="steps__content-item-">
-                  <div class="steps__content-item-title">Замер и расчет стоимости</div>
-                  <div class="steps__content-item-text text">Замерщик приедет к вам на замер в оговоренное время с полным каталогом фактур и оттенков и сделает расчёт стоимости бесплатно прямо при вас</div>
+                <div class="steps__content-item swiper-slide">
+                  <div class="steps__content-item-num num">02</div>
+                  <div class="steps__content-item-">
+                    <div class="steps__content-item-title">Замер и расчет стоимости</div>
+                    <div class="steps__content-item-text text">Замерщик приедет к вам на замер в оговоренное время с полным каталогом фактур и оттенков и сделает расчёт стоимости бесплатно прямо при вас</div>
+                  </div>
                 </div>
-              </div>
-              <div class="steps__content-item">
-                <div class="steps__content-item-num num">03</div>
-                <div class="steps__content-item-">
-                  <div class="steps__content-item-title">Заключение договора</div>
-                  <div class="steps__content-item-text text">Заключаем с вами договор, чтобы вы были уверенны в качестве нашей работы. Также вам будет предоставлена гарантия на потолок и монтажные работы</div>
+                <div class="steps__content-item swiper-slide">
+                  <div class="steps__content-item-num num">03</div>
+                  <div class="steps__content-item-">
+                    <div class="steps__content-item-title">Заключение договора</div>
+                    <div class="steps__content-item-text text">Заключаем с вами договор, чтобы вы были уверенны в качестве нашей работы. Также вам будет предоставлена гарантия на потолок и монтажные работы</div>
+                  </div>
                 </div>
-              </div>
-              <div class="steps__content-item">
-                <div class="steps__content-item-num num">04</div>
-                <div class="steps__content-item-">
-                  <div class="steps__content-item-title">Профессиональный монтаж</div>
-                  <ul class="steps__content-item-list">
-                    <li>Выполним быстрый монтаж</li>
-                    <li>Установим встроенные светильники и шумоизоляцию</li>
-                    <li>Скроем кабели, провода и другую коммуникацию</li>
-                    <li>Оставим после себя чистоту</li>
-                  </ul>
+                <div class="steps__content-item swiper-slide">
+                  <div class="steps__content-item-num num">04</div>
+                  <div class="steps__content-item-">
+                    <div class="steps__content-item-title">Профессиональный монтаж</div>
+                    <ul class="steps__content-item-list">
+                      <li>Выполним быстрый монтаж</li>
+                      <li>Установим встроенные светильники и шумоизоляцию</li>
+                      <li>Скроем кабели, провода и другую коммуникацию</li>
+                      <li>Оставим после себя чистоту</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
+            <div class="steps-pagination pagination swiper-pagination"></div>
           </div>
         </div>
       </div>
@@ -668,6 +671,12 @@
             </div>
           </div>
           <div class="prices-pagination pagination swiper-pagination"></div>
+          <a class="btn mob" href="#">
+            <span>Перейти в каталог</span>
+            <div>
+              <img src="./assets/images/icons/arrow-white.svg" alt="">
+            </div>
+          </a>
         </div>
       </div>
     </section>
@@ -773,6 +782,12 @@
               поэтому может легко лопнуть, хотя при ''размораживании'' - эластичность пленки восстанавливается.
             </div>
           </div>
+          <a class="btn mob" href="#">
+            <span>Перейти в раздел</span>
+            <div>
+              <img src="./assets/images/icons/arrow-white.svg" alt="">
+            </div>
+          </a>
         </div>
       </div>
     </section>
@@ -1046,7 +1061,7 @@
             </label>
             <label class="form__input">
               <span>Номер телефона</span>
-              <input class='phone-mask' name="phone"  type="text" placeholder="+7 (9__) ___ __ __">
+              <input class='phone-mask' name="phone" type="text" placeholder="+7 (9__) ___ __ __">
               <span class="error">Необходимо ввести числовое значение</span>
             </label>
             <button class="application__form-button button" type="submit">Оставить заявку</button>
