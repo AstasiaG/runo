@@ -153,6 +153,10 @@ form {
       line-height: 150%;
       color: $grey;
     }
+    &:disabled {
+      background: #D6D6D6;
+      color: $disable;
+    }
     &.invalid {
       border: 0.2rem solid #C72E37;
       color: #C72E37;
@@ -270,6 +274,9 @@ form {
   font-weight: 600;
   line-height: normal;
   color: $white;
+  &:hover {
+    background-color: $d-blue;
+  }
 }
 
 .btn {
@@ -295,6 +302,19 @@ form {
       width: 2.4rem;
       height: 2.4rem;
       object-fit: contain;
+    }
+  }
+  &:hover {
+    & div {
+      background-color: $d-blue;
+    }
+  }
+  &:disabled {
+    & div {
+      background-color: $dies;
+    }
+    & span {
+      background-color: $disable;
     }
   }
 }

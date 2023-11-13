@@ -64,6 +64,13 @@ if(window.innerWidth > 768) {
   );
 }
 
+$('.widget__content-item #calculator-modal').on('click', function (event) {
+  if(!$('.calculator')) {
+    event.preventDefault();
+    modalCalculator();
+  }
+})
+
 //dropdown//
 
 $(function() {
@@ -156,10 +163,260 @@ $(function() {
   }
 })
 
+//modals//
+let scrollY = 0;
+
+function openModal() {
+  scrollY = window.scrollY;
+  const body = document.body;
+  body.style.height = '100vh';
+  body.style.overflowY = 'hidden';
+  if(window.innerWidth > 768) {
+    body.style.paddingRight = '15px';
+  }
+}
+
+function closeModal() {
+  const body = document.body;
+  body.style.position = '';
+  body.style.top = '';
+  body.style.height = '';
+  body.style.overflowY = '';
+  body.style.paddingRight = '';
+  window.history.replaceState(null, null, window.location.pathname + window.location.search);
+  window.scrollTo(0, scrollY);
+}
+
+function modalApplication() {
+  $('.modal__application').addClass('active');
+  openModal();
+  const formModal = document.querySelector(".application__form-modal");
+  const nameModal = document.querySelector(".name-modal");
+  const phoneModal = document.querySelector(".phone-modal");
+  const nameErrorModal = document.querySelector(".name-modal + span.error");
+  const phoneErrorModal = document.querySelector(".phone-modal + span.error");
+
+  //name validate//
+  nameModal.addEventListener("input", function (event) {
+    if (nameModal.validity.valid) {
+      nameErrorModal.textContent = "";
+      nameErrorModal.className = "error";
+      nameModal.classList.remove('invalid')
+    } else {
+      showErrorNameModal();
+    }
+  });
+
+  function showErrorNameModal() {
+    if (nameModal.validity.valueMissing) {
+      nameErrorModal.textContent = "Поле не должно быть пустым";
+    } else if (nameModal.validity.patternMismatch) {
+      nameErrorModal.textContent = "Имя не должно содержать цифры";
+    } else if (nameModal.validity.tooShort) {
+      nameErrorModal.textContent = `Слишком короткое имя`;
+    }
+    nameErrorModal.className = "error active";
+    nameModal.classList.add('invalid')
+  }
+
+  //phone validate//
+  phoneModal.addEventListener("input", function (event) {
+    if (phoneModal.validity.valid) {
+      phoneErrorModal.textContent = "";
+      phoneErrorModal.className = "error";
+      phoneModal.classList.remove('invalid')
+    } else {
+      showErrorPhoneModal();
+    }
+  });
+
+  function showErrorPhoneModal() {
+    if (phoneModal.validity.valueMissing) {
+      phoneErrorModal.textContent = "Поле не должно быть пустым";
+    }
+    phoneErrorModal.className = "error active";
+    phoneModal.classList.add('invalid')
+  }
+
+  formModal.addEventListener("submit", function (event) {
+    event.preventDefault();
+    if (nameModal.value == '' && phoneModal.value == '') {
+      phoneModal.classList.add('invalid');
+      nameModal.classList.add('invalid');
+      phoneErrorModal.textContent = "Заполните поле";
+      phoneErrorModal.className = "error active";
+      nameErrorModal.textContent = "Заполните поле";
+      nameErrorModal.className = "error active";
+      return;
+    } else {
+      $.ajax();
+      nameModal.value ='';
+      nameErrorModal.textContent = "";
+      nameErrorModal.className = "error";
+      nameModal.classList.remove('invalid')
+      phoneModal.value ='';
+      phoneErrorModal.textContent = "";
+      phoneErrorModal.className = "error";
+      phoneModal.classList.remove('invalid')
+      $('.modal__application').removeClass('active');
+      modalSuccess.classList.add('active')
+      openModal();
+    }
+  });
+}
+
+function modalCalculator() {
+  $('.modal__calculator').addClass('active');
+  openModal();
+  const form = document.querySelector(".calculator__form-modal");
+  const square = document.querySelector(".square-modal");
+  const lamps = document.querySelector(".lamps-modal");
+  const lights = document.querySelector(".lights-modal");
+  const squareError = document.querySelector(".square-modal + span.error");
+  const lampsError = document.querySelector(".lamps-modal + span.error");
+  const lightsError = document.querySelector(".lights-modal + span.error");
+
+  lights.addEventListener("input", function (event) {
+    if (lights.validity.valid) {
+      lightsError.textContent = "";
+      lightsError.className = "error";
+      lights.classList.remove('invalid')
+    } else {
+      showError();
+    }
+  });
+
+  lamps.addEventListener("input", function (event) {
+    if (lamps.validity.valid) {
+      lampsError.textContent = "";
+      lampsError.className = "error";
+      lamps.classList.remove('invalid')
+    } else {
+      showError();
+    }
+  });
+
+  square.addEventListener("input", function (event) {
+    if (square.validity.valid) {
+      squareError.textContent = "";
+      squareError.className = "error";
+      square.classList.remove('invalid')
+    } else {
+      showError();
+    }
+  });
+
+  function showError() {
+    if (!square.validity.valid) {
+      if (square.validity.valueMissing) {
+        squareError.textContent = "Поле не должно быть пустым";
+      } else if (square.validity.patternMismatch) {
+        squareError.textContent = "Необходимо ввести числовое значение";
+      }
+      squareError.className = "error active";
+      square.classList.add('invalid')
+    }
+    if (!lights.validity.valid) {
+      if (lights.validity.patternMismatch) {
+        lightsError.textContent = "Необходимо ввести числовое значение";
+      }
+      lightsError.className = "error active";
+      lights.classList.add('invalid')
+    }
+    if (!lamps.validity.valid) {
+      if (lamps.validity.patternMismatch) {
+        lampsError.textContent = "Необходимо ввести числовое значение";
+      }
+      lampsError.className = "error active";
+      lamps.classList.add('invalid')
+    }
+  }
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+    if (square.value == '') {
+      square.classList.add('invalid');
+      squareError.className = "error active";
+      squareError.textContent = "Заполните поле";
+      return;
+    } else {
+      $.ajax();
+      squareError.textContent = "";
+      squareError.className = "error";
+      square.classList.remove('invalid');
+      $('.modal__calculator').removeClass('active');
+      modalApplication();
+    }
+  });
+}
+
+$('#modal-application').on('click', function () {
+  modalApplication();
+});
+
+$('#modal-calc').on('click', function () {
+  modalCalculator();
+});
+
+$('.catalog__slide-big').on('click', function () {
+  $('.modal2').addClass('active');
+  openModal();
+})
+
+
+let slider = document.querySelector('.modal')
+let sliderTwo = document.querySelector('.modal2')
+let index;
+
+if($('.modal__close').length) {
+  $('.modal__close').on('click', function () {
+    if($(this).closest('.modal').hasClass('active')) {
+      $(this).closest('.modal').removeClass('active');
+      closeModal();
+    }
+  });
+}
+
+if($('.modal__button').length) {
+  $('.modal__button').on('click', function () {
+    if($(this).closest('.modal').hasClass('active')) {
+      $(this).closest('.modal').removeClass('active');
+      closeModal();
+    }
+  })
+}
+
+// $(document).on('click', function(event) {
+//   if ($('.modal.active').length > 0) {
+//     const modalWrapper = $('.modal__wrapper');
+//     const notModal = !$(event.target).closest('.modal');
+//     const notSlider = !$(event.target).closest(modalWrapper);
+
+//     if (notModal && notSlider) {
+//       $('.modal.active').removeClass('active');
+//       closeModal();
+//     }
+//   }
+// });
+
+document.addEventListener('click', (el) => {
+  if(slider) {
+    const modal = document.querySelector('.modal__wrapper');
+    const notSlider = el.composedPath().includes(modal);
+    const notModal = el.composedPath().includes(document.querySelector('.modal'));
+    if(slider.className.includes('active')) {
+      if(notModal && !notSlider){
+        slider.classList.remove('active');
+        closeModal();
+      }
+    }
+  }
+})
+
 
 //validation//
 $(function() {
-  if(document.querySelector(".application__form")) {
+  if(document.querySelector(".application .application__form")) {
     const form = document.querySelector(".application__form");
     const name = document.querySelector(".name");
     const phone = document.querySelector(".phone-mask");
@@ -229,86 +486,88 @@ $(function() {
   }
 })
 
-if(document.querySelector(".calculator__form")) {
-  const form = document.querySelector(".calculator__form");
-  const square = document.querySelector(".square");
-  const lamps = document.querySelector(".lamps");
-  const lights = document.querySelector(".lights");
-  const squareError = document.querySelector(".square + span.error");
-  const lampsError = document.querySelector(".lamps + span.error");
-  const lightsError = document.querySelector(".lights + span.error");
+$(function() {
+  if(document.querySelector(".calculator .calculator__form")) {
+    const form = document.querySelector(".calculator__form");
+    const square = document.querySelector(".square");
+    const lamps = document.querySelector(".lamps");
+    const lights = document.querySelector(".lights");
+    const squareError = document.querySelector(".square + span.error");
+    const lampsError = document.querySelector(".lamps + span.error");
+    const lightsError = document.querySelector(".lights + span.error");
 
-  lights.addEventListener("input", function (event) {
-    if (lights.validity.valid) {
-      lightsError.textContent = "";
-      lightsError.className = "error";
-      lights.classList.remove('invalid')
-    } else {
-      showError();
-    }
-  });
-
-  lamps.addEventListener("input", function (event) {
-    if (lamps.validity.valid) {
-      lampsError.textContent = "";
-      lampsError.className = "error";
-      lamps.classList.remove('invalid')
-    } else {
-      showError();
-    }
-  });
-
-  square.addEventListener("input", function (event) {
-    if (square.validity.valid) {
-      squareError.textContent = "";
-      squareError.className = "error";
-      square.classList.remove('invalid')
-    } else {
-      showError();
-    }
-  });
-
-  function showError() {
-    if (!square.validity.valid) {
-      if (square.validity.valueMissing) {
-        squareError.textContent = "Поле не должно быть пустым";
-      } else if (square.validity.patternMismatch) {
-        squareError.textContent = "Необходимо ввести числовое значение";
+    lights.addEventListener("input", function (event) {
+      if (lights.validity.valid) {
+        lightsError.textContent = "";
+        lightsError.className = "error";
+        lights.classList.remove('invalid')
+      } else {
+        showError();
       }
-      squareError.className = "error active";
-      square.classList.add('invalid')
-    }
-    if (!lights.validity.valid) {
-      if (lights.validity.patternMismatch) {
-        lightsError.textContent = "Необходимо ввести числовое значение";
+    });
+
+    lamps.addEventListener("input", function (event) {
+      if (lamps.validity.valid) {
+        lampsError.textContent = "";
+        lampsError.className = "error";
+        lamps.classList.remove('invalid')
+      } else {
+        showError();
       }
-      lightsError.className = "error active";
-      lights.classList.add('invalid')
-    }
-    if (!lamps.validity.valid) {
-      if (lamps.validity.patternMismatch) {
-        lampsError.textContent = "Необходимо ввести числовое значение";
+    });
+
+    square.addEventListener("input", function (event) {
+      if (square.validity.valid) {
+        squareError.textContent = "";
+        squareError.className = "error";
+        square.classList.remove('invalid')
+      } else {
+        showError();
       }
-      lampsError.className = "error active";
-      lamps.classList.add('invalid')
+    });
+
+    function showError() {
+      if (!square.validity.valid) {
+        if (square.validity.valueMissing) {
+          squareError.textContent = "Поле не должно быть пустым";
+        } else if (square.validity.patternMismatch) {
+          squareError.textContent = "Необходимо ввести числовое значение";
+        }
+        squareError.className = "error active";
+        square.classList.add('invalid')
+      }
+      if (!lights.validity.valid) {
+        if (lights.validity.patternMismatch) {
+          lightsError.textContent = "Необходимо ввести числовое значение";
+        }
+        lightsError.className = "error active";
+        lights.classList.add('invalid')
+      }
+      if (!lamps.validity.valid) {
+        if (lamps.validity.patternMismatch) {
+          lampsError.textContent = "Необходимо ввести числовое значение";
+        }
+        lampsError.className = "error active";
+        lamps.classList.add('invalid')
+      }
     }
+
+    form.addEventListener("submit", function (event) {
+      if (square.value == '') {
+        event.preventDefault();
+        square.classList.add('invalid');
+        squareError.className = "error active";
+        squareError.textContent = "Заполните поле";
+        return;
+      } else {
+        event.preventDefault();
+        $.ajax();
+        $('.modal__calculator').removeClass('active');
+        $('.modal__application').addClass('active');
+      }
+    });
   }
-
-  form.addEventListener("submit", function (event) {
-    if (square.value == '') {
-      event.preventDefault();
-      square.classList.add('invalid');
-      squareError.className = "error active";
-      squareError.textContent = "Заполните поле";
-      return;
-    } else {
-      event.preventDefault();
-      $.ajax();
-      $('.modal__application').addClass('active');
-      openModal();
-    }
-  });
-}
+})
 
 //tabs//
 
@@ -355,6 +614,9 @@ const slider1 = new Swiper('.banner__swiper', {
       },
     }
   }
+});
+$('.banner__swiper').on('click', '.banner__button', function () {
+  modalApplication();
 });
 
 const slider2 = new Swiper('.catalog__slide-content-images', {
@@ -692,6 +954,17 @@ if(document.querySelector('.select')) {
   });
 }
 
+if(document.querySelector('.select-modal')) {
+  const select = new Choices('.select-modal', {
+    searchEnabled: false,
+    position: 'bottom',
+    itemSelectText: '',
+    classNames: {
+      containerOuter: 'choices select-choices',
+    },
+  });
+}
+
 if(document.querySelector('.select-filter')) {
   const filter = new Choices('.select-filter', {
     searchEnabled: false,
@@ -703,137 +976,6 @@ if(document.querySelector('.select-filter')) {
   });
 }
 
-//modals//
-
-let scrollY = 0;
-
-function openModal() {
-  scrollY = window.scrollY;
-  const body = document.body;
-  body.style.height = '100vh';
-  body.style.overflowY = 'hidden';
-  if(window.innerWidth > 768) {
-    body.style.paddingRight = '15px';
-  }
-
-  if(document.querySelector(".application__form")) {
-    const form = document.querySelector(".application__form");
-    const name = document.querySelector(".name");
-    const phone = document.querySelector(".phone-mask");
-    const nameError = document.querySelector(".name + span.error");
-    const phoneError = document.querySelector(".phone-mask + span.error");
-  
-    //name validate//
-    name.addEventListener("input", function (event) {
-      if (name.validity.valid) {
-        nameError.textContent = "";
-        nameError.className = "error";
-        name.classList.remove('invalid')
-      } else {
-        showErrorName();
-      }
-    });
-  
-    function showErrorName() {
-      if (name.validity.valueMissing) {
-        nameError.textContent = "Поле не должно быть пустым";
-      } else if (name.validity.patternMismatch) {
-        nameError.textContent = "Имя не должно содержать цифры";
-      } else if (name.validity.tooShort) {
-        nameError.textContent = `Слишком короткое имя`;
-      }
-      nameError.className = "error active";
-      name.classList.add('invalid')
-    }
-  
-    //phone validate//
-    phone.addEventListener("input", function (event) {
-      if (phone.validity.valid) {
-        phoneError.textContent = "";
-        phoneError.className = "error";
-        phone.classList.remove('invalid')
-      } else {
-        showErrorPhone();
-      }
-    });
-  
-    function showErrorPhone() {
-      if (phone.validity.valueMissing) {
-        phoneError.textContent = "Поле не должно быть пустым";
-      }
-      phoneError.className = "error active";
-      phone.classList.add('invalid')
-    }
-  
-    form.addEventListener("submit", function (event) {
-      event.preventDefault();
-      if (name.value == '' && phone.value == '') {
-        phone.classList.add('invalid');
-        name.classList.add('invalid');
-        phoneError.textContent = "Заполните поле";
-        phoneError.className = "error active";
-        nameError.textContent = "Заполните поле";
-        nameError.className = "error active";
-        return;
-      } else {
-        $.ajax();
-        name.value ='';
-        phone.value ='';
-        modalSuccess.classList.add('active')
-        openModal();
-      }
-    });
-  }
-}
-
-function closeModal() {
-  const body = document.body;
-  body.style.position = '';
-  body.style.top = '';
-  body.style.height = '';
-  body.style.overflowY = '';
-  body.style.paddingRight = '';
-  window.history.replaceState(null, null, window.location.pathname + window.location.search);
-  window.scrollTo(0, scrollY);
-}
-
-$('#modal-application').on('click', function () {
-  $('.modal__application').addClass('active');
-  openModal();
-});
-
-$('#modal-calc').on('click', function () {
-  $('.modal__calculator').addClass('active');
-  openModal();
-});
-
-$('.catalog__slide-big').on('click', function () {
-  $('.modal2').addClass('active');
-  openModal();
-})
-
-
-let slider = document.querySelector('.modal')
-let sliderTwo = document.querySelector('.modal2')
-let index;
-
-if($('.modal__close').length) {
-  $('.modal__close').on('click', function () {
-    if($(this).closest('.modal').hasClass('active')) {
-      $(this).closest('.modal').removeClass('active');
-      closeModal();
-    }
-  });
-}
-
-if($('.modal__button').length) {
-  $('.modal__button').on('click', function () {
-    if($(this).closest('.modal').hasClass('active')) {
-      $(this).closest('.modal').removeClass('active');
-      closeModal();
-    }
-  })
-}
 
 // $(document).on('click', function(event) {
 //   if ($('.modal.active').length > 0) {
@@ -847,20 +989,6 @@ if($('.modal__button').length) {
 //     }
 //   }
 // });
-
-document.addEventListener('click', (el) => {
-  if(slider) {
-    const modal = document.querySelector('.modal__wrapper');
-    const notSlider = el.composedPath().includes(modal);
-    const notModal = el.composedPath().includes(document.querySelector('.modal'));
-    if(slider.className.includes('active')) {
-      if(notModal && !notSlider){
-        slider.classList.remove('active');
-        closeModal();
-      }
-    }
-  }
-})
 //   if(modalSuccess) {
 //     const modal3 = document.querySelector('.submit > .modal__wrapper');
 //     const notModal3 = el.composedPath().includes(modal3);
