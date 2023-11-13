@@ -122,12 +122,13 @@ body {
 }
 
 .form__input {
+  position: relative;
   display: flex;
   flex-direction: column;
   margin-bottom: 4rem;
-  &:last-of-type {
-    margin-bottom: 0;
-  }
+  // &:last-of-type {
+  //   margin-bottom: 0;
+  // }
 }
 
 form {
@@ -158,6 +159,8 @@ form {
     }
   }
   .error {
+    position: absolute;
+    bottom: -3rem;
     display: none;
     font-family: 'Gilroy';
     font-size: 1.4rem;
@@ -466,6 +469,13 @@ form {
     }
   }
 
+  .breadcrumbs {
+    font-size: 2.8rem;
+    line-height: normal;
+    margin-top: 4rem;
+    margin-bottom: 8rem;
+  }
+
   .form__input {
     display: flex;
     flex-direction: column;
@@ -476,6 +486,10 @@ form {
   }
   
   form {
+    & label {
+      font-size: 2.8rem;
+      line-height: normal;
+    }
     & input {
       width: 100%;
       padding: 2.6rem 2.4rem;
@@ -485,6 +499,10 @@ form {
         font-size: 2.8rem;
         line-height: normal;
       }
+    }
+    .error {
+      bottom: -4rem;
+      font-size: 2.8rem;
     }
   }
 

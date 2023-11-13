@@ -111,6 +111,50 @@
       margin-bottom: 4.8rem;
     }
   }
+  &__calculator {
+    & .modal {
+      &__wrapper {
+        position: relative;
+        z-index: 1000;
+        width: 115.4rem;
+        padding: 6rem;
+        background: $light-grey;
+        & .calculator-title {
+          margin-bottom: 5.8rem;
+        }
+        & .calculator__form {
+          flex-direction: column;
+          .form {
+            &__aside {
+              padding: 4rem;
+              width: 100%;
+              display: flex;
+              align-items: center;
+              background: $white;
+              justify-content: space-between;
+              &-title {
+                margin-bottom: 2.4rem;
+              }
+              &-cost {
+                margin-bottom: 0;
+              }
+              &-text {
+                width: 24.8rem;
+                margin-bottom: 0;
+              }
+              &-button {
+                width: 31rem;
+              }
+            }
+          }
+        }
+      }
+      &__close {
+        right: 3.2rem;
+        top: 3.2rem;
+      }
+    }
+  }
 }
 
 .modal-thumbs {
@@ -226,6 +270,31 @@
     &.active {
       display: flex;
       animation: fade-in 0.5s ease-in-out;
+    }
+    &.submit {
+      .modal {
+        &__wrapper {
+          width: 100%;
+          padding: 0 2rem;
+        }
+        &__submit {
+          width: 100%;
+          padding: 12rem 8rem 8rem;
+          &-title {
+            width: 53.2rem;
+            margin-bottom: 10.4rem;
+          }
+        }
+        &__close {
+          width: 6.4rem;
+          height: 6.4rem;
+          top: 2.4rem;
+          right: 2.4rem;
+        }
+        &__button {
+          padding: 3.6rem 19.4rem;
+        }
+      }
     }
   }
 

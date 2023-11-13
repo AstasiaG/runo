@@ -14,23 +14,6 @@ const rem = function (rem) {
   }
 }
 
-function openModal() {
- const scrollPosition = window.scrollY;
-
-  // Запрещаем прокрутку страницы
-  document.body.style.overflow = 'hidden';
-
-  // Запоминаем текущую позицию прокрутки
-  document.body.dataset.scrollY = scrollPosition;
-}
-
-function closeModal() {
-  document.body.style.overflow = '';
-
-  // Прокручиваем страницу к предыдущей сохраненной позиции
-  window.scrollTo(parseInt(document.body.dataset.scrollY || '0', 10),0);
-}
-
 const mask = new Inputmask('+7 (999) 999 99 99');
 mask.mask($('.phone-mask'));
 
@@ -52,32 +35,34 @@ $(".widget__icon").on("click",function () {
   $(this).toggleClass('active')
 });
 
-$('.steps__content-item').each(function () {
-  let hide = $(this).find('.steps__content-item-img');
-  hide.hide();
-  if($(this).hasClass('active')) {
-    $(this).find('.steps__content-item-img').show();
-  }
-  $(this).on("click",function () {
-    $(".header__dropdown-catalog-item").each(function () {
-      $(this).find('.header__dropdown-catalog-content').hide();
-      $(this).removeClass('active')
-    })
-    hide.show();
-    $(this).addClass('active')
-  });
-})
-
-$('.steps__content-item').on("mouseenter",
-  function () {
-    $('.steps__content-item').find('.steps__content-item-img').hide(200);
-    $(this).find(".steps__content-item-img").show(200);
+if(window.innerWidth > 768) {
+  $('.steps__content-item').each(function () {
+    let hide = $(this).find('.steps__content-item-img');
+    hide.hide();
+    if($(this).hasClass('active')) {
+      $(this).find('.steps__content-item-img').show();
+    }
+    $(this).on("click",function () {
+      $(".header__dropdown-catalog-item").each(function () {
+        $(this).find('.header__dropdown-catalog-content').hide();
+        $(this).removeClass('active')
+      })
+      hide.show();
+      $(this).addClass('active')
+    });
   })
-
-$(".steps__content-item").on("mouseleave", function () {
-  $(this).find(".steps__content-item-img").hide(200);
-  }
-);
+  
+  $('.steps__content-item').on("mouseenter",
+    function () {
+      $('.steps__content-item').find('.steps__content-item-img').hide(200);
+      $(this).find(".steps__content-item-img").show(200);
+    })
+  
+  $(".steps__content-item").on("mouseleave", function () {
+    $(this).find(".steps__content-item-img").hide(200);
+    }
+  );
+}
 
 //dropdown//
 
@@ -173,9 +158,8 @@ $(function() {
 
 
 //validation//
-function validateForm() {
+$(function() {
   if(document.querySelector(".application__form")) {
-    console.log('work');
     const form = document.querySelector(".application__form");
     const name = document.querySelector(".name");
     const phone = document.querySelector(".phone-mask");
@@ -225,38 +209,25 @@ function validateForm() {
     }
   
     form.addEventListener("submit", function (event) {
-      if (!name.validity.valid || !phone.validity.valid) {
-        event.preventDefault();
-        showErrorName();
-        showErrorPhone();
-        return;
-      }
-
       event.preventDefault();
-      name.value ='';
-      phone.value ='';
-      modalSuccess.classList.add('active')
-
-      // if (name.value == '' && phone.value == '') {
-      //   event.preventDefault();
-      //   phone.classList.add('invalid');
-      //   name.classList.add('invalid');
-      //   phoneError.textContent = "Заполните поле";
-      //   nameError.textContent = "Заполните поле";
-      //   return;
-      // } else {
-      //   event.preventDefault();
-      //   $.ajax();
-      //   name.value ='';
-      //   phone.value ='';
-      //   modalSuccess.classList.add('active')
-      // }
+      if (name.value == '' && phone.value == '') {
+        phone.classList.add('invalid');
+        name.classList.add('invalid');
+        phoneError.textContent = "Заполните поле";
+        phoneError.className = "error active";
+        nameError.textContent = "Заполните поле";
+        nameError.className = "error active";
+        return;
+      } else {
+        $.ajax();
+        name.value ='';
+        phone.value ='';
+        modalSuccess.classList.add('active')
+        openModal();
+      }
     });
   }
-  
-}
-
-validateForm();
+})
 
 if(document.querySelector(".calculator__form")) {
   const form = document.querySelector(".calculator__form");
@@ -327,29 +298,17 @@ if(document.querySelector(".calculator__form")) {
     if (square.value == '') {
       event.preventDefault();
       square.classList.add('invalid');
+      squareError.className = "error active";
       squareError.textContent = "Заполните поле";
       return;
     } else {
       event.preventDefault();
       $.ajax();
-      //modalSuccess.classList.add('active')
+      $('.modal__application').addClass('active');
+      openModal();
     }
   });
 }
-
-$('.widget__content-item').on('click', function () {
-  $('.modal__application').addClass('active');
-})
-
-if(document.querySelector(".modal__application")) {
-  validateForm();
-}
-
-
-$('#modal-open').on('click', function () {
-  $('.modal__application').addClass('active');
-})
-validateForm();
 
 //tabs//
 
@@ -357,11 +316,11 @@ $('.catalog__button').on('click', function() {
   let id = $(this).attr('data-tab');
   let content = $('.catalog__slide[data-tab="'+ id +'"]');
   
-  $('.catalog__button.active').removeClass('active'); // 1
-  $(this).addClass('active'); // 2
+  $('.catalog__button.active').removeClass('active');
+  $(this).addClass('active');
   
-  $('.catalog__slide').removeClass('active'); // 3
-  content.addClass('active'); // 4
+  $('.catalog__slide').removeClass('active');
+  content.addClass('active');
 })
 
 
@@ -415,44 +374,44 @@ const slider2 = new Swiper('.catalog__slide-content-images', {
   },
 });
 
-  const sliderThumbs = new Swiper('.catalog__btns', {
-    slidesPerView: 'auto',
-    watchOverflow: true,
-    spaceBetween: rem(2),
-    speed: 1000,
-    navigation: {
-      nextEl: '.catalog-btn-next',
-      prevEl: '.catalog-btn-prev',
-    },
-    on: {
-      //Показать и скрыть кнопки при прокрутке
-      fromEdge: function () {
-        if(document.querySelector('.catalog-btn-next')) {
-          document.querySelector('.catalog-btn-next').style.display = 'flex';
-          document.querySelector('.catalog-btn-prev').style.display = 'flex';
-        }
-      },
-    },
-    breakpoints: {
-      769: {
-        slidesPerView: 'auto',
-        spaceBetween: rem(2),
-      },
-      210: {
-        slidesPerView: 'auto',
-        spaceBetween: rem(4),
+const sliderThumbs = new Swiper('.catalog__btns', {
+  slidesPerView: 'auto',
+  watchOverflow: true,
+  spaceBetween: rem(2),
+  speed: 1000,
+  navigation: {
+    nextEl: '.catalog-btn-next',
+    prevEl: '.catalog-btn-prev',
+  },
+  on: {
+    //Показать и скрыть кнопки при прокрутке
+    fromEdge: function () {
+      if(document.querySelector('.catalog-btn-next')) {
+        document.querySelector('.catalog-btn-next').style.display = 'flex';
+        document.querySelector('.catalog-btn-prev').style.display = 'flex';
       }
+    },
+  },
+  breakpoints: {
+    769: {
+      slidesPerView: 'auto',
+      spaceBetween: rem(2),
+    },
+    210: {
+      slidesPerView: 'auto',
+      spaceBetween: rem(4),
     }
-  });
-
-  if(document.querySelector('.catalog-btn-next')) {
-    sliderThumbs.on('reachEnd', () => {
-      document.querySelector('.catalog-btn-next').style.display = 'none';
-    })
-    sliderThumbs.on('reachBeginning', () => {
-      document.querySelector('.catalog-btn-prev').style.display = 'none';
-    })
   }
+});
+
+if(document.querySelector('.catalog-btn-next')) {
+  sliderThumbs.on('reachEnd', () => {
+    document.querySelector('.catalog-btn-next').style.display = 'none';
+  })
+  sliderThumbs.on('reachBeginning', () => {
+    document.querySelector('.catalog-btn-prev').style.display = 'none';
+  })
+}
 
 const slider4 = new Swiper('.reviews__swiper', {
   slidesPerView: 1,
@@ -525,6 +484,11 @@ const slider9 = new Swiper('.product__images', {
   thumbs: {
     swiper: slider8,
   },
+  pagination: {
+    el: '.product__images-pagination',
+    type: 'bullets',
+    clickable: true,
+  },
 });
 
 const slider10 = new Swiper('.benefits-details__swiper', {
@@ -535,6 +499,21 @@ const slider10 = new Swiper('.benefits-details__swiper', {
     nextEl: '.benefits-details-btn-next',
     prevEl: '.benefits-details-btn-prev',
   },
+  pagination: {
+    el: '.benefits-details-pagination',
+    type: 'bullets',
+    clickable: true,
+  },
+  breakpoints: {
+    769: {
+      slidesPerView: 2,
+      spaceBetween: rem(4),
+    },
+    210: {
+      slidesPerView: 1,
+      spaceBetween: rem(1),
+    }
+  }
 });
 
 const slider11 = new Swiper('.modal-thumbs__swiper', {
@@ -542,38 +521,6 @@ const slider11 = new Swiper('.modal-thumbs__swiper', {
   spaceBetween: rem(2),
   speed: 1000,
 });
-
-const btnContinue = document.querySelector('.modal__button')
-const closeBtn = document.querySelector('.modal__close');
-const closeBtn2 = document.querySelector('.modal2__close');
-let slider = document.querySelector('.modal')
-let sliderTwo = document.querySelector('.modal2')
-let index;
-
-$('.modal__close').on('click', function () {
-  slider.classList.remove('active');
-  if(modalSuccess.className.includes('active')) {
-    modalSuccess.classList.remove('active');
-    openModal();
-  }
-  if($('.modal__application').hasClass('active')) {
-    $('.modal__application').addClass('active');
-    closeModal();
-  }
-})
-
-if(btnContinue) {
-  btnContinue.addEventListener('click', () => {
-    modalSuccess.classList.remove('active');
-    closeModal();
-  })
-}
-if(closeBtn2) {
-  closeBtn2.addEventListener('click', () => {
-    sliderTwo.classList.remove('active');
-    closeModal();
-  })
-}
 
 const slider12 = new Swiper('.modal__swiper', {
   slidesPerView: 1,
@@ -595,53 +542,12 @@ const slider12 = new Swiper('.modal__swiper', {
     swiper: slider11,
   },
 });
-
 let current3 = document.querySelector('.modal-pagination .current');
 slider12.on('slideChange', function () {
   let ind2 = slider12.realIndex + 1;
   let indRes2 = ind2 >= 10 ? ind2 : `0${ind2}`;
-    current3.innerText = indRes2; // Используйте .text() для изменения текста
+    current3.innerText = indRes2;
 });
-
-document.addEventListener('click', (el) => {
-  if(slider) {
-    const modal = document.querySelector('.modal__wrapper');
-    const notSlider = el.composedPath().includes(modal);
-    const notModal = el.composedPath().includes(slider);
-    if(slider.className.includes('active')) {
-      if(notModal && !notSlider){
-        slider.classList.remove('active');
-        closeModal();
-      }
-    }
-  }
-  if(modalSuccess) {
-    const modal3 = document.querySelector('.submit > .modal__wrapper');
-    const notModal3 = el.composedPath().includes(modal3);
-    const notSuccess = el.composedPath().includes(modalSuccess);
-    console.log(modal3)
-    if(modalSuccess.className.includes('active')) {
-      if(!notModal3 && !notSuccess){
-        modalSuccess.classList.remove('active');
-        closeModal();
-      }
-    }
-  }
-  if(sliderTwo) {
-    const modal2 = document.querySelector('.modal2__wrapper');
-    const notSlider2 = el.composedPath().includes(modal2);
-    const notModal2 = el.composedPath().includes(sliderTwo);
-
-    if(sliderTwo.className.includes('active')) {
-      if(notModal2 && !notSlider2){
-        sliderTwo.classList.remove('active');
-        closeModal();
-      }
-    }
-  }
-})
-
-
 
 const slider13 = new Swiper('.modal-thumbs2__swiper', {
   slidesPerView: 4,
@@ -671,11 +577,10 @@ const slider14 = new Swiper('.modal2__swiper', {
 });
 
 let current4 = document.querySelector('.modal2-pagination .current');
-
 slider14.on('slideChange', function () {
   let ind2 = slider14.realIndex + 1;
   let indRes2 = ind2 >= 10 ? ind2 : `0${ind2}`;
-    current4.innerText = indRes2; // Используйте .text() для изменения текста
+    current4.innerText = indRes2;
 });
 
 // document.addEventListener('click', (el) => {
@@ -719,6 +624,7 @@ const slider3 = new Swiper('.certificates__swiper', {
     click: function (e) {
       if(e.clickedSlide !== undefined) {
         slider.classList.add('active');
+        openModal();
         index = e.clickedIndex;
         slider12.slideTo(index, 0);
         slider12.update();
@@ -727,12 +633,12 @@ const slider3 = new Swiper('.certificates__swiper', {
   }
 });
 
-const slider15 = new Swiper('.steps__content-list', {
+const slider15 = new Swiper('.steps-main .steps__content-list', {
   direction: 'vertical',
   slidesPerView: 4,
+  autoHeight: true,
   spaceBetween: rem(6),
   speed: 1000,
-  autoHeight: true,
   pagination: {
     el: '.steps-pagination',
     type: 'bullets',
@@ -750,13 +656,30 @@ const slider15 = new Swiper('.steps__content-list', {
       spaceBetween: rem(1),
     }
   },
-  // on: {
-  //   slideChange: function (sDSwiperSlider) {
-  //       $('.swiper-pagination-bullet').removeClass('swiper-pagination-bullet-active');
-  //       $('.swiper-pagination-bullet:nth-child('+ (sDSwiperSlider.realIndex % 2 + 1) +')').addClass('swiper-pagination-bullet-active');
-  //   }
-  // },
-});
+})
+
+const slider16 = new Swiper('.steps-services .steps__content-list', {
+  direction: 'vertical',
+  slidesPerView: 'auto',
+  spaceBetween: rem(0),
+  speed: 1000,
+  pagination: {
+    el: '.steps-pagination',
+    type: 'bullets',
+    clickable: true,
+  },
+  breakpoints: {
+    769: {
+      slidesPerView: 'auto',
+      spaceBetween: rem(0),
+    },
+    210: {
+      direction: 'horizontal',
+      slidesPerView: 1,
+      spaceBetween: rem(1),
+    }
+  },
+})
 
 if(document.querySelector('.select')) {
   const select = new Choices('.select', {
@@ -779,3 +702,187 @@ if(document.querySelector('.select-filter')) {
     },
   });
 }
+
+//modals//
+
+let scrollY = 0;
+
+function openModal() {
+  scrollY = window.scrollY;
+  const body = document.body;
+  body.style.height = '100vh';
+  body.style.overflowY = 'hidden';
+  if(window.innerWidth > 768) {
+    body.style.paddingRight = '15px';
+  }
+
+  if(document.querySelector(".application__form")) {
+    const form = document.querySelector(".application__form");
+    const name = document.querySelector(".name");
+    const phone = document.querySelector(".phone-mask");
+    const nameError = document.querySelector(".name + span.error");
+    const phoneError = document.querySelector(".phone-mask + span.error");
+  
+    //name validate//
+    name.addEventListener("input", function (event) {
+      if (name.validity.valid) {
+        nameError.textContent = "";
+        nameError.className = "error";
+        name.classList.remove('invalid')
+      } else {
+        showErrorName();
+      }
+    });
+  
+    function showErrorName() {
+      if (name.validity.valueMissing) {
+        nameError.textContent = "Поле не должно быть пустым";
+      } else if (name.validity.patternMismatch) {
+        nameError.textContent = "Имя не должно содержать цифры";
+      } else if (name.validity.tooShort) {
+        nameError.textContent = `Слишком короткое имя`;
+      }
+      nameError.className = "error active";
+      name.classList.add('invalid')
+    }
+  
+    //phone validate//
+    phone.addEventListener("input", function (event) {
+      if (phone.validity.valid) {
+        phoneError.textContent = "";
+        phoneError.className = "error";
+        phone.classList.remove('invalid')
+      } else {
+        showErrorPhone();
+      }
+    });
+  
+    function showErrorPhone() {
+      if (phone.validity.valueMissing) {
+        phoneError.textContent = "Поле не должно быть пустым";
+      }
+      phoneError.className = "error active";
+      phone.classList.add('invalid')
+    }
+  
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      if (name.value == '' && phone.value == '') {
+        phone.classList.add('invalid');
+        name.classList.add('invalid');
+        phoneError.textContent = "Заполните поле";
+        phoneError.className = "error active";
+        nameError.textContent = "Заполните поле";
+        nameError.className = "error active";
+        return;
+      } else {
+        $.ajax();
+        name.value ='';
+        phone.value ='';
+        modalSuccess.classList.add('active')
+        openModal();
+      }
+    });
+  }
+}
+
+function closeModal() {
+  const body = document.body;
+  body.style.position = '';
+  body.style.top = '';
+  body.style.height = '';
+  body.style.overflowY = '';
+  body.style.paddingRight = '';
+  window.history.replaceState(null, null, window.location.pathname + window.location.search);
+  window.scrollTo(0, scrollY);
+}
+
+$('#modal-application').on('click', function () {
+  $('.modal__application').addClass('active');
+  openModal();
+});
+
+$('#modal-calc').on('click', function () {
+  $('.modal__calculator').addClass('active');
+  openModal();
+});
+
+$('.catalog__slide-big').on('click', function () {
+  $('.modal2').addClass('active');
+  openModal();
+})
+
+
+let slider = document.querySelector('.modal')
+let sliderTwo = document.querySelector('.modal2')
+let index;
+
+if($('.modal__close').length) {
+  $('.modal__close').on('click', function () {
+    if($(this).closest('.modal').hasClass('active')) {
+      $(this).closest('.modal').removeClass('active');
+      closeModal();
+    }
+  });
+}
+
+if($('.modal__button').length) {
+  $('.modal__button').on('click', function () {
+    if($(this).closest('.modal').hasClass('active')) {
+      $(this).closest('.modal').removeClass('active');
+      closeModal();
+    }
+  })
+}
+
+// $(document).on('click', function(event) {
+//   if ($('.modal.active').length > 0) {
+//     const modalWrapper = $('.modal__wrapper');
+//     const notModal = !$(event.target).closest('.modal');
+//     const notSlider = !$(event.target).closest(modalWrapper);
+
+//     if (notModal && notSlider) {
+//       $('.modal.active').removeClass('active');
+//       closeModal();
+//     }
+//   }
+// });
+
+document.addEventListener('click', (el) => {
+  if(slider) {
+    const modal = document.querySelector('.modal__wrapper');
+    const notSlider = el.composedPath().includes(modal);
+    const notModal = el.composedPath().includes(document.querySelector('.modal'));
+    if(slider.className.includes('active')) {
+      if(notModal && !notSlider){
+        slider.classList.remove('active');
+        closeModal();
+      }
+    }
+  }
+})
+//   if(modalSuccess) {
+//     const modal3 = document.querySelector('.submit > .modal__wrapper');
+//     const notModal3 = el.composedPath().includes(modal3);
+//     const notSuccess = el.composedPath().includes(modalSuccess);
+//     console.log(modal3)
+//     if(modalSuccess.className.includes('active')) {
+//       if(!notModal3 && !notSuccess){
+//         modalSuccess.classList.remove('active');
+//         closeModal();
+//       }
+//     }
+//   }
+//   if(sliderTwo) {
+//     const modal2 = document.querySelector('.modal2__wrapper');
+//     const notSlider2 = el.composedPath().includes(modal2);
+//     const notModal2 = el.composedPath().includes(sliderTwo);
+
+//     if(sliderTwo.className.includes('active')) {
+//       if(notModal2 && !notSlider2){
+//         sliderTwo.classList.remove('active');
+//         closeModal();
+//       }
+//     }
+//   }
+// })
