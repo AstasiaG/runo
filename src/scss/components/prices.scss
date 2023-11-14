@@ -148,41 +148,66 @@
 }
 
 .prices-table {
-  margin: 22rem;
-		&__title {
-		}
+  margin-bottom: 22rem;
+  &__title {
+  }
 
-		&__table {
+  &__table {
+    position: relative;
+    width: 100%;
+    border-spacing: 0;
+    &-wrapper {
       width: 100%;
-      border-spacing: 0;
-      &-wrapper {
-        width: 100%;
-      }
-      &-head {
-        & th {
-          padding: 3.2rem 0 3.2rem 4rem;
-          background: $dies;
-          text-align: left;
-          font-family: 'Gilroy';
-          font-size: 2.4rem;
-          font-weight: 600;
-        }
-      }
-		}
-    &__column1 {
-      padding: 3.2rem 0 3.1rem 4rem;
-      width: 57%;
     }
-    &__column2 {
-      padding: 3.2rem 0 3.1rem 4rem;
-      width: 43%;
+    &-head {
+      & th {
+        padding: 3.2rem 0 3.2rem 4rem;
+        background: $dies;
+        text-align: left;
+        font-family: 'Gilroy';
+        font-size: 2.4rem;
+        font-weight: 600;
+      }
     }
-		&__line {
-      //padding: 3.2rem 0 3.1rem 4rem;
-      border-bottom: 0.1rem solid #C4C4C4;
-      background: $light-grey;
-      text-align: left;
-		}
+    &::after {
+      position: absolute;
+      content: '';
+      bottom: -2rem;
+      z-index: 15;
+      display: block;
+      width: 100%;
+      height: 11.3rem;
+      background: linear-gradient(360deg, #F3F3F3 31.76%, rgba(243, 243, 243, 0.00) 85.16%);
+    }
+    &.active {
+      &::after {
+        content: none;
+      }
+    }
+  }
+  &__column1 {
+    padding: 3.2rem 0 3.1rem 4rem;
+    width: 57%;
+  }
+  &__column2 {
+    padding: 3.2rem 0 3.1rem 4rem;
+    width: 43%;
+  }
+  &__line {
+    //padding: 3.2rem 0 3.1rem 4rem;
+    border-bottom: 0.1rem solid #C4C4C4;
+    background: $light-grey;
+    text-align: left;
+  }
+  &__btn {
+    font-size: 2.4rem;
+    font-weight: 600;
+    position: relative;
+    display: block;
+    margin: 4.5rem auto 0;
+    z-index: 50;
+    text-align: center;
+  }
 }
 
 
@@ -192,7 +217,7 @@
     &__inner {
       position: relative;
       margin-bottom: 20rem;
-      padding-bottom: 8rem;
+      padding-bottom: 24.8rem;
     }
     &__title {
       margin-bottom: 8rem;
@@ -251,7 +276,149 @@
       }
     }
     &-pagination {
-      bottom: 0;
+      &.swiper-pagination-horizontal {
+        bottom: 16.8rem;
+      }
+    }
+    .btn {
+      display: flex;
+      &.mob {
+        left: 50%;
+        transform: translateX(-50%);
+        position: absolute;
+        justify-content: center;
+        display: flex;
+        bottom: 0;
+      }
+    }
+  }
+
+  .detail-prices {
+    margin-bottom: 20rem;
+    &__title {
+      width: 100%;
+    }
+  
+    &__text {
+      width: 100%;
+    }
+    .title-wrap {
+      flex-direction: column;
+    }
+  
+    &__list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4rem;
+    }
+    &__item {
+      width: 100%;
+      padding: 6.4rem;
+      &-top {
+        gap: 4.8rem;
+        margin-bottom: 4.8rem;
+      }
+      &-logo {
+        width: 16.2rem;
+      }
+      &-content {
+        padding-bottom: 4.8rem;
+      }
+      &-title {
+        font-size: 3.6rem;
+        margin-bottom: 4rem;
+      }
+      &-feature {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 2.4rem;
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+      .btn {
+        display: flex;
+      }
+    }
+  
+    &__item-cost {
+      &-num {
+        font-size: 4.4rem;
+        & span {
+          font-size: 3.2rem;
+        }
+      }
+      &-wrap {
+        margin-top: 4.8rem;
+      }
+    }
+  }
+  .prices-table {
+    margin-bottom: 20rem;
+    &__title {
+    }
+  
+    &__table {
+      display: none;
+      &::after {
+        content: none;
+      }
+    }
+    &__content {
+      position: relative;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      &-item {
+        background: #ffffff;
+        padding: 4rem 4rem 3.7rem 4rem;
+        border-bottom: 0.2rem solid #C4C4C4;
+        &:last-child {
+          border-bottom: 0;
+        }
+        &-title {
+          font-size: 3.2rem;
+          font-weight: 500;
+          margin-top: 0.8rem;
+        }
+        &-bottom {
+          margin-top: 4rem;
+          display: flex;
+          align-items: center;
+        }
+        & span {
+          font-size: 2.8rem;
+          margin-right: 0.8rem;
+          color: $grey;
+        }
+      }
+      &::after {
+        position: absolute;
+        content: '';
+        bottom: -7rem;
+        z-index: 15;
+        display: block;
+        width: 100%;
+        height: 22.6rem;
+        background: linear-gradient(360deg, #F3F3F3 31.76%, rgba(243, 243, 243, 0.00) 85.16%);
+      }
+      &.active {
+        &::after {
+          content: none;
+        }
+      }
+    }
+    &__btn {
+      font-size: 2.8rem;
+      position: relative;
+      display: block;
+      margin: 8rem auto 0;
+      z-index: 50;
+      text-align: center;
+    }
+    .button {
+      display: none;
     }
   }
 }

@@ -10,46 +10,48 @@
   <include src="./components/header.html"></include>
   <main class="main">
     <section class="banner">
-      <div class="banner__inner">
-        <div class="banner__swiper swiper">
-          <div class="banner__swiper-wrapper swiper-wrapper">
-            <div class="banner-slide swiper-slide">
-              <div class="banner-slide__content" data-swiper-parallax="-200">
-                <div class="banner-slide__title heading">От замера до монтажа всего <span>24</span> часа</div>
-                <div class="banner-slide__text text">Цените время, не ждите замерщика! Оставьте заявку и в течение часа мы произведем расчет.</div>
-                <button class="banner__button button" type="button">Оставить заявку</button>
+      <div class="container">
+        <div class="banner__inner">
+          <div class="banner__swiper swiper">
+            <div class="banner__swiper-wrapper swiper-wrapper">
+              <div class="banner-slide swiper-slide">
+                <div class="banner-slide__content" data-swiper-parallax="-200">
+                  <div class="banner-slide__title heading">От замера до монтажа всего <span>24</span> часа</div>
+                  <div class="banner-slide__text text">Цените время, не ждите замерщика! Оставьте заявку и в течение часа мы произведем расчет.</div>
+                  <button class="banner__button button" type="button" id='modal-application'>Оставить заявку</button>
+                </div>
+                <div class="banner-slide__img">
+                  <img src="./assets/images/main-baner1.webp" alt="">
+                </div>
               </div>
-              <div class="banner-slide__img">
-                <img src="./assets/images/main-baner1.webp" alt="">
+              <div class="banner-slide swiper-slide">
+                <div class="banner-slide__content" data-swiper-parallax="-200">
+                  <div class="banner-slide__title heading">От замера до монтажа всего <span>24</span> часа</div>
+                  <div class="banner-slide__text text">Цените время, не ждите замерщика! Оставьте заявку и в течение часа мы произведем расчет.</div>
+                  <button class="banner__button button" type="button" id='modal-application'>Оставить заявку</button>
+                </div>
+                <div class="banner-slide__img">
+                  <img src="./assets/images/main-baner2.webp" alt="">
+                </div>
+              </div>
+              <div class="banner-slide swiper-slide">
+                <div class="banner-slide__content" data-swiper-parallax="-200">
+                  <div class="banner-slide__title heading">От замера до монтажа всего <span>24</span> часа</div>
+                  <div class="banner-slide__text text">Цените время, не ждите замерщика! Оставьте заявку и в течение часа мы произведем расчет.</div>
+                  <button class="banner__button button" type="button" id='modal-application'>Оставить заявку</button>
+                </div>
+                <div class="banner-slide__img">
+                  <img src="./assets/images/main-baner2.webp" alt="">
+                </div>
               </div>
             </div>
-            <div class="banner-slide swiper-slide">
-              <div class="banner-slide__content" data-swiper-parallax="-200">
-                <div class="banner-slide__title heading">От замера до монтажа всего <span>24</span> часа</div>
-                <div class="banner-slide__text text">Цените время, не ждите замерщика! Оставьте заявку и в течение часа мы произведем расчет.</div>
-                <button class="banner__button button" type="button">Оставить заявку</button>
-              </div>
-              <div class="banner-slide__img">
-                <img src="./assets/images/main-baner2.webp" alt="">
-              </div>
-            </div>
-            <div class="banner-slide swiper-slide">
-              <div class="banner-slide__content" data-swiper-parallax="-200">
-                <div class="banner-slide__title heading">От замера до монтажа всего <span>24</span> часа</div>
-                <div class="banner-slide__text text">Цените время, не ждите замерщика! Оставьте заявку и в течение часа мы произведем расчет.</div>
-                <button class="banner__button button" type="button">Оставить заявку</button>
-              </div>
-              <div class="banner-slide__img">
-                <img src="./assets/images/main-baner2.webp" alt="">
-              </div>
-            </div>
+            <button class="banner-btn-next btn-next swiper-button-next" type="button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M1 11C0.447715 11 0 11.4477 0 12C0 12.5523 0.447715 13 1 13V11ZM22.9203 12.7071C23.3108 12.3166 23.3108 11.6834 22.9203 11.2929L16.5563 4.92893C16.1658 4.53841 15.5327 4.53841 15.1421 4.92893C14.7516 5.31946 14.7516 5.95262 15.1421 6.34315L20.799 12L15.1421 17.6569C14.7516 18.0474 14.7516 18.6805 15.1421 19.0711C15.5327 19.4616 16.1658 19.4616 16.5563 19.0711L22.9203 12.7071ZM1 13L22.2132 13V11L1 11V13Z" fill="#28292E"/>
+              </svg>
+            </button>
+            <div class="banner-progress swiper-pagination"></div>
           </div>
-          <button class="banner-btn-next btn-next swiper-button-next" type="button">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path d="M1 11C0.447715 11 0 11.4477 0 12C0 12.5523 0.447715 13 1 13V11ZM22.9203 12.7071C23.3108 12.3166 23.3108 11.6834 22.9203 11.2929L16.5563 4.92893C16.1658 4.53841 15.5327 4.53841 15.1421 4.92893C14.7516 5.31946 14.7516 5.95262 15.1421 6.34315L20.799 12L15.1421 17.6569C14.7516 18.0474 14.7516 18.6805 15.1421 19.0711C15.5327 19.4616 16.1658 19.4616 16.5563 19.0711L22.9203 12.7071ZM1 13L22.2132 13V11L1 11V13Z" fill="#28292E"/>
-            </svg>
-          </button>
-          <div class="banner-progress swiper-pagination"></div>
         </div>
       </div>
     </section>
@@ -451,7 +453,7 @@
       </div>
     </section>
     
-    <section class="steps">
+    <section class="steps steps-main">
       <div class="container">
         <div class="steps__inner">
           <div class="steps__title title">Этапы работ</div>
@@ -459,41 +461,44 @@
             <div class="steps__content-image">
               <img src="./assets/images/main-steps.webp" alt="">
             </div>
-            <div class="steps__content-list">
-              <div class="steps__content-item">
-                <div class="steps__content-item-num num">01</div>
-                <div class="steps__content-item-">
-                  <div class="steps__content-item-title">Заявка на сайте</div>
-                  <div class="steps__content-item-text text">Вы звоните по телефону <a href="#">+7 (900) 000-00-00</a> или оставляете заявку через сайт на <a href="#">Бесплатный вызов замерщика</a></div>
+            <div class="steps__content-list swiper">
+              <div class="swiper-wrapper">
+                <div class="steps__content-item swiper-slide">
+                  <div class="steps__content-item-num num">01</div>
+                  <div class="steps__content-item-desc">
+                    <div class="steps__content-item-title">Заявка на сайте</div>
+                    <div class="steps__content-item-text text">Вы звоните по телефону <a href="#">+7 (900) 000-00-00</a> или оставляете заявку через сайт на <span id='modal-application'>Бесплатный вызов замерщика</span></div>
+                  </div>
                 </div>
-              </div>
-              <div class="steps__content-item">
-                <div class="steps__content-item-num num">02</div>
-                <div class="steps__content-item-">
-                  <div class="steps__content-item-title">Замер и расчет стоимости</div>
-                  <div class="steps__content-item-text text">Замерщик приедет к вам на замер в оговоренное время с полным каталогом фактур и оттенков и сделает расчёт стоимости бесплатно прямо при вас</div>
+                <div class="steps__content-item swiper-slide">
+                  <div class="steps__content-item-num num">02</div>
+                  <div class="steps__content-item-desc">
+                    <div class="steps__content-item-title">Замер и расчет стоимости</div>
+                    <div class="steps__content-item-text text">Замерщик приедет к вам на замер в оговоренное время с полным каталогом фактур и оттенков и сделает расчёт стоимости бесплатно прямо при вас</div>
+                  </div>
                 </div>
-              </div>
-              <div class="steps__content-item">
-                <div class="steps__content-item-num num">03</div>
-                <div class="steps__content-item-">
-                  <div class="steps__content-item-title">Заключение договора</div>
-                  <div class="steps__content-item-text text">Заключаем с вами договор, чтобы вы были уверенны в качестве нашей работы. Также вам будет предоставлена гарантия на потолок и монтажные работы</div>
+                <div class="steps__content-item swiper-slide">
+                  <div class="steps__content-item-num num">03</div>
+                  <div class="steps__content-item-desc">
+                    <div class="steps__content-item-title">Заключение договора</div>
+                    <div class="steps__content-item-text text">Заключаем с вами договор, чтобы вы были уверенны в качестве нашей работы. Также вам будет предоставлена гарантия на потолок и монтажные работы</div>
+                  </div>
                 </div>
-              </div>
-              <div class="steps__content-item">
-                <div class="steps__content-item-num num">04</div>
-                <div class="steps__content-item-">
-                  <div class="steps__content-item-title">Профессиональный монтаж</div>
-                  <ul class="steps__content-item-list">
-                    <li>Выполним быстрый монтаж</li>
-                    <li>Установим встроенные светильники и шумоизоляцию</li>
-                    <li>Скроем кабели, провода и другую коммуникацию</li>
-                    <li>Оставим после себя чистоту</li>
-                  </ul>
+                <div class="steps__content-item swiper-slide">
+                  <div class="steps__content-item-num num">04</div>
+                  <div class="steps__content-item-desc">
+                    <div class="steps__content-item-title">Профессиональный монтаж</div>
+                    <ul class="steps__content-item-list">
+                      <li>Выполним быстрый монтаж</li>
+                      <li>Установим встроенные светильники и шумоизоляцию</li>
+                      <li>Скроем кабели, провода и другую коммуникацию</li>
+                      <li>Оставим после себя чистоту</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
+            <div class="steps-pagination pagination swiper-pagination"></div>
           </div>
         </div>
       </div>
@@ -572,18 +577,21 @@
               </label>
               <label class="form__input">
                 <span>Общая площадь, м2</span>
-                <input type="text" pattern="[0-9]" required>
+                <input class="square" type="text" pattern="\d+">
+                <span class="error">Необходимо ввести числовое значение</span>
               </label>
             </div>
             <div class="form__title title-sm">Информация об освещении</div>
             <div class="form__group">
               <label class="form__input">
                 <span>Потолочная люстра, шт</span>
-                <input type="text" pattern="[0-9]" required>
+                <input class="lamps" type="text" pattern="\d+">
+                <span class="error">Необходимо ввести числовое значение</span>
               </label>
               <label class="form__input">
                 <span>Точечное освещение, шт</span>
-                <input type="text" pattern="[0-9]" required>
+                <input class="lights" type="text" pattern="\d+">
+                <span class="error">Необходимо ввести числовое значение</span>
               </label>
             </div>
           </div>
@@ -665,6 +673,12 @@
             </div>
           </div>
           <div class="prices-pagination pagination swiper-pagination"></div>
+          <a class="btn mob" href="#">
+            <span>Перейти в каталог</span>
+            <div>
+              <img src="./assets/images/icons/arrow-white.svg" alt="">
+            </div>
+          </a>
         </div>
       </div>
     </section>
@@ -770,6 +784,12 @@
               поэтому может легко лопнуть, хотя при ''размораживании'' - эластичность пленки восстанавливается.
             </div>
           </div>
+          <a class="btn mob" href="#">
+            <span>Перейти в раздел</span>
+            <div>
+              <img src="./assets/images/icons/arrow-white.svg" alt="">
+            </div>
+          </a>
         </div>
       </div>
     </section>
@@ -1024,10 +1044,10 @@
 
     <section class="ceilings">
       <div class="ceilings__inner">
-        <div class="ceilings__img">
-          <img src="./assets/images/ceilings-img.webp" alt="">
-        </div>
         <div class="container">
+          <div class="ceilings__img">
+            <img src="./assets/images/ceilings-img.webp" alt="">
+          </div>
           <div class="ceilings__content">
             <div class="ceilings__title title">Натяжные потолки в Москве и Московской области</div>
             <div class="ceilings__text text">

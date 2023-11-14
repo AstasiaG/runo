@@ -156,17 +156,17 @@
         &-item {
           width: 50.6rem;
           background: $light-grey;
-          &-img {
-            width: 100%;
-            height: 57.7rem;
-            & img {
-              width: 100%;
-              height: 100%;
-              object-fit: cover;
-            }
-          }
           &:hover {
             background-color: $dies;
+          }
+        }
+        &-img {
+          width: 100%;
+          height: 57.7rem;
+          & img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
           }
         }
         &-bottom {
@@ -340,6 +340,7 @@
         flex-direction: column;
         width: 100%;
         &-images {
+          width: 100%;
           display: flex;
           margin-bottom: 4rem;
           padding: 0 2rem;
@@ -368,12 +369,12 @@
         }
       }
       &-items {
-        width: 105%;
+        width: 100%;
         display: flex;
         align-items: center;
         flex-wrap: wrap;
         gap: 4rem;
-        padding: 0 2rem;
+        padding: 0 0 0 2rem;
       }
     }
   
@@ -382,6 +383,9 @@
       display: none;
     }
     &.catalog-page {
+      .container {
+        padding: 0 2rem;
+      }
       .catalog {
         &__wrapper {
           overflow: hidden;
@@ -397,23 +401,23 @@
           flex-wrap: wrap;
           gap: 4rem;
           &-item {
-            width: 50.6rem;
-            &-img {
+            width: 100%;
+          }
+          &-img {
+            width: 100%;
+            height: 50rem;
+            & img {
               width: 100%;
-              height: 57.7rem;
-              & img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-              }
+              height: 100%;
+              object-fit: cover;
             }
           }
           &-bottom {
             display: flex;
             justify-content: space-between;
             width: 100%;
-            padding: 3.2rem 3.2rem 3.4rem 3.3rem;
-            font-size: 2.4rem;
+            padding: 4rem;
+            font-size: 3.6rem;
             font-style: normal;
             color: $black;
             background: $light-grey;
@@ -426,10 +430,11 @@
           }
         }
         &__button {
-          width: 24rem;
-          height: 6.2rem;
+          width: 35.2rem;
+          height: 8.8rem;
           font-weight: 400;
-          padding: 1.9rem 3.2rem;
+          padding: 2.6rem 4.8rem;
+          font-size: 2.8rem;
           text-align: center;
           &:first-child {
             width: fit-content;
@@ -449,12 +454,45 @@
           left: unset;
           right: 15rem;
         }
+        &-btn-prev,
+        &-btn-next {
+          width: 8.8rem;
+          height: 8.8rem;
+          & svg {
+            width: 3.4rem;
+            height: 3.4rem;
+          }
+          &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            display: block;
+            width: 10rem;
+            height: 8.8rem;
+          }
+        }
+        &-btn-next {
+          z-index: 250;
+          right: 0;
+          &::after {
+            left: -9.8rem;
+            background: linear-gradient(270deg, #F3F3F3 25.52%, rgba(243, 243, 243, 0.00) 50%);
+          }
+        }
+        &-btn-prev {
+          left: 0;
+          display: none;
+          &::after {
+            right: -9.8rem;
+            background: linear-gradient(90deg, #F3F3F3 25.52%, rgba(243, 243, 243, 0.00) 50%);
+          }
+        }
       }
     }
     .choices.select-choices {
-      width: 24rem;
-      height: 6.2rem;
-      padding: 1.7rem 3.2rem;
+      width: 35.2rem;
+      height: 8.8rem;
+      padding: 2.6rem 4.8rem;
       border: 0;
       margin: 0;
       background: $dies;
@@ -473,7 +511,7 @@
           border-bottom: 0.1rem solid rgba(161, 172, 185, 0.20);
           padding: 0.8rem 0;
           font-family: 'Gilroy';
-          font-size: 2rem;
+          font-size: 2.8rem;
           font-weight: 400;
           line-height: 150%;
           color: $black;
@@ -485,10 +523,10 @@
       }
     
       &[data-type*="select-one"]::after {
-        width: 2rem;
-        height: 2rem;
+        width: 3.2rem;
+        height: 3.2rem;
         margin: 0;
-        right: 3.2rem;
+        right: 4.8rem;
         top: 50%;
         transform: translateY(-50%);
         background: url('./assets/images/icons/select-arr.svg') no-repeat center center;

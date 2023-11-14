@@ -18,6 +18,7 @@
           <span class="breadcrumbs__current">Глянцевые потолки</span>
         </div>
         <div class="product__inner">
+          <div class="product__title heading mob">Глянцевые потолки</div>
           <div class="product__images-wrap">
             <div class="product__images swiper">
               <div class="swiper-wrapper">
@@ -38,6 +39,7 @@
                 </div>
               </div>
             </div>
+            <div class="product__images-pagination pagination swiper-pagination"></div>
             <div class="product__thumbs-wrapper">
               <button class="product__thumbs-btn-prev btn-prev swiper-button-prev" type="button">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -63,7 +65,7 @@
                   </div>
                 </div>
               </div>
-              <button class="product__thumbs-btn-next btn-next swiper-button-next" type="button">
+              <button class="product__thumbs-btn-next btn-next swiper-button-next" type="button" id='modal-open'>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                   <path d="M1 11C0.447715 11 0 11.4477 0 12C0 12.5523 0.447715 13 1 13V11ZM22.9203 12.7071C23.3108 12.3166 23.3108 11.6834 22.9203 11.2929L16.5563 4.92893C16.1658 4.53841 15.5327 4.53841 15.1421 4.92893C14.7516 5.31946 14.7516 5.95262 15.1421 6.34315L20.799 12L15.1421 17.6569C14.7516 18.0474 14.7516 18.6805 15.1421 19.0711C15.5327 19.4616 16.1658 19.4616 16.5563 19.0711L22.9203 12.7071ZM1 13L22.2132 13V11L1 11V13Z" fill="#28292E"/>
                 </svg>
@@ -113,7 +115,7 @@
               <span class="text">Цена с установкой</span>
               <span class="product__content-cost-num heading">от 9200<span>₽</span></span>
             </div>
-            <button class="product-button button" type="submit">Оставить заявку</button>
+            <button class="product-button button" type="submit" id="modal-application">Оставить заявку</button>
           </div>
         </div>
       </div>
@@ -378,18 +380,21 @@
               </label>
               <label class="form__input">
                 <span>Общая площадь, м2</span>
-                <input type="text" pattern="[0-9]" required>
+                <input class="square" type="text" pattern="\d+">
+                <span class="error">Необходимо ввести числовое значение</span>
               </label>
             </div>
             <div class="form__title title-sm">Информация об освещении</div>
             <div class="form__group">
               <label class="form__input">
                 <span>Потолочная люстра, шт</span>
-                <input type="text" pattern="[0-9]" required>
+                <input class="lamps" type="text" pattern="\d+">
+                <span class="error">Необходимо ввести числовое значение</span>
               </label>
               <label class="form__input">
                 <span>Точечное освещение, шт</span>
-                <input type="text" pattern="[0-9]" required>
+                <input class="lights" type="text" pattern="\d+">
+                <span class="error">Необходимо ввести числовое значение</span>
               </label>
             </div>
           </div>
@@ -406,7 +411,7 @@
     <section class="benefits-details">
       <div class="container">
         <div class="benefits-details__inner">
-          <div class="benefits-details__title title">Преимущества глянцевых потолков</div>
+          <div class="benefits-details__title title">Преимущества<br>глянцевых потолков</div>
           <button class="benefits-details-btn-prev btn-prev swiper-button-prev" type="button">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
               <path d="M1 11C0.447715 11 0 11.4477 0 12C0 12.5523 0.447715 13 1 13V11ZM22.9203 12.7071C23.3108 12.3166 23.3108 11.6834 22.9203 11.2929L16.5563 4.92893C16.1658 4.53841 15.5327 4.53841 15.1421 4.92893C14.7516 5.31946 14.7516 5.95262 15.1421 6.34315L20.799 12L15.1421 17.6569C14.7516 18.0474 14.7516 18.6805 15.1421 19.0711C15.5327 19.4616 16.1658 19.4616 16.5563 19.0711L22.9203 12.7071ZM1 13L22.2132 13V11L1 11V13Z" fill="#28292E"/>
@@ -417,6 +422,7 @@
               <path d="M1 11C0.447715 11 0 11.4477 0 12C0 12.5523 0.447715 13 1 13V11ZM22.9203 12.7071C23.3108 12.3166 23.3108 11.6834 22.9203 11.2929L16.5563 4.92893C16.1658 4.53841 15.5327 4.53841 15.1421 4.92893C14.7516 5.31946 14.7516 5.95262 15.1421 6.34315L20.799 12L15.1421 17.6569C14.7516 18.0474 14.7516 18.6805 15.1421 19.0711C15.5327 19.4616 16.1658 19.4616 16.5563 19.0711L22.9203 12.7071ZM1 13L22.2132 13V11L1 11V13Z" fill="#28292E"/>
             </svg>
           </button>
+          <div class="benefits-details-pagination pagination swiper-pagination"></div>
           <div class="benefits-details__swiper swiper">
             <div class="swiper-wrapper">
               <div class="benefits-details__slide swiper-slide">
@@ -449,7 +455,7 @@
       </div>
     </section>
 
-    <section class="steps">
+    <section class="steps steps-main">
       <div class="container">
         <div class="steps__inner">
           <div class="steps__title title">Этапы работ</div>
@@ -457,41 +463,44 @@
             <div class="steps__content-image">
               <img src="./assets/images/main-steps.webp" alt="">
             </div>
-            <div class="steps__content-list">
-              <div class="steps__content-item">
-                <div class="steps__content-item-num num">01</div>
-                <div class="steps__content-item-">
-                  <div class="steps__content-item-title">Заявка на сайте</div>
-                  <div class="steps__content-item-text text">Вы звоните по телефону <a href="#">+7 (900) 000-00-00</a> или оставляете заявку через сайт на <a href="#">Бесплатный вызов замерщика</a></div>
+            <div class="steps__content-list swiper">
+              <div class="swiper-wrapper">
+                <div class="steps__content-item swiper-slide">
+                  <div class="steps__content-item-num num">01</div>
+                  <div class="steps__content-item-desc">
+                    <div class="steps__content-item-title">Заявка на сайте</div>
+                    <div class="steps__content-item-text text">Вы звоните по телефону <a href="#">+7 (900) 000-00-00</a> или оставляете заявку через сайт на <a id='modal-open' href="#">Бесплатный вызов замерщика</a></div>
+                  </div>
                 </div>
-              </div>
-              <div class="steps__content-item">
-                <div class="steps__content-item-num num">02</div>
-                <div class="steps__content-item-">
-                  <div class="steps__content-item-title">Замер и расчет стоимости</div>
-                  <div class="steps__content-item-text text">Замерщик приедет к вам на замер в оговоренное время с полным каталогом фактур и оттенков и сделает расчёт стоимости бесплатно прямо при вас</div>
+                <div class="steps__content-item swiper-slide">
+                  <div class="steps__content-item-num num">02</div>
+                  <div class="steps__content-item-desc">
+                    <div class="steps__content-item-title">Замер и расчет стоимости</div>
+                    <div class="steps__content-item-text text">Замерщик приедет к вам на замер в оговоренное время с полным каталогом фактур и оттенков и сделает расчёт стоимости бесплатно прямо при вас</div>
+                  </div>
                 </div>
-              </div>
-              <div class="steps__content-item">
-                <div class="steps__content-item-num num">03</div>
-                <div class="steps__content-item-">
-                  <div class="steps__content-item-title">Заключение договора</div>
-                  <div class="steps__content-item-text text">Заключаем с вами договор, чтобы вы были уверенны в качестве нашей работы. Также вам будет предоставлена гарантия на потолок и монтажные работы</div>
+                <div class="steps__content-item swiper-slide">
+                  <div class="steps__content-item-num num">03</div>
+                  <div class="steps__content-item-desc">
+                    <div class="steps__content-item-title">Заключение договора</div>
+                    <div class="steps__content-item-text text">Заключаем с вами договор, чтобы вы были уверенны в качестве нашей работы. Также вам будет предоставлена гарантия на потолок и монтажные работы</div>
+                  </div>
                 </div>
-              </div>
-              <div class="steps__content-item">
-                <div class="steps__content-item-num num">04</div>
-                <div class="steps__content-item-">
-                  <div class="steps__content-item-title">Профессиональный монтаж</div>
-                  <ul class="steps__content-item-list">
-                    <li>Выполним быстрый монтаж</li>
-                    <li>Установим встроенные светильники и шумоизоляцию</li>
-                    <li>Скроем кабели, провода и другую коммуникацию</li>
-                    <li>Оставим после себя чистоту</li>
-                  </ul>
+                <div class="steps__content-item swiper-slide">
+                  <div class="steps__content-item-num num">04</div>
+                  <div class="steps__content-item-desc">
+                    <div class="steps__content-item-title">Профессиональный монтаж</div>
+                    <ul class="steps__content-item-list">
+                      <li>Выполним быстрый монтаж</li>
+                      <li>Установим встроенные светильники и шумоизоляцию</li>
+                      <li>Скроем кабели, провода и другую коммуникацию</li>
+                      <li>Оставим после себя чистоту</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
+            <div class="steps-pagination pagination swiper-pagination"></div>
           </div>
         </div>
       </div>
@@ -552,6 +561,62 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="modal">
+      <div class="modal__wrapper container">
+        <button class="modal-btn-prev btn-prev swiper-button-prev" type="button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M1 11C0.447715 11 0 11.4477 0 12C0 12.5523 0.447715 13 1 13V11ZM22.9203 12.7071C23.3108 12.3166 23.3108 11.6834 22.9203 11.2929L16.5563 4.92893C16.1658 4.53841 15.5327 4.53841 15.1421 4.92893C14.7516 5.31946 14.7516 5.95262 15.1421 6.34315L20.799 12L15.1421 17.6569C14.7516 18.0474 14.7516 18.6805 15.1421 19.0711C15.5327 19.4616 16.1658 19.4616 16.5563 19.0711L22.9203 12.7071ZM1 13L22.2132 13V11L1 11V13Z" fill="#28292E"/>
+          </svg>
+        </button>
+        <button class="modal-btn-next btn-next swiper-button-next" type="button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M1 11C0.447715 11 0 11.4477 0 12C0 12.5523 0.447715 13 1 13V11ZM22.9203 12.7071C23.3108 12.3166 23.3108 11.6834 22.9203 11.2929L16.5563 4.92893C16.1658 4.53841 15.5327 4.53841 15.1421 4.92893C14.7516 5.31946 14.7516 5.95262 15.1421 6.34315L20.799 12L15.1421 17.6569C14.7516 18.0474 14.7516 18.6805 15.1421 19.0711C15.5327 19.4616 16.1658 19.4616 16.5563 19.0711L22.9203 12.7071ZM1 13L22.2132 13V11L1 11V13Z" fill="#28292E"/>
+          </svg>
+        </button>
+        <div class="modal-pagination swiper-pagination num">
+          <span class="current">01</span><span class="total">-</span>
+        </div>
+        <div class="modal__swiper swiper">
+          <div class="modal__wr swiper-wrapper">
+            <div class="modal__slide swiper-slide">
+              <img src="./assets/images/sertificate1.webp" alt="">
+            </div>
+            <div class="modal__slide swiper-slide">
+              <img src="./assets/images/sertificate2.webp" alt="">
+            </div>
+            <div class="modal__slide swiper-slide">
+              <img src="./assets/images/sertificate3.webp" alt="">
+            </div>
+            <div class="modal__slide swiper-slide">
+              <img src="./assets/images/sertificate1.webp" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="modal-thumbs__swiper swiper" thumbsSlider="">
+          <div class="swiper-wrapper">
+            <div class="modal-thumbs__slide swiper-slide">
+              <img src="./assets/images/sertificate1.webp" alt="">
+            </div>
+            <div class="modal-thumbs__slide swiper-slide">
+              <img src="./assets/images/sertificate2.webp" alt="">
+            </div>
+            <div class="modal-thumbs__slide swiper-slide">
+              <img src="./assets/images/sertificate3.webp" alt="">
+            </div>
+            <div class="modal-thumbs__slide swiper-slide">
+              <img src="./assets/images/sertificate1.webp" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="modal__close">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44" fill="none">
+            <path d="M38 6L6 38" stroke="#F3F3F3" stroke-width="3.67" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M6 6L38 38" stroke="#F3F3F3" stroke-width="3.67" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
         </div>
       </div>
     </section>

@@ -22,6 +22,7 @@ const entryPoints = {
   services_zamer: path.resolve(__dirname, "src", "index.js"),
   "our-works": path.resolve(__dirname, "src", "index.js"),
   contacts: path.resolve(__dirname, "src", "index.js"),
+  'services-montazh': path.resolve(__dirname, "src", "index.js"),
   'services-repair': path.resolve(__dirname, "src", "index.js"),
 };
 

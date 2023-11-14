@@ -11,21 +11,23 @@
   <main>
     <section class="banner-services-detail">
       <div class="container">
-        <div class="breadcrumbs">
-          <a class="breadcrumbs__link" href="">Главная</a>
-          <a class="breadcrumbs__link" href="">Услуги</a>
-          <span class="breadcrumbs__current">Ремонт</span>
-        </div>
-        <div class="title-wrap">
-          <div class="banner-services-detail__title heading">Монтаж натяжного потолка</div>
-          <div class="banner-services-detail__text text">
-            Все наши бригады имеют современные инструменты, ведь профессиональный инструмент это не только удобство, 
-            но и скорость выполнения монтажа. Всю технологию монтажа посмотрите в нашем видео.
+        <div class="banner-services-detail__inner">
+          <div class="breadcrumbs">
+            <a class="breadcrumbs__link" href="">Главная</a>
+            <a class="breadcrumbs__link" href="">Услуги</a>
+            <span class="breadcrumbs__current">Ремонт</span>
+          </div>
+          <div class="title-wrap">
+            <div class="banner-services-detail__title heading">Монтаж натяжного потолка</div>
+            <div class="banner-services-detail__text text">
+              Все наши бригады имеют современные инструменты, ведь профессиональный инструмент это не только удобство, 
+              но и скорость выполнения монтажа. Всю технологию монтажа посмотрите в нашем видео.
+            </div>
           </div>
         </div>
-      </div>
-      <div class="banner__image">
-        <img src="./assets/images/services3.webp" alt="">
+        <div class="banner__image">
+          <img src="./assets/images/services3.webp" alt="">
+        </div>
       </div>
     </section>
 
@@ -33,7 +35,7 @@
       <div class="container">
         <div class="title-wrap">
           <div class="prices-table__title title">Стоимость ремонта натяжных потолоков</div>
-          <button class="button" type="button">Расчет стоимости</button>
+          <button class="button" type="button" id="modal-calc">Расчет стоимости</button>
         </div>
         <div class="prices-table__table-wrapper">
           <table class="prices-table__table">
@@ -72,8 +74,143 @@
                 <td class="prices-table__column1">Изготовление и установка карниза</td>
                 <td class="prices-table__column2">130 ₽/м</td>
               </tr>
+              <tr class="prices-table__line text">
+                <td class="prices-table__column1">Устранение посторонних объектов из натяжного потолка</td>
+                <td class="prices-table__column2">130 ₽/м</td>
+              </tr>
+              <tr class="prices-table__line text">
+                <td class="prices-table__column1">Установка вытяжки (вентиляционной решетки) на натяжной потолок</td>
+                <td class="prices-table__column2">130 ₽/м</td>
+              </tr>
+              <tr class="prices-table__line text">
+                <td class="prices-table__column1">Установка люстры</td>
+                <td class="prices-table__column2">130 ₽/м</td>
+              </tr>
+              <tr class="prices-table__line text">
+                <td class="prices-table__column1">Установка точечного светильника</td>
+                <td class="prices-table__column2">130 ₽/м</td>
+              </tr>
+              <tr class="prices-table__line text">
+                <td class="prices-table__column1">Изготовление и установка карниза</td>
+                <td class="prices-table__column2">130 ₽/м</td>
+              </tr>
+              <tr class="prices-table__line text">
+                <td class="prices-table__column1">Изготовление и установка карниза</td>
+                <td class="prices-table__column2">130 ₽/м</td>
+              </tr>
+              <tr class="prices-table__line text">
+                <td class="prices-table__column1">Изготовление и установка карниза</td>
+                <td class="prices-table__column2">130 ₽/м</td>
+              </tr>
+              <tr class="prices-table__line text">
+                <td class="prices-table__column1">Изготовление и установка карниза</td>
+                <td class="prices-table__column2">130 ₽/м</td>
+              </tr>
+              <tr class="prices-table__line text">
+                <td class="prices-table__column1">Изготовление и установка карниза</td>
+                <td class="prices-table__column2">130 ₽/м</td>
+              </tr>
             </tbody>
           </table>
+          <div class="prices-table__content mob">
+            <div class="prices-table__content-item">
+              <span>Наименование услуги</span>
+              <div class="prices-table__content-item-title">Демонтаж системы крепления натяжного потолка</div>
+              <div class="prices-table__content-item-bottom">
+                <span>Стоимость</span>
+                <div class="prices-table__content-item-title">130 ₽/м</div>
+              </div>
+            </div>
+            <div class="prices-table__content-item">
+              <span>Наименование услуги</span>
+              <div class="prices-table__content-item-title">Монтаж системы крепления натяжного потолка</div>
+              <div class="prices-table__content-item-bottom">
+                <span>Стоимость</span>
+                <div class="prices-table__content-item-title">130 ₽/м</div>
+              </div>
+            </div>
+            <div class="prices-table__content-item">
+              <span>Наименование услуги</span>
+              <div class="prices-table__content-item-title">Устранение посторонних объектов из натяжного потолка</div>
+              <div class="prices-table__content-item-bottom">
+                <span>Стоимость</span>
+                <div class="prices-table__content-item-title">130 ₽/м</div>
+              </div>
+            </div>
+            <div class="prices-table__content-item">
+              <span>Наименование услуги</span>
+              <div class="prices-table__content-item-title">Установка вытяжки (вентиляционной решетки) на натяжной потолок</div>
+              <div class="prices-table__content-item-bottom">
+                <span>Стоимость</span>
+                <div class="prices-table__content-item-title">130 ₽/м</div>
+              </div>
+            </div>
+            <div class="prices-table__content-item">
+              <span>Наименование услуги</span>
+              <div class="prices-table__content-item-title">Установка люстры</div>
+              <div class="prices-table__content-item-bottom">
+                <span>Стоимость</span>
+                <div class="prices-table__content-item-title">130 ₽/м</div>
+              </div>
+            </div>
+            <div class="prices-table__content-item">
+              <span>Наименование услуги</span>
+              <div class="prices-table__content-item-title">Установка точечного светильника</div>
+              <div class="prices-table__content-item-bottom">
+                <span>Стоимость</span>
+                <div class="prices-table__content-item-title">130 ₽/м</div>
+              </div>
+            </div>
+            <div class="prices-table__content-item">
+              <span>Наименование услуги</span>
+              <div class="prices-table__content-item-title">Изготовление и установка карниза</div>
+              <div class="prices-table__content-item-bottom">
+                <span>Стоимость</span>
+                <div class="prices-table__content-item-title">130 ₽/м</div>
+              </div>
+            </div>
+            <div class="prices-table__content-item">
+              <span>Наименование услуги</span>
+              <div class="prices-table__content-item-title">Устранение посторонних объектов из натяжного потолка</div>
+              <div class="prices-table__content-item-bottom">
+                <span>Стоимость</span>
+                <div class="prices-table__content-item-title">130 ₽/м</div>
+              </div>
+            </div>
+            <div class="prices-table__content-item">
+              <span>Наименование услуги</span>
+              <div class="prices-table__content-item-title">Установка вытяжки (вентиляционной решетки) на натяжной потолок</div>
+              <div class="prices-table__content-item-bottom">
+                <span>Стоимость</span>
+                <div class="prices-table__content-item-title">130 ₽/м</div>
+              </div>
+            </div>
+            <div class="prices-table__content-item">
+              <span>Наименование услуги</span>
+              <div class="prices-table__content-item-title">Установка люстры</div>
+              <div class="prices-table__content-item-bottom">
+                <span>Стоимость</span>
+                <div class="prices-table__content-item-title">130 ₽/м</div>
+              </div>
+            </div>
+            <div class="prices-table__content-item">
+              <span>Наименование услуги</span>
+              <div class="prices-table__content-item-title">Демонтаж системы крепления натяжного потолка</div>
+              <div class="prices-table__content-item-bottom">
+                <span>Стоимость</span>
+                <div class="prices-table__content-item-title">130 ₽/м</div>
+              </div>
+            </div>
+            <div class="prices-table__content-item">
+              <span>Наименование услуги</span>
+              <div class="prices-table__content-item-title">Демонтаж системы крепления натяжного потолка</div>
+              <div class="prices-table__content-item-bottom">
+                <span>Стоимость</span>
+                <div class="prices-table__content-item-title">130 ₽/м</div>
+              </div>
+            </div>
+          </div>
+          <div class="btn prices-table__btn">Посмотреть еще</div>
         </div>
       </div>
     </section>
@@ -157,10 +294,96 @@
         </div>
       </div>
     </section>
+    
+    <section class="application" id="application">
+      <div class="container">
+        <div class="application__inner">
+          <div class="application__form">
+            <div class="application__title title">Оставьте заявку</div>
+            <div class="application__text text">Хотите узнать стоимость и заказать самый ровный натяжной потолок? Оставьте ваш номер телефона, вам перезвонит наш специалист</div>
+            <form class="application__form">
+              <label class="form__input">
+                <span>Имя</span>
+                <input class='name' type="text" name="name" placeholder="Введите ваше имя" pattern="\D+" minlength="3" maxlength="32">
+                <span class="error">Необходимо ввести числовое значение</span>
+              </label>
+              <label class="form__input">
+                <span>Номер телефона</span>
+                <input class='phone-mask' name="phone"  type="text" placeholder="+7 (9__) ___ __ __">
+                <span class="error">Необходимо ввести числовое значение</span>
+              </label>
+              <button class="application__form-button button" type="submit">Оставить заявку</button>
+            </form>
+          </div>
+          <div class="application__content">
+            <div class="application__content-title title-sm">Контактная информация</div>
+            <div class="application__content-contacts">
+              <div class="application__content-phone phone__block">
+                <a class="phone__block-num" href="#">
+                  <div class="phone__block-num-icon">
+                    <img src="./assets/images/icons/phone.svg" alt="">
+                  </div>
+                  8 (800) 301-07-90
+                </a>
+                <span class="phone__block-text text">круглосуточно без выходных</span>
+              </div>
+              <a class="application__content-mail mail__block" href="#">
+                <div class="mail__block-icon">
+                  <img src="./assets/images/icons/mail.svg" alt="">
+                </div>
+                email@mail.ru
+              </a>
+              <a class="application__content-address address__block" href="#">
+                <div class="address__block-icon">
+                  <img src="./assets/images/icons/map.svg" alt="">
+                </div>
+                6689078, г. Москва, ул. Московская, д. 1, офис 204
+              </a>
+            </div>
+            <div class="application__content-socials">
+              <div class="application__content-title title-sm">Или напишите нам:</div>
+              <div class="application__content-socials-links">
+                <a class="application__content-socials-link" href="#">
+                  <img src="./assets/images/icons/telegram.svg" alt="">
+                </a>
+                <a class="application__content-socials-link" href="#">
+                  <img src="./assets/images/icons/whatsapp.svg" alt="">
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="application__image">
+            <img src="./assets/images/main-application.webp" alt="">
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <section class="ceilings">
+      <div class="ceilings__inner">
+        <div class="container">
+          <div class="ceilings__img">
+            <img src="./assets/images/ceilings-img.webp" alt="">
+          </div>
+          <div class="ceilings__content">
+            <div class="ceilings__title title">Натяжные потолки в Москве и Московской области</div>
+            <div class="ceilings__text text">
+              Мы выполняем монтаж натяжного потолка в Москве и области. Ниже представлены разные виды 
+              полотен и типы конструкций, которые собирают наши монтажники. Применяем технологии, 
+              включающие образование декоративного зазора или создания плотного примыкания профильной 
+              системы к стене. Также умеем собирать подсветки сложного электромонтажа. Заботимся о 
+              безопасном соединении проводов и безопасности при прогреве ПВХ полотна. Для этого подключаем
+               тепловую пушку к композитному баллону. Для соблюдения геометрической точности, создаём лазерную 
+               разметку нивелиром. По линии закрепляют профили, ставят внутренние составляющие комплектующих 
+               осветительных приборов. Каждый наш сотрудник знает как, производится монтаж натяжного потолка с 
+               начала предварительных работ до особенностей выполнения установок со знанием производителей материалов.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     <include src="./components/widget.html"></include>
   </main>
   <include src="./components/footer.html"></include>
-  <script src="https://unpkg.com/cocoen/dist/cocoen.js"></script>
 </body>
 </html>
