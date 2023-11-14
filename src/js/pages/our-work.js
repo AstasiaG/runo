@@ -34,10 +34,8 @@ $(document).ready(function() {
     
     // Ваш обработчик переключения вкладок, где вы вызываете setupSlides() заново
     $('.our-works .catalog__button').on('click', function() {
-        console.log("уауа")
         
         let activeTab = $('.our-works .catalog__button.active').data('tab');
-        console.log(activeTab)
         setupSlides(activeTab);
     });
   });
