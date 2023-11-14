@@ -1,0 +1,54 @@
+.frequently-asked-questions {
+
+    // .frequently-asked-questions__blocks
+    &__blocks {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+    }
+
+    // .frequently-asked-questions__block
+    &__block {
+        display: flex;
+        flex-direction: row;
+        gap: 6rem;
+    }
+
+    // .frequently-asked-questions__number
+    &__number {
+        color: $blue;
+        font-family: Gilroy;
+        font-size: 3.2rem;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 120%;
+    }
+
+    // .frequently-asked-questions__text-content
+    &__text-content {
+        display: flex;
+        flex-direction: column;
+        gap: 3.2rem;
+    }
+
+    // .frequently-asked-questions__title
+    &__title {
+        color: $black;
+        font-family: Gilroy;
+        font-size: 3.2rem;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 120%;
+    }
+
+    // .frequently-asked-questions__paragraph
+    &__paragraph {
+        color: $black;
+        font-family: Gilroy;
+        font-size: 2rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 130%;
+    }
+}
