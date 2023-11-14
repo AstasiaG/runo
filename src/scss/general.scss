@@ -122,12 +122,13 @@ body {
 }
 
 .form__input {
+  position: relative;
   display: flex;
   flex-direction: column;
   margin-bottom: 4rem;
-  &:last-of-type {
-    margin-bottom: 0;
-  }
+  // &:last-of-type {
+  //   margin-bottom: 0;
+  // }
 }
 
 form {
@@ -145,6 +146,7 @@ form {
     background: $dies;
     color: $black;
     cursor: auto;
+    border: 0.2rem solid transparent;
     &::placeholder {
       font-family: 'Gilroy';
       font-size: 2rem;
@@ -152,12 +154,18 @@ form {
       line-height: 150%;
       color: $grey;
     }
+    &:disabled {
+      background: #D6D6D6;
+      color: $disable;
+    }
     &.invalid {
       border: 0.2rem solid #C72E37;
       color: #C72E37;
     }
   }
   .error {
+    position: absolute;
+    bottom: -3rem;
     display: none;
     font-family: 'Gilroy';
     font-size: 1.4rem;
@@ -267,6 +275,9 @@ form {
   font-weight: 600;
   line-height: normal;
   color: $white;
+  &:hover {
+    background-color: $d-blue;
+  }
 }
 
 .btn {
@@ -292,6 +303,19 @@ form {
       width: 2.4rem;
       height: 2.4rem;
       object-fit: contain;
+    }
+  }
+  &:hover {
+    & div {
+      background-color: $d-blue;
+    }
+  }
+  &:disabled {
+    & div {
+      background-color: $dies;
+    }
+    & span {
+      background-color: $disable;
     }
   }
 }
@@ -466,6 +490,13 @@ form {
     }
   }
 
+  .breadcrumbs {
+    font-size: 2.8rem;
+    line-height: normal;
+    margin-top: 4rem;
+    margin-bottom: 8rem;
+  }
+
   .form__input {
     display: flex;
     flex-direction: column;
@@ -476,6 +507,10 @@ form {
   }
   
   form {
+    & label {
+      font-size: 2.8rem;
+      line-height: normal;
+    }
     & input {
       width: 100%;
       padding: 2.6rem 2.4rem;
@@ -485,6 +520,10 @@ form {
         font-size: 2.8rem;
         line-height: normal;
       }
+    }
+    .error {
+      bottom: -4rem;
+      font-size: 2.8rem;
     }
   }
 

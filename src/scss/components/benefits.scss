@@ -80,6 +80,9 @@
   }
   &__title {
     width: 48.7rem;
+    .br {
+      display: none;
+    }
   }
   &__swiper {
     width: 105.2rem;
@@ -149,6 +152,41 @@
     .mob {
       display: flex;
       justify-content: center;
+    }
+  }
+
+  .benefits-details {
+    margin-bottom: 20rem;
+    &__inner {
+      flex-direction: column;
+      gap: 8rem;
+    }
+    &__title {
+      width: 100%;
+      .br {
+        display: block;
+      }
+    }
+    &__swiper {
+      width: 100%;
+      padding-bottom: 8rem;
+    }
+    &__slide {
+      width: 100%;
+      padding: 6.4rem;
+      &-num {
+        margin-bottom: 4.8rem;
+      }
+      &-title {
+        margin-bottom: 0.8rem;
+      }
+      &-text {
+        width: 100%;
+      }
+    }
+    &-btn-prev,
+    &-btn-next {
+      display: none;
     }
   }
 }

@@ -13,6 +13,91 @@
   </div>
 </section>
 
+<section class="modal modal__application">
+  <div class="modal__wrapper container">
+    <div class="modal__application">
+      <div class="modal__close">
+        <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none">
+          <path d="M34 10L10 34" stroke="#28292E" stroke-width="3.67" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M10 10L34 34" stroke="#28292E" stroke-width="3.67" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="modal__application-title title">Оставьте заявку</div>
+      <div class="modal__application-text text">
+        Хотите узнать стоимость и заказать самый ровный натяжной потолок? Оставьте ваш номер телефона, вам перезвонит наш специалист
+      </div>
+      <form class="application__form-modal application__form">
+        <label class="form__input">
+          <span>Имя</span>
+          <input class='name-modal' type="text" name="name" placeholder="Введите ваше имя" pattern="\D+" minlength="3" maxlength="32">
+          <span class="error">Необходимо ввести числовое значение</span>
+        </label>
+        <label class="form__input">
+          <span>Номер телефона</span>
+          <input class='phone-mask phone-modal' name="phone" type="text" placeholder="+7 (9__) ___ __ __">
+          <span class="error">Необходимо ввести числовое значение</span>
+        </label>
+        <button class="application__form-button button" type="submit">Оставить заявку</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="modal modal__calculator">
+  <div class="modal__wrapper container">
+    <div class="modal__calculator">
+      <div class="calculator__title title">Калькулятор расчета стоимости</div>
+      <div class="modal__close">
+        <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none">
+          <path d="M34 10L10 34" stroke="#28292E" stroke-width="3.67" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M10 10L34 34" stroke="#28292E" stroke-width="3.67" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <form class="calculator__form calculator__form-modal">
+        <div class="form__wrap">
+          <div class="form__title title-sm">Информация о потолке</div>
+          <div class="form__group">
+            <label class="form__input">
+              <span>Полотно</span>
+              <select class="select-modal" required>
+                <option>Россия ПВХ</option>
+                <option>Россия ПВХ</option>
+                <option>Россия ПВХ</option>
+              </select>
+            </label>
+            <label class="form__input">
+              <span>Общая площадь, м2</span>
+              <input class="square-modal" type="text" pattern="\d+">
+              <span class="error">Необходимо ввести числовое значение</span>
+            </label>
+          </div>
+          <div class="form__title title-sm">Информация об освещении</div>
+          <div class="form__group">
+            <label class="form__input">
+              <span>Потолочная люстра, шт</span>
+              <input class="lamps-modal" type="text" pattern="\d+">
+              <span class="error">Необходимо ввести числовое значение</span>
+            </label>
+            <label class="form__input">
+              <span>Точечное освещение, шт</span>
+              <input class="lights-modal" type="text" pattern="\d+">
+              <span class="error">Необходимо ввести числовое значение</span>
+            </label>
+          </div>
+        </div>
+        <div class="form__aside">
+          <div>
+            <div class="form__aside-title title-sm">Примерная цена</div>
+            <div class="form__aside-cost title">9200₽<span>9200₽</span></div>
+          </div>
+          <div class="form__aside-text text">Оформив заявку на сайте, вы получаете <span>скидку 10%</span> на установку потолков</div>
+          <button class="form__aside-button button" type="submit">Оставить заявку</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
 <footer class="footer">
   <div class="footer__inner">
     <div class="container">

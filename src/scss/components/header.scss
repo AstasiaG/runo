@@ -9,6 +9,10 @@
       display: flex;
     }
   }
+  &__burger,
+  &__call {
+    display: none;
+  }
   &__logo {
     width: 18.1rem;
     height: 6.1rem;
@@ -26,6 +30,9 @@
       font-size: 1.8rem;
       font-weight: 500;
       color: $black;
+      &-icon {
+        display: none;
+      }
       & span {
         cursor: pointer;
       }
@@ -56,7 +63,10 @@
     left: -15.5rem;
     padding: 0 10%;
     background: $white;
-    border-top: 0.1rem solid #E9E9E9;
+    //border-top: 0.1rem solid #E9E9E9;
+    &-icon {
+      display: none;
+    }
     &-services {
       display: flex;
       align-items: center;
@@ -92,12 +102,13 @@
         border-right: 0.1rem solid #E9E9E9;
       }
       &-item {
+        width: 53.3rem;
         display: flex;
         & span {
           font-family: 'Gilroy';
           font-size: 2rem;
           font-weight: 600;
-          width: 53.3rem;
+          width: 100%;
           padding: 1rem 0 1rem 19rem;
           cursor: pointer;
         }
@@ -143,7 +154,7 @@
       &-content {
         position: absolute;
         top: 0;
-        right: 15.5rem;
+        right: 68.5rem;
         display: flex;
         background: $white;
         & .list {
@@ -153,18 +164,19 @@
           justify-content: flex-start;
           gap: 2rem;
           &-wrap {
+            height: 45.6rem;
             width: 53.1rem;
             display: flex;
             flex-direction: column;
             align-items: center;
             padding: 4rem 0 4rem;
-            border-left: 0.1rem solid #E9E9E9;
-            &:last-child {
-              border-right: 0.1rem solid #E9E9E9;
-            }
+            border: 0;
+            border-right: 0.1rem solid #E9E9E9;
           }
           &-title {
-            width: 53.2rem;
+            width:50%;
+            margin-bottom: 2rem;
+            margin-left: 12.5rem;
             font-family: 'Gilroy';
             font-size: 2rem;
             font-weight: 600;
@@ -173,5 +185,281 @@
         }
       }
     }
+  }
+  .button__close {
+    display: none;
+  }
+}
+
+@media (max-width: 48em) {
+  .header {
+    &__inner {
+      padding: 4.4rem 0 3.6rem;
+      &-right {
+        display: none;
+      }
+    }
+    &__call {
+      display: block;
+      width: 9.6rem;
+      height: 9.6rem;
+      cursor: pointer;
+      & svg {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+      &.active {
+        display: none;
+      }
+    }
+    &__burger {
+      display: block;
+      width: 6.4rem;
+      height: 6.4rem;
+      cursor: pointer;
+      & svg {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+      &.active {
+        opacity: 0;
+      }
+    }
+    &__logo {
+      width: 22.2rem;
+      height: 7rem;
+      & img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+    &__button {
+      display: none;
+    }
+    &__nav {
+      display: none;
+      position: absolute;
+      z-index: 1000;
+      flex-direction: column;
+      width: 105.5%;
+      overflow-x: scroll;
+      height: 99.8rem;
+      left: 0;
+      top: 17rem;
+      margin-left: -2rem;
+      padding: 5.2rem 2rem 8rem;
+      background: $white;
+      &-item {
+        position: relative;
+        cursor: pointer;
+        &-icon {
+          display: block;
+          position: absolute;
+          top: 4.4rem;
+          right: 2rem;
+        }
+        & span {
+          display: block;
+          font-family: 'Gilroy';
+          font-size: 3.2rem;
+          font-weight: 600;
+          color: $black;
+          padding: 3.6rem 2rem;
+          &::after {
+
+          }
+        
+        }
+        &::after {
+          content: none;
+        }
+        &.active {
+          & span:first-child {
+            background: $dies;
+            color: $blue;
+          }
+          & .header__nav-item-icon {
+            transform: rotate(180deg);
+            & svg path {
+              stroke: $blue;
+            }
+          }
+        }
+      }
+    }
+    &__dropdown {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      z-index: 125;
+      top: 0;
+      left: 0;
+      padding: 0;
+      background: $white;
+      border: 0;
+      &-icon {
+        display: none;
+      }
+      &-services {
+        display: flex;
+        align-items: flex-start;
+        border: 0;
+        padding: 0;
+        &-item {
+          display: flex;
+          align-items: center;
+          width: 100%;
+          border: 0;
+          padding: 0 4rem;
+          cursor: pointer;
+          &-icon {
+            width: 6rem;
+            height: 6rem;
+            margin-bottom: 0;
+            margin-right: 2.4rem;
+          }
+          &:hover {
+            background: $white;
+          }
+          &:first-child {
+            border: 0;
+          }
+          & span {
+            background: $white;
+            color: $black;
+            font-weight: 600;
+          }
+        }
+      }
+      &-catalog {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0;
+        &-list {
+          width: 100%;
+          padding: 0;
+          border: 0;
+        }
+        &-item {
+          display: flex;
+          flex-direction: column;
+          padding: 4.8rem 2rem 4.8rem 4.4rem;
+          width: 100%;
+          background: $white;
+          & span {
+            display: none;
+            font-family: 'Gilroy';
+            font-size: 2rem;
+            font-weight: 600;
+            width: 100%;
+            padding: 0;
+            cursor: pointer;
+          }
+          &:not(:first-child){
+            display: none;
+          }
+          &.active {
+            background: $white;
+            & span {
+              color: $blue;
+              &::after {
+                content: none;
+              }
+            }
+          }
+        }
+        &-content {
+          position: relative;
+          z-index: 1000;
+          top: 0;
+          right: 0;
+          display: flex;
+          width: 100%;
+          flex-direction: column;
+          & .list {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            gap: 3.2rem;
+            & a {
+              font-family: 'Gilroy';
+              font-size: 2.8rem;
+              font-weight: 400;
+            }
+            &-wrap {
+              height: fit-content;
+              width: 100%;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              margin-bottom: 4rem;
+              padding: 0;
+              border: 0;
+            }
+            &-title {
+              position: relative;
+              z-index: 1000;
+              width: 100%;
+              margin-bottom: 2rem;
+              margin-left: 0;
+              font-family: 'Gilroy';
+              font-size: 3.2rem;
+              font-weight: 600;
+              color: $black;
+              &::after {
+                content: '';
+                display: block;
+                position: absolute;
+                right: 0;
+                top: 50%;
+                width: 2.2rem;
+                height: 1.1rem;
+                background: url(./assets/images/icons/select-arr.svg);
+                background-repeat: no-repeat;
+                background-size: contain;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .button__close {
+    width: 6.4rem;
+    height: 6.4rem;
+    box-sizing: content-box;
+    padding: 1.4rem;
+    & svg {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    &.active {
+      display: block;
+    }
+  }
+  .mob {
+    &.header__phone {
+      position: absolute;
+      z-index: 1000;
+      width: 105.5%;
+      margin-left: -2rem;
+      background: $white;
+      bottom: -118rem;
+      padding: 4rem 2rem 8rem;
+      display: none;
+      &.active {
+        display: block;
+      }
+    }
+  }
+  .active {
+    display: block;
   }
 }
