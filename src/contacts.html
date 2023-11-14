@@ -77,7 +77,7 @@
             </div>
         </section>
 
-        <section class="application">
+        <section class="application" id="application">
             <div class="container">
                 <div class="application__inner">
                     <div class="application__left-side">
@@ -87,16 +87,18 @@
                             удобным способом по нашим контактным данным или же оставить заявку с номером телефона
                             и наш менеджер свяжется с Вами в ближайшее время.</div>
                     </div>
-                    <div class="application__form">
-                        <form>
+                    <div>
+                        <form class="application__form">
                             <label class="form__input">
                                 <span>Имя</span>
-                                <input type="text" placeholder="Введите ваше имя" required>
-                            </label>
+                                <input class='name' type="text" name="name" placeholder="Введите ваше имя" pattern="\D+" minlength="3" maxlength="32">
+                                <span class="error">Необходимо ввести числовое значение</span>
+                              </label>
                             <label class="form__input">
                                 <span>Номер телефона</span>
-                                <input class='phone-mask' type="text" placeholder="+7 (9__) ___ __ __" required>
-                            </label>
+                                <input class='phone-mask' name="phone"  type="text" placeholder="+7 (9__) ___ __ __">
+                                <span class="error">Необходимо ввести числовое значение</span>
+                              </label>
                             <button class="application__form-button button" type="submit">Оставить заявку</button>
                         </form>
                     </div>
@@ -104,14 +106,6 @@
             </div>
         </section>
         <include src="./components/widget.html"></include>
-        <button class="btn-up" type="button">
-            <img src="./assets/images/icons/arrow-white.svg" alt="">
-        </button>
-        <button class="banner-btn btn" type="button">
-            <div>
-                <img src="./assets/images/icons/whatsapp-white.svg" alt="">
-            </div>
-        </button>
     </main>
     <include src="./components/footer.html"></include>
 </body>
