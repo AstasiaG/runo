@@ -110,9 +110,7 @@ if (document.querySelector('.exclusivity-swiper')) {
   if(window.innerWidth < 769) {
     const sliderContainer = document.querySelector('.exclusivity__slider');
     const slides = Array.from(sliderContainer.children);
-    console.log(slides);
     slides.reverse();
-    console.log(slides)
     sliderContainer.innerHTML = '';
     slides.forEach(slide => {
       sliderContainer.appendChild(slide);
