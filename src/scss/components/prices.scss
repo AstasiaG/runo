@@ -153,6 +153,7 @@
   }
 
   &__table {
+    position: relative;
     width: 100%;
     border-spacing: 0;
     &-wrapper {
@@ -166,6 +167,21 @@
         font-family: 'Gilroy';
         font-size: 2.4rem;
         font-weight: 600;
+      }
+    }
+    &::after {
+      position: absolute;
+      content: '';
+      bottom: -2rem;
+      z-index: 15;
+      display: block;
+      width: 100%;
+      height: 11.3rem;
+      background: linear-gradient(360deg, #F3F3F3 31.76%, rgba(243, 243, 243, 0.00) 85.16%);
+    }
+    &.active {
+      &::after {
+        content: none;
       }
     }
   }
@@ -183,8 +199,14 @@
     background: $light-grey;
     text-align: left;
   }
-  .btn {
-    display: none;
+  &__btn {
+    font-size: 2.4rem;
+    font-weight: 600;
+    position: relative;
+    display: block;
+    margin: 4.5rem auto 0;
+    z-index: 50;
+    text-align: center;
   }
 }
 
@@ -330,6 +352,73 @@
       &-wrap {
         margin-top: 4.8rem;
       }
+    }
+  }
+  .prices-table {
+    margin-bottom: 20rem;
+    &__title {
+    }
+  
+    &__table {
+      display: none;
+      &::after {
+        content: none;
+      }
+    }
+    &__content {
+      position: relative;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      &-item {
+        background: #ffffff;
+        padding: 4rem 4rem 3.7rem 4rem;
+        border-bottom: 0.2rem solid #C4C4C4;
+        &:last-child {
+          border-bottom: 0;
+        }
+        &-title {
+          font-size: 3.2rem;
+          font-weight: 500;
+          margin-top: 0.8rem;
+        }
+        &-bottom {
+          margin-top: 4rem;
+          display: flex;
+          align-items: center;
+        }
+        & span {
+          font-size: 2.8rem;
+          margin-right: 0.8rem;
+          color: $grey;
+        }
+      }
+      &::after {
+        position: absolute;
+        content: '';
+        bottom: -7rem;
+        z-index: 15;
+        display: block;
+        width: 100%;
+        height: 22.6rem;
+        background: linear-gradient(360deg, #F3F3F3 31.76%, rgba(243, 243, 243, 0.00) 85.16%);
+      }
+      &.active {
+        &::after {
+          content: none;
+        }
+      }
+    }
+    &__btn {
+      font-size: 2.8rem;
+      position: relative;
+      display: block;
+      margin: 8rem auto 0;
+      z-index: 50;
+      text-align: center;
+    }
+    .button {
+      display: none;
     }
   }
 }

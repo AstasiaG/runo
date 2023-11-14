@@ -71,6 +71,30 @@ $('.widget__content-item #calculator-modal').on('click', function (event) {
   }
 })
 
+$('.prices-table__line:nth-child(n + 12)').hide();
+$('.prices-table__content-item:nth-child(n + 7)').hide();
+
+$('.prices-table__btn').on('click', function () {
+  $('.prices-table__table').toggleClass('active');
+  $('.prices-table__content').toggleClass('active');
+  if($('.prices-table__table').hasClass('active')) {
+    $('.prices-table__line:nth-child(n + 12)').slideDown();
+    $('.prices-table__btn').text('Скрыть');
+  } 
+  if($('.prices-table__content').hasClass('active')) {
+    $('.prices-table__content-item:nth-child(n + 7)').slideDown();
+    $('.prices-table__btn').text('Скрыть');
+  }
+  if(!$('.prices-table__content').hasClass('active')) {
+    $('.prices-table__content-item:nth-child(n + 7)').slideUp();
+    $('.prices-table__btn').text('Скрыть');
+  }
+  if(!$('.prices-table__table').hasClass('active')){
+    $('.prices-table__line:nth-child(n + 12)').slideUp();
+    $('.prices-table__btn').text('Посмотреть еще');
+  }
+})
+
 //dropdown//
 
 $(function() {
@@ -735,6 +759,7 @@ const slider8 = new Swiper('.product__thumbs', {
   clickableSlides: true,
   navigation: {
     nextEl: '.product__thumbs-btn-next',
+    prevEl: '.product__thumbs-btn-prev',
   },
 });
 

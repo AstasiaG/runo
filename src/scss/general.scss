@@ -146,6 +146,7 @@ form {
     background: $dies;
     color: $black;
     cursor: auto;
+    border: 0.2rem solid transparent;
     &::placeholder {
       font-family: 'Gilroy';
       font-size: 2rem;
