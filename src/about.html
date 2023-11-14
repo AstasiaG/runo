@@ -10,8 +10,8 @@
   <include src="./components/header.html"></include>
   <main class="main">
     <section class="banner banner-about">
-      <div class="banner__inner">
-        <div class="container">
+      <div class="container">
+        <div class="banner__inner">
           <div class="breadcrumbs">
             <a class="breadcrumbs__link" href="">Главная</a>
             <span class="breadcrumbs__current">О компании</span>
@@ -40,27 +40,30 @@
             качественными натяжными потолками
           </div>
         </div>
-        <div class="achievements__list">
-          <div class="achievements__item">
-            <div class="achievements__item-name title-sm">Объекты</div>
-            <div class="achievements__item-text text">
-              За годы работы на рынке натяжных потолков мы сделали более 200 объектов в Москве и Московской области
+        <div class="achievements__list swiper">
+          <div class="achievements__list-pagination pagination swiper-pagination"></div>
+          <div class="swiper-wrapper">
+            <div class="achievements__item swiper-slide">
+              <div class="achievements__item-name title-sm">Объекты</div>
+              <div class="achievements__item-text text">
+                За годы работы на рынке натяжных потолков мы сделали более 200 объектов в Москве и Московской области
+              </div>
+              <div class="achievements__item-num number">+200</div>
             </div>
-            <div class="achievements__item-num number">+200</div>
-          </div>
-          <div class="achievements__item">
-            <div class="achievements__item-name title-sm">Площадь работ</div>
-            <div class="achievements__item-text text">
-              Мы реализуем монтаж натяжных потолков на площадях разных масштабов, руками наших специалистов было установлено уже 500 000 м<sup>2</sup> полотна
+            <div class="achievements__item swiper-slide">
+              <div class="achievements__item-name title-sm">Площадь работ</div>
+              <div class="achievements__item-text text">
+                Мы реализуем монтаж натяжных потолков на площадях разных масштабов, руками наших специалистов было установлено уже 500 000 м<sup>2</sup> полотна
+              </div>
+              <div class="achievements__item-num number">500 000</div>
             </div>
-            <div class="achievements__item-num number">500 000</div>
-          </div>
-          <div class="achievements__item">
-            <div class="achievements__item-name title-sm">Клиенты</div>
-            <div class="achievements__item-text text">
-              В приоритете нашей компании всегда стояли наилучший клиентский сервис и безупречное качество потолков. За нашими плечами уже более 1000 довольных клиентов
+            <div class="achievements__item swiper-slide">
+              <div class="achievements__item-name title-sm">Клиенты</div>
+              <div class="achievements__item-text text">
+                В приоритете нашей компании всегда стояли наилучший клиентский сервис и безупречное качество потолков. За нашими плечами уже более 1000 довольных клиентов
+              </div>
+              <div class="achievements__item-num number">+1000</div>
             </div>
-            <div class="achievements__item-num number">+1000</div>
           </div>
         </div>
       </div>
@@ -204,6 +207,7 @@
               <path d="M1 11C0.447715 11 0 11.4477 0 12C0 12.5523 0.447715 13 1 13V11ZM22.9203 12.7071C23.3108 12.3166 23.3108 11.6834 22.9203 11.2929L16.5563 4.92893C16.1658 4.53841 15.5327 4.53841 15.1421 4.92893C14.7516 5.31946 14.7516 5.95262 15.1421 6.34315L20.799 12L15.1421 17.6569C14.7516 18.0474 14.7516 18.6805 15.1421 19.0711C15.5327 19.4616 16.1658 19.4616 16.5563 19.0711L22.9203 12.7071ZM1 13L22.2132 13V11L1 11V13Z" fill="#28292E"/>
             </svg>
           </button>
+          <div class="team-pagination pagination swiper-pagination"></div>
         </div>
       </div>
     </section>
@@ -271,6 +275,7 @@
               <path d="M1 11C0.447715 11 0 11.4477 0 12C0 12.5523 0.447715 13 1 13V11ZM22.9203 12.7071C23.3108 12.3166 23.3108 11.6834 22.9203 11.2929L16.5563 4.92893C16.1658 4.53841 15.5327 4.53841 15.1421 4.92893C14.7516 5.31946 14.7516 5.95262 15.1421 6.34315L20.799 12L15.1421 17.6569C14.7516 18.0474 14.7516 18.6805 15.1421 19.0711C15.5327 19.4616 16.1658 19.4616 16.5563 19.0711L22.9203 12.7071ZM1 13L22.2132 13V11L1 11V13Z" fill="#28292E"/>
             </svg>
           </button>
+          <div class="certificates-pagination pagination swiper-pagination"></div>
           <div class="certificates__swiper swiper">
             <div class="swiper-wrapper">
               <div class="certificates__slide swiper-slide">
@@ -278,7 +283,7 @@
                   <img src="./assets/images/sertificate1.webp" alt="">
                 </div>
                 <div class="certificates__slide-bottom">
-                  <div>Сертификат</div>
+                  <div class="certificates__slide-bottom-text">Сертификат</div>
                   <div class="title-sm">PONGS</div>
                 </div>
               </div>
@@ -287,7 +292,7 @@
                   <img src="./assets/images/sertificate2.webp" alt="">
                 </div>
                 <div class="certificates__slide-bottom">
-                  <div>Сертификат</div>
+                  <div class="certificates__slide-bottom-text">Сертификат</div>
                   <div class="title-sm">Zhejjang</div>
                 </div>
               </div>
@@ -296,7 +301,7 @@
                   <img src="./assets/images/sertificate3.webp" alt="">
                 </div>
                 <div class="certificates__slide-bottom">
-                  <div>Сертификат</div>
+                  <div class="certificates__slide-bottom-text">Сертификат</div>
                   <div class="title-sm">BAUF</div>
                 </div>
               </div>
@@ -305,12 +310,68 @@
                   <img src="./assets/images/sertificate1.webp" alt="">
                 </div>
                 <div class="certificates__slide-bottom">
-                  <div>Сертификат</div>
+                  <div class="certificates__slide-bottom-text">Сертификат</div>
                   <div class="title-sm">PONGS</div>
                 </div>
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="modal">
+      <div class="modal__wrapper container">
+        <button class="modal-btn-prev btn-prev swiper-button-prev" type="button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M1 11C0.447715 11 0 11.4477 0 12C0 12.5523 0.447715 13 1 13V11ZM22.9203 12.7071C23.3108 12.3166 23.3108 11.6834 22.9203 11.2929L16.5563 4.92893C16.1658 4.53841 15.5327 4.53841 15.1421 4.92893C14.7516 5.31946 14.7516 5.95262 15.1421 6.34315L20.799 12L15.1421 17.6569C14.7516 18.0474 14.7516 18.6805 15.1421 19.0711C15.5327 19.4616 16.1658 19.4616 16.5563 19.0711L22.9203 12.7071ZM1 13L22.2132 13V11L1 11V13Z" fill="#28292E"/>
+          </svg>
+        </button>
+        <button class="modal-btn-next btn-next swiper-button-next" type="button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M1 11C0.447715 11 0 11.4477 0 12C0 12.5523 0.447715 13 1 13V11ZM22.9203 12.7071C23.3108 12.3166 23.3108 11.6834 22.9203 11.2929L16.5563 4.92893C16.1658 4.53841 15.5327 4.53841 15.1421 4.92893C14.7516 5.31946 14.7516 5.95262 15.1421 6.34315L20.799 12L15.1421 17.6569C14.7516 18.0474 14.7516 18.6805 15.1421 19.0711C15.5327 19.4616 16.1658 19.4616 16.5563 19.0711L22.9203 12.7071ZM1 13L22.2132 13V11L1 11V13Z" fill="#28292E"/>
+          </svg>
+        </button>
+        <div class="modal-pagination swiper-pagination num">
+          <span class="current">01</span><span class="total">-</span>
+        </div>
+        <div class="modal__swiper swiper">
+          <div class="modal__wr swiper-wrapper">
+            <div class="modal__slide swiper-slide">
+              <img src="./assets/images/sertificate1.webp" alt="">
+            </div>
+            <div class="modal__slide swiper-slide">
+              <img src="./assets/images/sertificate2.webp" alt="">
+            </div>
+            <div class="modal__slide swiper-slide">
+              <img src="./assets/images/sertificate3.webp" alt="">
+            </div>
+            <div class="modal__slide swiper-slide">
+              <img src="./assets/images/sertificate1.webp" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="modal-thumbs__swiper swiper" thumbsSlider="">
+          <div class="swiper-wrapper">
+            <div class="modal-thumbs__slide swiper-slide">
+              <img src="./assets/images/sertificate1.webp" alt="">
+            </div>
+            <div class="modal-thumbs__slide swiper-slide">
+              <img src="./assets/images/sertificate2.webp" alt="">
+            </div>
+            <div class="modal-thumbs__slide swiper-slide">
+              <img src="./assets/images/sertificate3.webp" alt="">
+            </div>
+            <div class="modal-thumbs__slide swiper-slide">
+              <img src="./assets/images/sertificate1.webp" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="modal__close">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44" fill="none">
+            <path d="M38 6L6 38" stroke="#F3F3F3" stroke-width="3.67" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M6 6L38 38" stroke="#F3F3F3" stroke-width="3.67" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
         </div>
       </div>
     </section>
@@ -369,6 +430,7 @@
                 </div>
               </div>
             </div>
+            <div class="reviews-pagination pagination swiper-pagination"></div>
             <button class="reviews-btn-prev btn-prev swiper-button-prev" type="button">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                 <path d="M1 11C0.447715 11 0 11.4477 0 12C0 12.5523 0.447715 13 1 13V11ZM22.9203 12.7071C23.3108 12.3166 23.3108 11.6834 22.9203 11.2929L16.5563 4.92893C16.1658 4.53841 15.5327 4.53841 15.1421 4.92893C14.7516 5.31946 14.7516 5.95262 15.1421 6.34315L20.799 12L15.1421 17.6569C14.7516 18.0474 14.7516 18.6805 15.1421 19.0711C15.5327 19.4616 16.1658 19.4616 16.5563 19.0711L22.9203 12.7071ZM1 13L22.2132 13V11L1 11V13Z" fill="#28292E"/>
