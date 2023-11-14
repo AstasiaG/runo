@@ -35,7 +35,7 @@ $(".widget__icon").on("click",function () {
   $(this).toggleClass('active')
 });
 
-if(window.innerWidth > 768) {
+if($(window).width() > 768) {
   $('.steps__content-item').each(function () {
     let hide = $(this).find('.steps__content-item-img');
     hide.hide();
@@ -64,12 +64,12 @@ if(window.innerWidth > 768) {
   );
 }
 
-// $('.widget__content-item #calculator-modal').on('click', function (event) {
-//   if(!$('.calculator')) {
-//     event.preventDefault();
-//     modalCalculator();
-//   }
-// })
+$('.widget__content-item#calculator-modal').on('click', function (event) {
+  if($('.calculator')) {
+    event.preventDefault();
+    modalCalculator();
+  }
+})
 
 //tables//
 
@@ -757,16 +757,6 @@ const slider2 = new Swiper('.catalog__slide-content-images', {
       spaceBetween: rem(4),
     }
   },
-  // on: {
-  //   click: function (swiper) {
-  //     //console.log(swiper.clickedSlide.closest());
-  //     let slide = $('.catalog__slide-small');
-  //     let ind = swiper.realIndex + 1;
-  //     initModalSwiper(slide, ind);
-  //     $('.modal2').addClass('active');
-  //     openModal();
-  //   }
-  // }
 });
 
 const sliderThumbs = new Swiper('.catalog__btns', {
