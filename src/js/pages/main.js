@@ -726,6 +726,21 @@ const slider5 = new Swiper('.team__swiper', {
     nextEl: '.team-btn-next',
     prevEl: '.team-btn-prev',
   },
+  pagination: {
+    el: '.team-pagination',
+    type: 'bullets',
+    clickable: true,
+  },
+  breakpoints: {
+    769: {
+      slidesPerView: 3.3,
+      spaceBetween: rem(4),
+    },
+    210: {
+      slidesPerView: 1,
+      spaceBetween: rem(1),
+    }
+  }
 });
 
 const slider6 = new Swiper('.prices__items', {
@@ -952,6 +967,29 @@ const slider16 = new Swiper('.steps-services .steps__content-list', {
   speed: 1000,
   pagination: {
     el: '.steps-pagination',
+    type: 'bullets',
+    clickable: true,
+  },
+  breakpoints: {
+    769: {
+      slidesPerView: 'auto',
+      spaceBetween: rem(0),
+    },
+    210: {
+      direction: 'horizontal',
+      slidesPerView: 1,
+      spaceBetween: rem(1),
+    }
+  },
+})
+
+const slider17 = new Swiper('.achievements__list', {
+  direction: 'vertical',
+  slidesPerView: 'auto',
+  spaceBetween: rem(0),
+  speed: 1000,
+  pagination: {
+    el: '.achievements__list-pagination',
     type: 'bullets',
     clickable: true,
   },

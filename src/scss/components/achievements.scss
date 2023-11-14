@@ -11,6 +11,7 @@
   }
   &__list {
     margin-top: 10rem;
+    height: fit-content;
   }
   &__item {
     display: flex;
@@ -26,6 +27,52 @@
     }
     &-num {
       margin-left: auto;
+    }
+  }
+}
+
+@media (max-width: 48em) {
+  .achievements {
+    margin-bottom: 20rem;
+    .title-wrap {
+      flex-direction: column;
+      align-items: flex-start;
+      margin-bottom: 4.8rem;
+    }
+    &__title {
+      width: 100%;
+      margin-bottom: 6.4rem;
+    }
+    &__text {
+      width: 100%;
+    }
+    &__list {
+      margin-top: 0;
+      padding-bottom: 8rem;
+      &-pagination {
+        bottom: 0;
+        transform: translateY(0%);
+      }
+    }
+    &__item {
+      display: flex;
+      flex-direction: column;
+      height: 47.6rem;
+      padding: 6.4rem 0;
+      gap: 4rem;
+      align-items: flex-start;
+      border-top: 0.2rem solid #DCDCDC;
+      border-bottom: 0.2rem solid #DCDCDC;
+      &-name {
+        width: 100%;
+        margin-right: 0;
+      }
+      &-text {
+        width: 65.4rem;
+      }
+      &-num {
+        margin-left: 0;
+      }
     }
   }
 }
