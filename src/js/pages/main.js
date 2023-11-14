@@ -258,8 +258,9 @@ const slider2 = new Swiper('.catalog__slide-content-images', {
         spaceBetween: rem(2),
       },
       210: {
+        watchOverflow: false,
         slidesPerView: 'auto',
-        spaceBetween: rem(4),
+        spaceBetween: rem(2),
       }
     }
   });
