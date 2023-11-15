@@ -16,6 +16,28 @@
   &__title {
     margin: 8rem 0 4rem;
   }
-  &__button {
+}
+
+@media (max-width: 48em) {
+  .error-page {
+    padding: 12rem 0 20rem;
+    &__inner {
+      text-align: center;
+    }
+    &__name {
+      font-size: 32rem;
+      font-weight: 700;
+      line-height: 80%;
+      letter-spacing: 3.2rem;
+      color: $white;
+      opacity: 0.6;
+    }
+    &__title {
+      margin: 12rem 0 6.4rem;
+    }
+    &__button {
+      width: 100%;
+      padding: 3.6rem 0 3.6rem;
+    }
   }
 }

@@ -24,7 +24,7 @@ const entryPoints = {
   contacts: path.resolve(__dirname, "src", "index.js"),
   'services-montazh': path.resolve(__dirname, "src", "index.js"),
   'services-repair': path.resolve(__dirname, "src", "index.js"),
-  404: path.resolve(__dirname, "src", "index.js"),
+  'error-page': path.resolve(__dirname, "src", "index.js"),
   'frequently-asked-questions': path.resolve(__dirname, "src", "index.js"),
 };
 
