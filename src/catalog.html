@@ -25,14 +25,22 @@
             </button>
             <div class="swiper-wrapper">
               <button class="catalog__button button swiper-slide" type="button" data-tab="all">Все</button>
-              <select class="select-filter swiper-slide">
-                <option>Тип помещения</option>
-                <option>Кухня</option>
-                <option>Гостиная</option>
-                <option>Спальня</option>
-                <option>Спальня</option>
-                <option>Спальня</option>
-                <option>Спальня</option>
+              <select class="swiper-slide" id='select-filter'>
+                <option placeholder="true">Тип помещения</option>
+                <optgroup label="Жилое">
+                  <option>Кухня</option>
+                  <option>Спальня</option>
+                  <option>Гостиная</option>
+                  <option>Детская</option>
+                  <option>Прихожая</option>
+                  <option>Балкон</option>
+                  <option>Санузел</option>
+                </optgroup>
+                <optgroup label="Нежилое">
+                  <option>Офис</option>
+                  <option>Бассейн</option>
+                  <option>Спортзал</option>
+                </optgroup>
               </select>
               <button class="catalog__button button swiper-slide" type="button" data-tab="1">С подсветкой</button>
               <button class="catalog__button button active swiper-slide" type="button" data-tab="2">Материал</button>

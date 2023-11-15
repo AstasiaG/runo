@@ -119,12 +119,18 @@
         width: 115.4rem;
         padding: 6rem;
         background: $light-grey;
-        & .calculator-title {
-          margin-bottom: 5.8rem;
+        & .calculator__title {
+          margin-bottom: 5.2rem;
         }
         & .calculator__form {
           flex-direction: column;
           .form {
+            &__group {
+              margin-bottom: 3rem;
+            }
+            &__input {
+              margin-bottom: 0;
+            }
             &__aside {
               padding: 4rem;
               width: 100%;
