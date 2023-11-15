@@ -436,6 +436,15 @@ form {
   display: none;
 }
 
+// Раскрывающийся список(аккордеон)
+.accordion-header {
+  cursor: pointer;
+}
+
+.accordion-content {
+  display: none;
+}
+
 @media (max-width: 48em) {
   .heading {
     font-family: 'Gilroy';
