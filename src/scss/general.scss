@@ -11,7 +11,9 @@ $light-grey: #F9F9F9;
 body {
   background-color: $white;
 }
-
+main {
+  min-height: calc(100vh - 18.5rem - 14rem);
+}
 //text//
 
 .heading {
@@ -444,6 +446,9 @@ form {
 }
 
 @media (max-width: 48em) {
+  main {
+    min-height: fit-content;
+  }
   .heading {
     font-family: 'Gilroy';
     font-size: 6.4rem;
@@ -495,7 +500,7 @@ form {
     padding: 2rem 5.1rem;
     background-color: $blue;
     font-family: 'Gilroy';
-    font-size: 2.4rem;
+    font-size: 2.8rem;
     font-weight: 600;
     line-height: 100%;
     color: $white;
