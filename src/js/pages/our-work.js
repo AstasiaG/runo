@@ -32,7 +32,7 @@ $(document).ready(function() {
     // Первоначальная настройка слайдов
     setupSlides($('.our-works .catalog__button.active').data('tab'));
     
-    // Ваш обработчик переключения вкладок, где вы вызываете setupSlides() заново
+    // Ваш обработчик переключения вкладок
     $('.our-works .catalog__button').on('click', function() {
         
         let activeTab = $('.our-works .catalog__button.active').data('tab');

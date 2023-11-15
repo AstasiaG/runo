@@ -1,0 +1,256 @@
+.frequently-asked-questions {
+  .catalog__title {
+    margin-top: 3.4rem;
+    overflow: hidden;
+  }
+
+  .catalog__wrapper {
+    margin-top: 3.4rem;
+  }
+
+  // .frequently-asked-questions__blocks
+  &__blocks {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+  }
+
+  // .frequently-asked-questions__block
+  &__block {
+    display: none;
+    position: relative;
+    padding: 6rem 0;
+    box-sizing: border-box;
+    border-bottom: 0.1rem solid #dcdcdc;
+
+    &:first-of-type {
+      border-top: 0.1rem solid #dcdcdc;
+    }
+  }
+
+  // .frequently-asked-questions__header
+  &__header {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+
+    &.active {
+      .frequently-asked-questions__number {
+        color: $blue;
+        transition: color 0.2s ease-in-out;
+      }
+
+      .frequently-asked-questions__title {
+        color: $blue;
+        transition: color 0.2s ease-in-out;
+      }
+
+      .frequently-asked-questions__btn {
+        svg {
+          transition: transform 0.2s ease-in-out;
+          transform: rotate(180deg);
+
+          path {
+            transition: stroke 0.2s ease-in-out;
+            stroke: $blue;
+          }
+        }
+      }
+    }
+  }
+
+  // .frequently-asked-questions__number
+  &__number {
+    position: absolute;
+    left: 0;
+    color: $black;
+    font-family: Gilroy;
+    font-size: 3.2rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%;
+  }
+
+  // .frequently-asked-questions__title
+  &__title {
+    max-width: 70%;
+    margin-left: 10rem;
+    color: $black;
+    font-family: Gilroy;
+    font-size: 3.2rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%;
+  }
+
+  // .frequently-asked-questions__text-content
+  &__text-content {
+    margin-left: 10rem;
+    margin-top: 3.2rem;
+    width: 100%;
+    max-width: 84rem;
+    color: $black;
+    font-family: Gilroy;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%;
+  }
+
+  // .frequently-asked-questions__paragraph
+  &__paragraph {
+    color: $black;
+    font-family: Gilroy;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  // .frequently-asked-questions__btn
+  &__btn {
+    top: 0;
+    right: 0;
+    position: absolute;
+
+    svg {
+      width: 4.4rem;
+      height: 4.4rem;
+    }
+  }
+
+  // .frequently-asked-questions__more-btn
+  &__more-btn {
+    margin: 6rem auto;
+    display: block;
+    color: $black;
+    font-family: Gilroy;
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+}
+
+@media (max-width: 48em) {
+  .frequently-asked-questions {
+    padding: 0 2rem;
+
+    .catalog {
+      .breadcrumbs {
+        max-width: 71rem;
+        margin: 4rem auto 0;
+        font-size: 2.8rem;
+      }
+
+      &__title {
+        margin-top: 4.6rem;
+        font-size: 6.4rem;
+      }
+
+      &__wrapper {
+        overflow: hidden;
+        margin-top: 6rem;
+      }
+
+      &__button {
+        width: 24rem;
+        height: 8.8rem;
+        font-weight: 400;
+        padding: 1.9rem 3.2rem;
+        text-align: center;
+        font-size: 2.8rem;
+        &:first-child {
+          width: fit-content;
+        }
+      }
+
+      &__btns {
+        padding: 0 0;
+        position: relative;
+        z-index: 55;
+        width: 100%;
+        top: 0;
+        overflow: visible;
+      }
+
+      &-btn {
+        position: absolute;
+
+        z-index: 5;
+        height: 8.8rem;
+        top: 98.7rem;
+        left: unset;
+        right: 15rem;
+      }
+
+      &-btn-prev {
+        left: 0;
+        width: 8.8rem;
+        height: 8.8rem;
+
+        &::after {
+          height: 8.8rem;
+        }
+      }
+
+      &-btn-next {
+        margin-right: 0;
+        width: 44px;
+        height: 44px;
+        &::after {
+          height: 8.8rem;
+        }
+      }
+    }
+
+    // .frequently-asked-questions__block
+    &__block {
+      padding: 6.4rem 0;
+    }
+
+    // .frequently-asked-questions__number
+    &__number {
+      font-size: 3.6rem;
+      line-height: 6rem;
+    }
+
+    // .frequently-asked-questions__title
+    &__title {
+      margin-left: 7.6rem;
+      font-size: 3.6rem;
+      line-height: 6rem;
+    }
+
+    // .frequently-asked-questions__text-content
+    &__text-content {
+      margin-left: 7.6rem;
+      margin-top: 3.2rem;
+      width: 100%;
+      max-width: 60rem;
+      font-size: 2.8rem;
+    }
+
+    // .frequently-asked-questions__paragraph
+    &__paragraph {
+      color: $black;
+      font-family: Gilroy;
+      font-size: 2.8rem;
+    }
+
+    // .frequently-asked-questions__btn
+    &__btn {
+      svg {
+        width: 4.8rem;
+        height: 4.8rem;
+      }
+    }
+
+    // .frequently-asked-questions__more-btn
+    &__more-btn {
+      margin: 8rem auto 0;
+      font-size: 3.2rem;
+    }
+  }
+}
