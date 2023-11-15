@@ -10,18 +10,8 @@ $(document).ready(function() {
             } 
             questionNumber.text(idx + 1);
         });
-
     });
 
-    $('.catalog__slide.active .accordion-header').click(function() {
-        // Свернуть все разделы, кроме текущего
-        $('.accordion-content').not($(this).next()).slideUp();
-        $(this).toggleClass('active');
-        // Развернуть или свернуть текущий раздел
-        $(this).next().slideToggle();
-    });
-
-    
 });
 
 
@@ -43,6 +33,14 @@ $(document).ready(function() {
         } else {
             $('#loadMoreBtn').show();
         }
+
+        $('.catalog__slide.active .accordion-header').click(function() {
+            // Свернуть все разделы, кроме текущего
+            $('.accordion-content').not($(this).next()).slideUp();
+            $(this).toggleClass('active');
+            // Развернуть или свернуть текущий раздел
+            $(this).next().slideToggle();
+        });
     
         // Обновляем обработчик событий
         $('#loadMoreBtn').off('click').on('click', function (e) {
@@ -63,13 +61,6 @@ $(document).ready(function() {
         
         let activeTab = $('.frequently-asked-questions .catalog__button.active').data('tab');
         setupSlides(activeTab);
-        $('.catalog__slide.active .accordion-header').click(function() {
-            // Свернуть все разделы, кроме текущего
-            $('.accordion-content').not($(this).next()).slideUp();
-            $(this).toggleClass('active');
-            // Развернуть или свернуть текущий раздел
-            $(this).next().slideToggle();
-        });
 
     });
   });
