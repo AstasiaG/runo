@@ -26,6 +26,7 @@ const entryPoints = {
   'services-repair': path.resolve(__dirname, "src", "index.js"),
   'error-page': path.resolve(__dirname, "src", "index.js"),
   'frequently-asked-questions': path.resolve(__dirname, "src", "index.js"),
+  'privacy-policy': path.resolve(__dirname, "src", "index.js"),
 };
 
 // Создаем экземпляры HtmlWebpackPlugin для каждой страницы
