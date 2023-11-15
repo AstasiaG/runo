@@ -185,17 +185,21 @@
       }
     }
   }
+  th {
+    border: 0;
+  }
   &__column1 {
     padding: 3.2rem 0 3.1rem 4rem;
+    border-bottom: 0.1rem solid #C4C4C4;
     width: 57%;
   }
   &__column2 {
     padding: 3.2rem 0 3.1rem 4rem;
+    border-bottom: 0.1rem solid #C4C4C4;
     width: 43%;
   }
   &__line {
     //padding: 3.2rem 0 3.1rem 4rem;
-    border-bottom: 0.1rem solid #C4C4C4;
     background: $light-grey;
     text-align: left;
   }
