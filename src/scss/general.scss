@@ -11,7 +11,9 @@ $light-grey: #F9F9F9;
 body {
   background-color: $white;
 }
-
+main {
+  min-height: calc(100vh - 18.5rem - 14rem);
+}
 //text//
 
 .heading {

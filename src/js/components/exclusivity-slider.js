@@ -59,7 +59,7 @@ if (document.querySelector('.exclusivity-swiper')) {
       spaceBetween: 0,
       slidesPerView: 3,
       centeredSlides: true,
-      allowTouchMove: false,
+      allowTouchMove: true,
       watchSlidesProgress: true,
       watchSlidesVisibility: true,
   
@@ -121,7 +121,7 @@ if (document.querySelector('.exclusivity-swiper')) {
       spaceBetween: 40,
       slidesPerView: 1,
       centeredSlides: true,
-      allowTouchMove: false,
+      allowTouchMove: true,
       watchSlidesProgress: true,
       watchSlidesVisibility: true,
 

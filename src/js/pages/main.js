@@ -14,6 +14,7 @@ const rem = function (rem) {
   }
 }
 
+
 const mask = new Inputmask('+7 (999) 999 99 99');
 mask.mask($('.phone-mask'));
 
@@ -387,6 +388,9 @@ $('#modal-calc').on('click', function () {
 $('.button#modal-application').on('click', function () {
   modalApplication();
 });
+$('span#modal-application').on('click', function () {
+  modalApplication();
+});
 
 //catalog swiper main page//
 
@@ -556,8 +560,6 @@ document.addEventListener('click', (el) => {
     }
   }
 })
-
-
 
 //validation//
 $(function() {
@@ -972,40 +974,6 @@ slider12.on('slideChange', function () {
     current3.innerText = indRes2;
 });
 
-// const slider13 = new Swiper('.modal-thumbs2__swiper', {
-//   slidesPerView: 4,
-//   spaceBetween: rem(2),
-//   speed: 1000,
-// });
-
-// const slider14 = new Swiper('.modal2__swiper', {
-//   slidesPerView: 1,
-//   spaceBetween: rem(4),
-//   speed: 1000,
-//   navigation: {
-//     nextEl: '.modal2-btn-next',
-//     prevEl: '.modal2-btn-prev',
-//   },
-//   pagination: {
-//     el: '.modal2-pagination .total',
-//     type: 'custom',
-//         renderCustom: function (swiper, current, total) {
-//           let totalRes2 = total >= 10 ? total : `/0${total}`;
-//           return totalRes2;
-//         },
-//   },
-//   thumbs: {
-//     swiper: slider13,
-//   },
-// });
-
-// let current4 = document.querySelector('.modal2-pagination .current');
-// slider14.on('slideChange', function () {
-//   let ind2 = slider14.realIndex + 1;
-//   let indRes2 = ind2 >= 10 ? ind2 : `0${ind2}`;
-//     current4.innerText = indRes2;
-// });
-
 const slider3 = new Swiper('.certificates__swiper', {
   slidesPerView: 3,
   slidesPerGroup: 3,
@@ -1170,7 +1138,6 @@ $(window).on('resize', function() {
       slider15.destroy(false,false);
     }
   }
-  //slider16.update(slider16);
 })
 
 const slider17 = new Swiper('.achievements__list', {

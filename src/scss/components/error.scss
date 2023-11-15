@@ -1,0 +1,21 @@
+.error-page {
+  padding: 12.8rem 0 12.9rem;
+  &__inner {
+    text-align: center;
+  }
+  &__name {
+    text-shadow: 0px 9px 19px rgba(74, 74, 74, 0.10), 2px 35px 35px rgba(74, 74, 74, 0.09), 4px 79px 47px rgba(74, 74, 74, 0.05), 7px 140px 56px rgba(74, 74, 74, 0.01), 11px 219px 61px rgba(74, 74, 74, 0.00);
+    font-family: 'Gilroy';
+    font-size: 35rem;
+    font-weight: 700;
+    line-height: 80%;
+    letter-spacing: 3.15rem;
+    color: $white;
+    opacity: 0.6;
+  }
+  &__title {
+    margin: 8rem 0 4rem;
+  }
+  &__button {
+  }
+}
