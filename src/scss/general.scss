@@ -264,7 +264,12 @@ form {
       border: 0;
       gap: 2rem;
     }
-    .choices__placeholder {
+    .choices__inner {
+      & .choices__placeholder {
+        opacity: 1;
+      }
+    }
+    #choices--select-filter-item-choice-1 {
       display: none;
     }
     .is-highlighted {
