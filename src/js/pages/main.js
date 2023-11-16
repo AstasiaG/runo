@@ -1197,7 +1197,6 @@ if(document.querySelector('#select-filter')) {
   });
 }
 
-
 // $(document).on('click', function(event) {
 //   if ($('.modal.active').length > 0) {
 //     const modalWrapper = $('.modal__wrapper');
